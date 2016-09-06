@@ -1,0 +1,52 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de Curso</h6></div>
+	<form name="frmCursos" method="POST" enctype="multipart/form-data" action="cursos_modificar.php" class="form">
+	<input type="hidden" name="codCurso" value="{codCurso}">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Curso:</td>
+				<td><input type="text" size="50" name="strCurso" value="{strCurso}" maxlength="255" />
+				<div class="errors">{errorCurso}</div></td>
+			</tr>
+			<tr>
+				<td>Texto:</td>
+				<td><textarea name="strTexto" id="strTexto" cols="50" rows="5">{strTexto}</textarea>
+				<div class="errors">{errorTexto}</div></td>
+			</tr>
+			<tr>
+				<td>Fecha inicio inscripci&oacute;n:</td>
+				<td><input type="text" size="50" name="strFechaInicioInscripcion" value="{strFechaInicioInscripcion}" class="datepicker" maxlength="10" />
+				<div class="errors">{errorFechaInicioInscripcion}</div></td>
+			</tr>
+			<tr>
+				<td>Fecha fin inscripci&oacute;n:</td>
+				<td><input type="text" size="50" name="strFechaFinInscripcion" value="{strFechaFinInscripcion}" class="datepicker" maxlength="10" />
+				<div class="errors">{errorFechaFinInscripcion}</div></td>
+			</tr>
+			<tr>
+				<td>Fecha:</td>
+				<td><input type="text" size="50" name="strFecha" value="{strFecha}" class="datepicker" maxlength="10" />
+				<div class="errors">{errorFecha}</div></td>
+			</tr>
+			<tr>
+				<td>Cupos:</td>
+				<td><input type="text" size="50" name="intCupos" value="{intCupos}" maxlength="5" />
+				<div class="errors">{errorCupos}</div></td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td><label for="radHabilitado"><input type="radio" name="strHabilitado" id="radHabilitado" value="true" {blnHabilitado}> Habilitado</label>
+				&nbsp;<label for="radDeshabilitado"><input type="radio" name="strHabilitado" id="radDeshabilitado" value="false" {blnDeshabilitado}> Deshabilitado</label></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: document.frmCursos.submit();">&raquo; Confirmar</a></li>
+		<li><a href="cursos_detalle.php?codCurso={codCurso}">&raquo; Volver</a></li>
+	</ul>
+</div>

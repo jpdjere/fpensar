@@ -1,0 +1,68 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Agregar Nota</h6></div>
+	<form name="frmNotas" id="frmNotas" method="POST" enctype="multipart/form-data" action="notas_agregar.php" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Autor:</td>
+				<td><select name="intAutor" style="width: 100%;">
+					<!-- BEGIN AUTORES -->
+					<option value="{intAutor}" {strSelected}>{strAutor}</option>
+					<!-- END AUTORES -->
+				</select>
+				<div class="errors">{errorAutor}</div></td>
+			</tr>
+			<tr>
+				<td>Titulo:</td>
+				<td><input type="text" size="50" name="strTitulo" value="{strTitulo}" maxlength="255" />
+				<div class="errors">{errorTitulo}</div></td>
+			</tr>
+			<tr>
+				<td>Texto:</td>
+				<td><textarea name="strTexto" id="strTexto" cols="50" rows="5">{strTexto}</textarea>
+				<div class="errors">{errorTexto}</div></td>
+			</tr>
+			<tr>
+				<td>Archivo:</td>
+				<td>
+				<div><input type="file" name="strArchivo" size="30">
+				<input type="hidden" name="strArchivoAnterior" value="{strArchivo}"></div>
+				<div style="margin: 5px 0 0 0;">{strArchivo}</div>
+				<div class="errors">{errorArchivo}</div></td>
+			</tr>
+			<tr>
+				<td>Medio:</td>
+				<td><select name="intMedio" style="width: 100%;">
+					<!-- BEGIN MEDIOS -->
+					<option value="{intMedio}" {strSelected}>{strMedio}</option>
+					<!-- END MEDIOS -->
+				</select>
+				<div class="errors">{errorMedio}</div></td>
+			</tr>
+			<tr>
+				<td>Link URL:</td>
+				<td><input type="text" size="50" name="strLinkURL" value="{strLinkURL}" maxlength="1000" />
+				<div class="errors">{errorLinkURL}</div></td>
+			</tr>
+			<tr>
+				<td>Fecha:</td>
+				<td><input type="text" size="50" name="strFecha" value="{strFecha}" class="datepicker" maxlength="10" />
+				<div class="errors">{errorFecha}</div></td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td><label for="radHabilitado"><input type="radio" name="strHabilitado" id="radHabilitado" value="true" {blnHabilitado}> Habilitado</label>
+				&nbsp;<label for="radDeshabilitado"><input type="radio" name="strHabilitado" id="radDeshabilitado" value="false" {blnDeshabilitado}> Deshabilitado</label></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: document.frmNotas.submit();">&raquo; Confirmar</a></li>
+		<li><a href="notas_detalle.php?codNota={codNota}">&raquo; Volver</a></li>
+	</ul>
+</div>
+

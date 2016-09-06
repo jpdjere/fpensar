@@ -1,0 +1,56 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de Curso</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>T&iacute;tulo:</td>
+				<td>{strCurso}</td>
+			</tr>
+			<tr>
+				<td>Texto:</td>
+				<td>{strTexto}</td>
+			</tr>
+			<tr>
+				<td>Fecha inicio inscripci&oacute;n:</td>
+				<td>{strFechaInicioInscripcion}</td>
+			</tr>
+			<tr>
+				<td>Fecha fin inscripci&oacute;n:</td>
+				<td>{strFechaFinInscripcion}</td>
+			</tr>
+			<tr>
+				<td>Fecha:</td>
+				<td>{strFecha}</td>
+			</tr>
+			<tr>
+				<td>Cupos:</td>
+				<td>{intCupos}</td>
+			</tr>
+			<tr>
+				<td>Inscriptos:</td>
+				<td>{intInscriptos}</td>
+			</tr>
+			<tr>
+				<td>Fecha de Alta:</td>
+				<td>{strFechaAlta}</td>
+			</tr>
+			<tr>
+				<td>Fecha de Modificaci&oacute;n:</td>
+				<td>{strFechaModificacion}</td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td>{strEstadoCurso}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<!-- BEGIN MODIFICAR_CURSOS -->
+			<li><a href="cursos_modificar.php?codCurso={codCurso}">&raquo; Editar Curso</a></li>
+		<!-- END MODIFICAR_CURSOS -->
+		<li><a href="cursos.php">&raquo; Volver</a></li>
+	</ul>
+</div>

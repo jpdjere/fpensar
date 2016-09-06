@@ -1,0 +1,58 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>B&uacute;squeda de Inscriptos</h6></div>
+	<form name="frmBusqueda" action="cursos_inscriptos.php?codCurso={codCurso}" method="post" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>
+				<input type="text" name="txtBusqueda" id="txtBusqueda" style="width: 100%;" maxlength="50" value="{txtBusqueda}" /></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tPagination" style="margin: 0;">
+						<ul class="pages">
+							<li><a href="javascript: document.frmBusqueda.submit();">&raquo; Iniciar B&uacute;squeda</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Listado de Inscriptos</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<thead>
+			<tr>
+				<td><a href="cursos_inscriptos.php?codCurso={codCurso}&{strOrdenParameter}1&d={strDireccionOrden1}">Nombre</a></td>
+				<td><a href="cursos_inscriptos.php?codCurso={codCurso}&{strOrdenParameter}1&d={strDireccionOrden1}">Email</a></td>
+				<td><a href="cursos_inscriptos.php?codCurso={codCurso}&{strOrdenParameter}1&d={strDireccionOrden1}">Fecha</a></td>
+				<td class="options">Opciones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN INSCRIPTOS -->
+				<tr>
+					<td><a href="cursos_inscriptos_detalle.php?codCurso={codCurso}&codInscripto={codInscripto}">{strNombre} {strApellido}</a></td>
+					<td>{strEmail}</td>
+					<td>{strFecha}</td>
+					<td class="options"><a href="cursos_inscriptos_detalle.php?codCurso={codCurso}&codInscripto={codInscripto}"><img src="images/icons/bot_ver.gif" width="17" height="17" border="0" alt="Ver detalle del Inscripto"></a></td>
+				</tr>
+			<!-- END INSCRIPTOS -->
+			<!-- BEGIN INSCRIPTOS_VACIO -->
+				<tr>
+					<td colspan="4" style="text-align: center; height: 400px;">No se han inscripto personas a este curso.</td>
+				</tr>
+			<!-- END INSCRIPTOS_VACIO -->
+		</tbody>
+	</table>
+</div>
+
+{PAGINADOR}
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="cursos_inscriptos_exportar.php?codCurso={codCurso}&{strExportParameters}">&raquo; Exportar listado</a></li>
+	</ul>
+</div>

@@ -1,0 +1,43 @@
+<!-- Left side content -->
+<div id="leftSide">
+	<div class="logo"><a href="index.php"><img src="images/logo.png" alt="" /></a></div>
+
+	<!--div class="sidebarSep mt0"></div-->
+
+	<!-- Search widget -->
+	<!--form action="" class="sidebarSearch">
+		<input type="text" name="search" placeholder="Buscar..." id="ac" />
+		<input type="submit" value="" />
+	</form-->
+
+	<!-- Left navigation -->
+	<ul id="menu" class="nav" style="margin-top: 0px;">
+		<!-- BEGIN MENU_ITEM_PRINCIPAL -->
+			<li class="{strClass}"><a href="{strLink}" title="{strSeccion}" class="{strClassActive}"><span>{strSeccion}</span></a></li>
+		<!-- END MENU_ITEM_PRINCIPAL -->
+		<!-- BEGIN MENU_ITEM_PRINCIPAL_SUBITEMS -->
+		<!-- END MENU_ITEM_PRINCIPAL_SUBITEMS -->
+
+		<li class="users"><a href="backoffice_usuarios_perfil.php" title="Mi Perfil" class="exp"><span>Mi Perfil</span></a> </li>
+
+		<li class="logout"><a href="logout.php" title="Desloguearse" class="exp"><span>Desloguearse</span></a> </li>
+
+		<!-- BEGIN MENU_CARPETA -->
+			<li class="{iconCarpeta} interna">
+				<a href="{linkCarpeta}" title="{textoCarpetaReal}" {strClassActive}>
+					<span>{textoCarpeta}</span>
+					<!-- BEGIN MENU_CARPETA_ITEMS -->
+						<strong>{itemsCarpeta}</strong>
+					<!-- END MENU_CARPETA_ITEMS -->
+				</a>
+			</li>
+		<!-- END MENU_CARPETA -->
+		<!-- BEGIN MENU_ITEM -->
+			<li>
+				<ul class="sub">
+					<li class="last"><a href="{linkItem}" title="{textoItemReal}">{textoItem}</a></li>
+				</ul>
+			</li>
+		<!-- END MENU_ITEM -->
+	</ul>
+</div>

@@ -1,0 +1,66 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Modificar integrante de Equipo</h6></div>
+	<form name="frmEquipos" id="frmEquipos" method="POST" enctype="multipart/form-data" action="equipos_modificar.php" class="form">
+	<input type="hidden" name="codEquipo" value="{codEquipo}">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Nombre:</td>
+				<td><input type="text" size="50" name="strNombre" value="{strNombre}" maxlength="255" />
+				<div class="errors">{errorNombre}</div></td>
+			</tr>
+			<tr>
+				<td>Cargo:</td>
+				<td><input type="text" size="50" name="strCargo" value="{strCargo}" maxlength="255" />
+				<div class="errors">{errorCargo}</div></td>
+			</tr>
+			<tr>
+				<td>Texto:</td>
+				<td><textarea name="strTexto" id="strTexto" cols="50" rows="5">{strTexto}</textarea>
+				<div class="errors">{errorTexto}</div></td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td><div><img src="../{PATH_IMAGEN_EQUIPOS}/{strImagen}" width="{IMAGEN_EQUIPOS_ANCHO}" height="{IMAGEN_EQUIPOS_ALTO}" /></div>
+				<div><input type="file" name="strImagen" size="30">
+				<input type="hidden" name="strImagenAnterior" value="{strImagen}"></div>
+				<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				<div class="errors">{errorImagen}</div></td>
+			</tr>
+			<tr>
+				<td>Grupo:</td>
+				<td><label for="radGrupo1"><input type="radio" name="intGrupo" id="radGrupo1" value="1" {blnGrupo1}> Equipo T&eacute;cnico</label>
+				&nbsp;<label for="radGrupo2"><input type="radio" name="intGrupo" id="radGrupo2" value="2" {blnGrupo2}> Consejo de Administraci&oacute;n</label>
+				<div class="errors">{errorGrupo}</div></td>
+			</tr>
+			<tr>
+				<td>Usuario Twitter:</td>
+				<td><input type="text" size="50" name="strUsuarioTwitter" value="{strUsuarioTwitter}" maxlength="255" />
+				<div class="errors">{errorUsuarioTwitter}</div></td>
+			</tr>
+			<tr>
+				<td>URL Facebook:</td>
+				<td><input type="text" size="50" name="strFacebookURL" value="{strFacebookURL}" maxlength="255" />
+				<div class="errors">{errorFacebookURL}</div></td>
+			</tr>
+			<tr>
+				<td>URL Twitter:</td>
+				<td><input type="text" size="50" name="strTwitterURL" value="{strTwitterURL}" maxlength="255" />
+				<div class="errors">{errorTwitterURL}</div></td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td><label for="radHabilitado"><input type="radio" name="strHabilitado" id="radHabilitado" value="true" {blnHabilitado}> Habilitado</label>
+				&nbsp;<label for="radDeshabilitado"><input type="radio" name="strHabilitado" id="radDeshabilitado" value="false" {blnDeshabilitado}> Deshabilitado</label></td>
+			</tr>
+			</form>
+		</tbody>
+	</table>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: document.frmEquipos.submit();">&raquo; Confirmar</a></li>
+		<li><a href="equipos_detalle.php?codEquipo={codEquipo}">&raquo; Volver</a></li>
+	</ul>
+</div>

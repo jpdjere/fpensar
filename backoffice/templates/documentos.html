@@ -1,0 +1,75 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>B&uacute;squeda de Documentos</h6></div>
+	<form name="frmBusqueda" action="documentos.php" method="post" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td><input type="text" name="txtBusqueda" value="{txtBusqueda}" size="40" maxlength="20" /></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tPagination" style="margin: 0;">
+						<ul class="pages">
+							<li><a href="javascript: document.frmBusqueda.submit();">&raquo; Iniciar B&uacute;squeda</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Listado de Documentos</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<thead>
+			<tr>
+				<td>Fecha</td>
+				<td width="40%">Autor</td>
+				<td width="40%">T&iacute;tulo</td>
+				<td class="options">Opciones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN DOCUMENTOS -->
+			<tr>
+				<td>&nbsp;&nbsp;{strFechaListado}</td>
+				<td>{strAutor}</td>
+				<td><a href="documentos_detalle.php?codDocumento={codDocumento}">{strTitulo}</td>
+				<td class="options"><a href="documentos_detalle.php?codDocumento={codDocumento}"><img src="images/icons/bot_ver.gif" width="17" height="17" border="0" alt="Ver detalle de  Documento"></a>&nbsp;
+				<!-- BEGIN MODIFICAR_DOCUMENTOS_UPDATE -->
+				<a href="documentos_modificar.php?codDocumento={codDocumento}"><img src="images/icons/bot_editar.gif" width="17" height="17" border="0" alt="Modificar Documento">
+				</a>&nbsp;
+				<a href="documentos_habilitar.php?codDocumento={codDocumento}" onClick="return confirm('Esta seguro que quiere {estadoAlt} la Documento seleccionada?');">
+					<img src="images/icons/bot_habilitar{estadoIcono}.gif" width="17" height="17" border="0" alt="{estadoAlt} Documento">
+				</a>&nbsp;
+				<!-- END MODIFICAR_DOCUMENTOS_UPDATE -->
+				<!-- BEGIN MODIFICAR_DOCUMENTOS_DELETE -->
+				<a href="documentos_borrar.php?codDocumento={codDocumento}" onClick="return confirm('Esta seguro que quiere Borrar la Documento seleccionada?');">
+					<img src="images/icons/bot_borrar.gif" width="17" height="17" border="0" alt="Borrar Documento">
+				</a>&nbsp;
+				<!-- END MODIFICAR_DOCUMENTOS_DELETE -->
+				</td>
+			</tr>
+			<!-- END DOCUMENTOS -->
+
+			<!-- BEGIN DOCUMENTOS_VACIO -->
+				<td colspan="4" style="height: 10em; text-align: center;"><b>No existen Documentos con esos parámetros de Búsqueda.</b></td>
+			<!-- END DOCUMENTOS_VACIO -->
+
+			<!-- BEGIN DOCUMENTOS_VACIO_BUSQUEDA -->
+				<td colspan="4" style="height: 10em; text-align: center;"><b>No existen Documentos con esos parámetros de Búsqueda.</b></td>
+			<!-- END DOCUMENTOS_VACIO_BUSQUEDA -->
+		</tbody>
+	</table>
+</div>
+
+{PAGINADOR}
+
+<!-- BEGIN MODIFICAR_DOCUMENTOS_ADD -->
+	<div class="tPagination">
+		<ul class="pages">
+			<li><a href="documentos_agregar.php">&raquo; Agregar Documento</a></li>
+		</ul>
+	</div>
+<!-- END MODIFICAR_DOCUMENTOS_ADD -->

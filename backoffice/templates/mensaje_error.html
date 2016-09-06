@@ -1,0 +1,68 @@
+<div class="loginWrapper">
+	<div class="loginWrapperContents">
+		<div class="loginLogo"><img src="images/logo.png" alt="" /></div>
+		<div class="widget" style="margin-top: 0;">
+			<!-- BEGIN SITE_DOWN -->
+				<div class="title"><img src="images/icons/dark/adminUser.png" alt="" class="titleIcon" />
+					<h6 style="font-size:1.6em; color:#1E9DC5;">Sistema en mantenimiento</h6>
+				</div>
+				<div style="width: 70%; margin: 20px auto; text-align: center;">
+					El sistema se encuentre en mantenimiento temporariamente.<br/>
+					Se reactivar&aacute; su acceso en breve. Por favor aguarde mientras se habilita nuevamente.<br/>
+					Si tiene alguna consulta por favor cont&aacute;ctese con el administrador.<br/><br/>
+
+					<div class="tPagination">
+						<ul class="pages">
+							<li><a href="backoffice.php">&raquo; Volver</a></li>
+						</ul>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+			<!-- END SITE_DOWN -->
+
+			<!-- BEGIN RESTRICTED -->
+				<div class="title"><img src="images/icons/dark/adminUser.png" alt="" class="titleIcon" />
+					<h6 style="font-size:1.6em; color:#1E9DC5;">Aceso denegado</h6>
+				</div>
+				<div style="width: 70%; margin: 20px auto; text-align: center;">
+					Su usuario no posee permisos para acceder a esta secci&oacute;n del sistema.<br/>
+					Si tiene alguna consulta por favor cont&aacute;ctese con el administrador.<br/><br/>
+
+					<div class="tPagination">
+						<ul class="pages">
+							<li><a href="backoffice.php">&raquo; Volver</a></li>
+						</ul>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+			<!-- END RESTRICTED -->
+
+			<!-- BEGIN TIMEOUT -->
+				<div class="title"><img src="images/icons/dark/adminUser.png" alt="" class="titleIcon" />
+					<h6 style="font-size:1.6em; color:#1E9DC5;">Sesi&oacute;n expirada</h6>
+				</div>
+				<div style="width: 70%; margin: 20px auto; text-align: center;">
+					Su sesi&oacute;n ha expirado. Deber&aacute; loguearse nuevamente para acceder al sistema.<br>
+					Si tiene alguna consulta por favor cont&aacute;ctese con el administrador.<br>
+					&iexcl;Muchas gracias!.<br/><br/>
+
+					<div class="tPagination">
+						<ul class="pages">
+							<li><a href="index.php">&raquo; Login</a></li>
+						</ul>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+			<!-- END TIMEOUT -->
+		</div>
+	</div>
+</div>
+
+<script language="Javascript">
+<!-- {NEWLINE}
+	setTimeout("document.location.href='{linkPage}'", 10000);
+//-->
+</script>

@@ -1,0 +1,21 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Mensaje de Pr&oacute;ximamente</h6></div>
+	<form name="frmCursos" method="POST" enctype="multipart/form-data" action="cursos_mensaje_modificar.php" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Texto:</td>
+				<td><textarea name="strTexto" id="strTexto" cols="50" rows="5">{strTexto}</textarea>
+				<div class="errors">{errorTexto}</div></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: document.frmCursos.submit();">&raquo; Confirmar</a></li>
+		<li><a href="cursos_mensaje.php">&raquo; Volver</a></li>
+	</ul>
+</div>

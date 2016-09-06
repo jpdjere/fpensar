@@ -1,0 +1,26 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Mensaje de Pr&oacute;ximamente</h6></div>
+	<form name="frmRedes" method="POST" enctype="multipart/form-data" action="redes_mensaje_modificar.php" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Texto:</td>
+				<td><textarea name="strTexto" id="strTexto" cols="50" rows="5">{strTexto}</textarea>
+				<div class="errors">{errorTexto}</div></td>
+			</tr>
+			<tr>
+				<td>Link URL:</td>
+				<td><input type="text" size="50" name="strLinkURL" value="{strLinkURL}" maxlength="1000" />
+				<div class="errors">{errorLinkURL}</div></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: document.frmRedes.submit();">&raquo; Confirmar</a></li>
+		<li><a href="redes_mensaje.php">&raquo; Volver</a></li>
+	</ul>
+</div>

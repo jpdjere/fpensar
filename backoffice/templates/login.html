@@ -1,0 +1,34 @@
+<div class="loginWrapper">
+	<div class="loginWrapperContents">
+		<div class="loginLogo"><img src="images/logo.png" alt="" /></div>
+		<div class="widget" style="margin-top: 0;">
+			<div class="title"><img src="images/adminUser.png" alt="" class="titleIcon" />
+				<h6 style="font-size:1.6em; color:#1E9DC5;">Bienvenido</h6>
+			</div>
+			<form id="frmLogin" name="frmLogin" method="post" action="index.php" id="validate" class="form">
+				<fieldset>
+					<div class="formRow">
+						<label for="login">Usuario:</label>
+						<div class="loginInput"><input type="text" name="strUsuario" id="strUsuario" value="{strUsuario}" class="validate[required]" id="login" /></div>
+					</div>
+
+					<div class="formRow">
+						<label for="pass">Contrase&ntilde;a:</label>
+						<div class="loginInput"><input type="password" name="strContrasenia" value="{strContrasenia}" class="validate[required]" id="pass" /></div>
+					</div>
+
+					<div class="loginControl">
+						<div class="rememberMe">{errorUsuario}</div>
+						<input type="submit" value="Acceder" class="dblueB logMeIn" onclick="document.frmLogin.submit();" />
+					</div>
+				</fieldset>
+			</form>
+			<script type="text/javascript">
+			<!-- {NEWLINE}
+				objCampoUsuario = document.getElementById('strUsuario');
+				objCampoUsuario.focus();
+			//-->
+			</script>
+		</div>
+	</div>
+</div>

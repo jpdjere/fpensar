@@ -1,0 +1,93 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>B&uacute;squeda de Actividades</h6></div>
+	<form name="frmBusqueda" action="actividades.php" method="post" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td><input type="text" name="txtBusqueda" value="{txtBusqueda}" size="40" maxlength="20" /></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tPagination" style="margin: 0;">
+						<ul class="pages">
+							<li><a href="javascript: document.frmBusqueda.submit();">&raquo; Iniciar B&uacute;squeda</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Listado de Actividades</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<thead>
+			<tr>
+				<td width="10%">Imagen</td>
+				<td width="30%">T&iacute;tulo</td>
+				<td width="50%">Texto</td>
+				<td class="options">Opciones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN ACTIVIDADES -->
+			<tr>
+				<td><a href="actividades_detalle.php?codActividad={codActividad}"><img src="../{PATH_IMAGEN_ACTIVIDADES}/{strImagen}" width="{IMAGEN_ACTIVIDADES_ANCHO}" height="{IMAGEN_ACTIVIDADES_ALTO}" /></a></td>
+				<td><a href="actividades_detalle.php?codActividad={codActividad}">{strTitulo}</td>
+				<td>{strTexto}</td>
+				<td class="options">
+				<a href="actividades_detalle.php?codActividad={codActividad}"><img src="images/icons/bot_ver.gif" width="17" height="17" border="0" alt="Ver detalle de  Actividad"></a>
+				<!-- BEGIN MODIFICAR_ACTIVIDADES_UPDATE -->
+				<a href="actividades_modificar.php?codActividad={codActividad}"><img src="images/icons/bot_editar.gif" width="17" height="17" border="0" alt="Modificar Actividad"></a>
+				<a href="actividades_habilitar.php?codActividad={codActividad}" onClick="return confirm('Esta seguro que quiere {estadoAlt} la Actividad seleccionada?');"><img src="images/icons/bot_habilitar{estadoIcono}.gif" width="17" height="17" border="0" alt="{estadoAlt} Actividad"></a>
+				<!-- END MODIFICAR_ACTIVIDADES_UPDATE -->
+				<!-- BEGIN MODIFICAR_ACTIVIDADES_DELETE -->
+				<a href="actividades_borrar.php?codActividad={codActividad}" onClick="return confirm('Esta seguro que quiere Borrar la Actividad seleccionada?');">
+					<img src="images/icons/bot_borrar.gif" width="17" height="17" border="0" alt="Borrar Actividad">
+				</a>
+				<!-- END MODIFICAR_ACTIVIDADES_DELETE -->
+
+				<!-- BEGIN MODIFICAR_ACTIVIDADES_ORDER -->
+					<div class="clear"></div>
+					<!-- BEGIN ORDENAR_SUBIR -->
+						<a href="actividades_ordenar.php?codActividad={codActividad}&blnOrden=-2"><img src="images/icons/bot_up_all.gif" width="17" height="17" border="0" alt="Mover &iacute;tem al primer lugar" /></a>
+						<a href="actividades_ordenar.php?codActividad={codActividad}&blnOrden=-1"><img src="images/icons/bot_up.gif" width="17" height="17" border="0" alt="Mover &iacute;tem un lugar hacia arriba" /></a>
+					<!-- END ORDENAR_SUBIR -->
+					<!-- BEGIN ORDENAR_SUBIR_VACIO -->
+						<img src="images/trans.gif" width="17" height="17" border="0" />
+						<img src="images/trans.gif" width="17" height="17" border="0" />
+					<!-- END ORDENAR_SUBIR_VACIO -->
+					<!-- BEGIN ORDENAR_BAJAR -->
+						<a href="actividades_ordenar.php?codActividad={codActividad}&blnOrden=1" /><img src="images/icons/bot_down.gif" width="17" height="17" border="0" alt="Mover &iacute;tem un lugar hacia abajo" /></a>
+						<a href="actividades_ordenar.php?codActividad={codActividad}&blnOrden=2" /><img src="images/icons/bot_down_all.gif" width="17" height="17" border="0" alt="Mover &iacute;tem al último lugar" /></a>
+					<!-- END ORDENAR_BAJAR -->
+					<!-- BEGIN ORDENAR_BAJAR_VACIO -->
+						<img src="images/trans.gif" width="17" height="17" border="0" />
+						<img src="images/trans.gif" width="17" height="17" border="0" />
+					<!-- END ORDENAR_BAJAR_VACIO -->
+				<!-- END MODIFICAR_ACTIVIDADES_ORDER -->
+				</td>
+			</tr>
+			<!-- END ACTIVIDADES -->
+
+			<!-- BEGIN ACTIVIDADES_VACIO -->
+				<td colspan="4" style="height: 10em; text-align: center;"><b>No existen Actividades cargadas en el sistema.</b></td>
+			<!-- END ACTIVIDADES_VACIO -->
+
+			<!-- BEGIN ACTIVIDADES_VACIO_BUSQUEDA -->
+				<td colspan="4" style="height: 10em; text-align: center;"><b>No existen Actividades con esos parámetros de Búsqueda.</b></td>
+			<!-- END ACTIVIDADES_VACIO_BUSQUEDA -->
+		</tbody>
+	</table>
+</div>
+
+{PAGINADOR}
+
+<!-- BEGIN MODIFICAR_ACTIVIDADES_ADD -->
+	<div class="tPagination">
+		<ul class="pages">
+			<li><a href="actividades_agregar.php">&raquo; Agregar Actividad</a></li>
+		</ul>
+	</div>
+<!-- END MODIFICAR_ACTIVIDADES_ADD -->

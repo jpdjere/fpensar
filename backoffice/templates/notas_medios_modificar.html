@@ -1,0 +1,35 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Modificar Medio</h6></div>
+	<form name="frmNotas" method="POST" enctype="multipart/form-data" action="notas_medios_modificar.php" class="form">
+	<input type="hidden" name="codMedio" value="{codMedio}">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Nombre:</td>
+				<td><input type="text" size="50" name="strMedio" value="{strMedio}" maxlength="255" />
+				<div class="errors">{errorMedio}</div></td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td><div><img src="../{PATH_IMAGEN_NOTAS_MEDIOS}/{strImagen}" width="{IMAGEN_NOTAS_MEDIOS_GRANDE_ANCHO}" height="{IMAGEN_NOTAS_MEDIOS_GRANDE_ALTO}" /></div>
+				<div><input type="file" name="strImagen" size="30">
+				<input type="hidden" name="strImagenAnterior" value="{strImagen}"></div>
+				<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				<div class="errors">{errorImagen}</div></td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td><label for="radHabilitado"><input type="radio" name="strHabilitado" id="radHabilitado" value="true" {blnHabilitado}> Habilitado</label>
+				&nbsp;<label for="radDeshabilitado"><input type="radio" name="strHabilitado" id="radDeshabilitado" value="false" {blnDeshabilitado}> Deshabilitado</label></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: document.frmNotas.submit();">&raquo; Confirmar</a></li>
+		<li><a href="notas_medios_detalle.php?codNota={codNota}">&raquo; Volver</a></li>
+	</ul>
+</div>

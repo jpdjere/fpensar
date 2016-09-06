@@ -1,0 +1,49 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de Destacado</h6></div>
+	<form name="frmDestacados" method="POST" enctype="multipart/form-data" action="destacados_modificar.php" class="form">
+	<input type="hidden" name="codDestacado" value="{codDestacado}">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Titulo:</td>
+				<td><input type="text" size="50" name="strTitulo" value="{strTitulo}" maxlength="255" />
+				<div class="errors">{errorTitulo}</div></td>
+			</tr>
+			<tr>
+				<td>Posici&oacute;n:</td>
+				<td><select name="intPosicion" style="width: 100%;">
+					<!-- BEGIN POSICIONES -->
+					<option value="{intPosicion}" {strSelected}>{strPosicion}</option>
+					<!-- END POSICIONES -->
+				</select>
+				<div class="errors">{errorPosicion}</div></td>
+			</tr>
+			<tr>
+				<td>Link URL:</td>
+				<td><input type="text" size="50" name="strLinkURL" value="{strLinkURL}" maxlength="1000" />
+				<div class="errors">{errorLinkURL}</div></td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td><div><img src="../{PATH_IMAGEN_DESTACADOS}/{strImagen}" height="{IMAGEN_DESTACADOS_ALTO}" /></div>
+				<div><input type="file" name="strImagen" size="30">
+				<input type="hidden" name="strImagenAnterior" value="{strImagen}"></div>
+				<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				<div class="errors">{errorImagen}</div></td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td><label for="radHabilitado"><input type="radio" name="strHabilitado" id="radHabilitado" value="true" {blnHabilitado}> Habilitado</label>
+				&nbsp;<label for="radDeshabilitado"><input type="radio" name="strHabilitado" id="radDeshabilitado" value="false" {blnDeshabilitado}> Deshabilitado</label></td>
+			</tr>
+			</form>
+		</tbody>
+	</table>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: document.frmDestacados.submit();">&raquo; Confirmar</a></li>
+		<li><a href="destacados_detalle.php?codDestacado={codDestacado}">&raquo; Volver</a></li>
+	</ul>
+</div>

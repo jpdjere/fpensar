@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>{WEB_TITLE}</title>
+	<meta name="description" content="{WEB_DESCRIPTION}" />
+	<meta name="keywords" content="{WEB_KEYWORDS}" />
+	<meta name="robots" content="all" />
+	<meta name="rating" content="General" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<link rel="apple-touch-icon" href="images/apple/HTML5_Badge_64.png" />
+	<link rel="apple-touch-icon-precomposed" href="images/apple/HTML5_Badge_64.png" />
+
+	<link type="text/css" rel="stylesheet" href="css/normalize.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<link type="text/css" rel="stylesheet"href="css/main.css"/>
+
+	<script type="text/javascript" src="scripts/functions.js"></script>
+	<script type="text/javascript" src="scripts/ajax.js"></script>
+	<script type="text/javascript" src="scripts/popup.js"></script>
+	<script type="text/javascript" src="scripts/combos.js"></script>
+
+	<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script> 
+	<script type="text/javascript" src="scripts/jquery-ui-1.10.4.custom.min.js"></script>
+	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.4.custom.css" />
+
+    <link type="text/css" rel="stylesheet" href="scripts/select2/select2.css" />
+    <script type="text/javascript" src="scripts/select2/select2.js"></script>
+    <script type="text/javascript" src="scripts/select2/select2_locale_es.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="scripts/uniform/uniform.aristo.min.css" media="screen" />
+	<script type="text/javascript" src="scripts/uniform/jquery.uniform.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery.printthis.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="scripts/tagmanager.css" media="screen" />
+	<script type="text/javascript" src="scripts/tagmanager.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("select").select2({
+				placeholder: "Seleccionar...",
+				allowClear: true
+			});
+			$("#select2NoList, #select2NoList2").select2({
+				allowClear: true,
+				minimumInputLength: 2
+			});
+			$("input[type=radio], input[type=checkbox]").uniform();
+			$(".datepicker").datepicker({ dateFormat: 'dd/mm/yy' });
+		});
+
+		function printElement(strElementId){
+			$("#" + strElementId).printThis({
+				debug: false,
+				importCSS: true,
+				printContainer: false,
+		        loadCSS: "css/print.css",
+				pageTitle: "",
+				removeInline: false
+			});
+		}
+	</script>
+</head>
+
+<body {strPageClass}>
+<div id="containerGeneral">
+	<div id="leftSide">
+		{MENU}
+	</div>
+	<div id="rightSide">
+		{HEADER}
+		<div class="wrapper">
+			{ENCABEZADO}
+			{PAGINA}
+		</div>
+	</div>
+	{FOOTER}
+</div>
+
+</body>
+</html>
+

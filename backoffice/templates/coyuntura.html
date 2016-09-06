@@ -1,0 +1,73 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>B&uacute;squeda de edici&oacute;n de Coyuntura</h6></div>
+	<form name="frmBusqueda" action="coyuntura.php" method="post" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td><input type="text" name="txtBusqueda" value="{txtBusqueda}" size="40" maxlength="20" /></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tPagination" style="margin: 0;">
+						<ul class="pages">
+							<li><a href="javascript: document.frmBusqueda.submit();">&raquo; Iniciar B&uacute;squeda</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Listado de ediciones de Coyuntura</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<thead>
+			<tr>
+				<td>Fecha</td>
+				<td width="80%">Edici&oacute;n</td>
+				<td class="options">Opciones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN COYUNTURA -->
+			<tr>
+				<td>&nbsp;&nbsp;{strFechaListado}</td>
+				<td><a href="coyuntura_detalle.php?codCoyuntura={codCoyuntura}">{strTitulo}</td>
+				<td class="options"><a href="coyuntura_detalle.php?codCoyuntura={codCoyuntura}"><img src="images/icons/bot_ver.gif" width="17" height="17" border="0" alt="Ver detalle de  Coyuntura"></a>&nbsp;
+				<!-- BEGIN MODIFICAR_COYUNTURA_UPDATE -->
+				<a href="coyuntura_modificar.php?codCoyuntura={codCoyuntura}"><img src="images/icons/bot_editar.gif" width="17" height="17" border="0" alt="Modificar Coyuntura">
+				</a>&nbsp;
+				<a href="coyuntura_habilitar.php?codCoyuntura={codCoyuntura}" onClick="return confirm('Esta seguro que quiere {estadoAlt} la Coyuntura seleccionada?');">
+					<img src="images/icons/bot_habilitar{estadoIcono}.gif" width="17" height="17" border="0" alt="{estadoAlt} Coyuntura">
+				</a>&nbsp;
+				<!-- END MODIFICAR_COYUNTURA_UPDATE -->
+				<!-- BEGIN MODIFICAR_COYUNTURA_DELETE -->
+				<a href="coyuntura_borrar.php?codCoyuntura={codCoyuntura}" onClick="return confirm('Esta seguro que quiere Borrar la Coyuntura seleccionada?');">
+					<img src="images/icons/bot_borrar.gif" width="17" height="17" border="0" alt="Borrar Coyuntura">
+				</a>&nbsp;
+				<!-- END MODIFICAR_COYUNTURA_DELETE -->
+				</td>
+			</tr>
+			<!-- END COYUNTURA -->
+
+			<!-- BEGIN COYUNTURA_VACIO -->
+				<td colspan="3" style="height: 10em; text-align: center;"><b>No existen ediciones de Coyuntura cargados en el sitio.</b></td>
+			<!-- END COYUNTURA_VACIO -->
+
+			<!-- BEGIN COYUNTURA_VACIO_BUSQUEDA -->
+				<td colspan="3" style="height: 10em; text-align: center;"><b>No existen ediciones de Coyuntura con esos parámetros de Búsqueda.</b></td>
+			<!-- END COYUNTURA_VACIO_BUSQUEDA -->
+		</tbody>
+	</table>
+</div>
+
+{PAGINADOR}
+
+<!-- BEGIN MODIFICAR_COYUNTURA_ADD -->
+	<div class="tPagination">
+		<ul class="pages">
+			<li><a href="coyuntura_agregar.php">&raquo; Agregar Coyuntura</a></li>
+		</ul>
+	</div>
+<!-- END MODIFICAR_COYUNTURA_ADD -->

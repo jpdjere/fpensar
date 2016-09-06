@@ -1,0 +1,58 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>B&uacute;squeda de Contactos</h6></div>
+	<form name="frmBusqueda" action="contactos.php" method="post" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>
+				<input type="text" name="txtBusqueda" id="txtBusqueda" style="width: 100%;" maxlength="50" value="{txtBusqueda}" /></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tPagination" style="margin: 0;">
+						<ul class="pages">
+							<li><a href="javascript: document.frmBusqueda.submit();">&raquo; Iniciar B&uacute;squeda</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Listado de Contactos</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<thead>
+			<tr>
+				<td><a href="contactos.php{strOrdenParameter}1&d={strDireccionOrden1}">Nombre</a></td>
+				<td><a href="contactos.php{strOrdenParameter}1&d={strDireccionOrden1}">Email</a></td>
+				<td><a href="contactos.php{strOrdenParameter}1&d={strDireccionOrden1}">Fecha</a></td>
+				<td class="options">Opciones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN CONTACTOS -->
+				<tr>
+					<td><a href="contactos_detalle.php?codContacto={codContacto}">{strNombre}</a></td>
+					<td>{strEmail}</td>
+					<td>{strFecha}</td>
+					<td class="options"><a href="contactos_detalle.php?codContacto={codContacto}"><img src="images/icons/bot_ver.gif" width="17" height="17" border="0" alt="Ver detalle del Contacto"></a></td>
+				</tr>
+			<!-- END CONTACTOS -->
+			<!-- BEGIN CONTACTOS_VACIO -->
+				<tr>
+					<td colspan="4" style="text-align: center; height: 400px;">No existen contactos enviados a trav&eacute;s del sitio.</td>
+				</tr>
+			<!-- END CONTACTOS_VACIO -->
+		</tbody>
+	</table>
+</div>
+
+{PAGINADOR}
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="contactos_exportar.php{strExportParameters}">&raquo; Exportar listado</a></li>
+	</ul>
+</div>

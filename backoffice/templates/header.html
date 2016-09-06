@@ -1,0 +1,45 @@
+<script type="text/javascript">
+<!-- {NEWLINE}
+	$(function(){
+		var pull 		= $('#pull');
+			menu 		= $('nav ul');
+			menuHeight	= menu.height();
+
+		$(pull).on('click', function(e){
+			e.preventDefault();
+			menu.slideToggle();
+		});
+
+		$(window).resize(function(){
+			var w = $(window).width();
+			if (w > 320 && menu.is(':hidden')){
+				menu.removeAttr('style');
+			}
+		});
+	});
+//-->
+</script>
+
+<!-- Top fixed navigation -->
+<nav class="clearfix">
+	<ul class="clearfix">
+		<!-- BEGIN MENU_HEADER_ITEM -->
+			<li><a href="{strLink}" title="{strSeccion}" class="{strClassActive}">{strSeccion}</a></li>
+		<!-- END MENU_HEADER_ITEM -->
+
+		<li><a href="usuarios_perfil.php">Mi Perfil</a></li>
+		<li><a href="logout.php">Desloguearse</a></li>	
+	</ul>
+	<a href="#" id="pull">Menu</a>
+</nav>
+
+<!-- Responsive header -->
+<div class="resp">
+	<div class="respHead">
+		<a href="index.php" title=""><img src="images/logo.png" alt="" /></a>
+	</div>
+
+	<div class="smalldd">
+		<span class="goTo"><img src="images/icons/light/dash.png" alt="" />Plataforma de Concursos</span>
+	</div>
+</div>

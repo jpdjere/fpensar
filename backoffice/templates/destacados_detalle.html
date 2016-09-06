@@ -1,0 +1,47 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de Destacado</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td width="20%">T&iacute;tulo:</td>
+				<td>{strTitulo}</td>
+			</tr>
+			<tr>
+				<td>Posici&oacute;n:</td>
+				<td>{strPosicion}</td>
+			</tr>
+			<tr>
+				<td>Link URL:</td>
+				<td>{strLinkURL}</td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td>
+					<div><img src="../{PATH_IMAGEN_DESTACADOS}/{strImagen}" height="{IMAGEN_DESTACADOS_ALTO}" /></div>
+					<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Fecha de Alta:</td>
+				<td>{strFechaAlta}</td>
+			</tr>
+			<tr>
+				<td>Fecha de Modificaci&oacute;n:</td>
+				<td>{strFechaModificacion}</td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td>{strEstadoDestacado}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<!-- BEGIN MODIFICAR_DESTACADOS -->
+			<li><a href="destacados_modificar.php?codDestacado={codDestacado}">&raquo; Editar Destacado</a></li>
+		<!-- END MODIFICAR_DESTACADOS -->
+		<li><a href="destacados.php">&raquo; Volver</a></li>
+	</ul>
+</div>

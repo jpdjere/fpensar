@@ -1,0 +1,43 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de Actividad</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td width="20%">T&iacute;tulo:</td>
+				<td>{strTitulo}</td>
+			</tr>
+			<tr>
+				<td>Texto:</td>
+				<td>{strTexto}</td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td>
+					<div><img src="../{PATH_IMAGEN_ACTIVIDADES}/{strImagen}" width="{IMAGEN_ACTIVIDADES_ANCHO}" height="{IMAGEN_ACTIVIDADES_ALTO}" /></div>
+					<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Fecha de Alta:</td>
+				<td>{strFechaAlta}</td>
+			</tr>
+			<tr>
+				<td>Fecha de Modificaci&oacute;n:</td>
+				<td>{strFechaModificacion}</td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td>{strEstadoActividad}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<!-- BEGIN MODIFICAR_ACTIVIDADES -->
+			<li><a href="actividades_modificar.php?codActividad={codActividad}">&raquo; Editar Actividad</a></li>
+		<!-- END MODIFICAR_ACTIVIDADES -->
+		<li><a href="actividades.php">&raquo; Volver</a></li>
+	</ul>
+</div>

@@ -1,0 +1,521 @@
+html
+{
+	height: 100%;
+	width: 100%;
+}
+
+body{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	font-family: Avenir, Arial, Helvetica, sans-serif;
+	color: #000000;
+	background-color: #fcc837;
+    font-weight: normal;
+	overflow: hidden;
+}
+
+* { margin: 0; padding: 0; }
+img { border: 0; }
+a { text-decoration: none; color: #ffffff; }
+
+object, image { 
+	vertical-align: top;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+img { 
+	float: left;
+	display: block;
+}
+
+.clear {
+	clear: both;
+	height: 0px;
+}
+
+.centeredX{
+	position: relative;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.centeredY{
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.centeredXY{
+	position: relative;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.round_borders{
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.div_shadow {
+	-moz-box-shadow: 2px 2px 6px #666;
+	-webkit-box-shadow: 2px 2px 6px #666;
+	box-shadow: 2px 2px 6px #666;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#666666')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#666666');
+}
+
+.opacity85{
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+	filter: alpha(opacity=85);
+	-moz-opacity: 0.85;
+	-khtml-opacity: 0.85;
+	opacity: 0.85;
+}
+
+/* BEGIN PAGE STYLES */
+
+#header {
+	position: fixed;
+	top: -200px;
+	left: 0;
+	width: 100%;
+	min-width: 800px;
+	height: 9%;
+	min-height: 60px;
+	z-index: 999;
+}
+
+#header .contents{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#header .contents .menu_seccion{
+	position: relative;
+	float: left;
+	width: 12%;
+	height: 100%;
+	text-align: center;
+	font-family: Avenir-Black, Verdana, Helvetica, sans;
+	font-size: 1em;
+	color: #ffffff;
+	padding: 0;
+	cursor: pointer;
+}
+
+#header .menu_over{
+	position: absolute;
+	top: 0;
+	left: 64%;
+	width: 16%;
+	height: 100%;
+	display: none;
+}
+#header .menu_over .menu_top{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+#header .menu_over .menu_item{
+	position: relative;
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	font-family: Avenir-Black, Verdana, Helvetica, sans;
+	font-size: 1em;
+	color: #ffffff;
+	margin: 0;
+	padding: 0 0 10px 0;
+	cursor: pointer;
+	background-color: #97a12b;
+}
+#header .menu_over .menu_item:hover{
+	background-color: #a7b13b;
+}
+
+#header .menu_over .menu_item_separator{
+	position: relative;
+	clear: both;
+	width: 100%;
+	height: 2px;
+	background-color: #a7b13b;
+	margin: 0;
+	padding: 0;
+}
+
+#content{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-width: 800px;
+	height: 100%;
+	z-index: 100;
+}
+
+#content .seccion{
+	position: relative;
+	/*top: 0;
+	left: 0;*/
+	width: 100%;
+	min-width: 800px;
+	height: 100%;
+	/*min-height: 2000px;*/
+}
+
+.seccion_title{
+	font-family: AvenirNext-Bold, Verdana, Helvetica, sans;
+	font-size: 2.2em;
+	color: #ffffff;
+}
+
+.seccion_end{
+	clear: both;
+	height: 1px;
+}
+
+/* HOME */
+.home_frase{
+	font-family: AvenirNext-Bold, Verdana, Helvetica, sans;
+	font-size: 1.5em;
+	color: #ffffff;
+	font-style: italic;
+}
+.home_frase_autor{
+	font-family: HelveticaNeue-MediumdCondensed, Verdana, Helvetica, sans;
+	font-size: 1.4em;
+	color: #ffffff;
+}
+
+.home_stage3_coyuntura{
+	font-family: AvenirLTStd-Heavy, Verdana, Helvetica, sans;
+	font-size: 1.6em;
+	color: #ffffff;
+}
+.home_stage3_coyuntura_titulos{
+	font-family: AvenirNext-Bold, Verdana, Helvetica, sans;
+	font-size: 1.1em;
+}
+.home_stage3_coyuntura_textos{
+	font-family: Avenir-Medium, Verdana, Helvetica, sans;
+	font-size: 0.8em;
+	color: #ffffff;
+}
+
+.destacados_botones_cursos {
+	font-family: AvenirNext-Bold, Verdana, Helvetica, sans;
+	font-size: 1.15em;
+	color: #ffffff;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+.destacados_boton_participa {
+	font-family: AvenirNext-Bold, Verdana, Helvetica, sans;
+	font-size: 1.36em;
+	color: #ffab00;
+}
+
+.cursos_titulo{
+	font-family: AvenirNext-Bold, Verdana, Helvetica, sans;
+	font-size: 1.4em;
+	color: #ffffff;
+}
+.cursos_texto_titulo{
+	font-family: AvenirNext-Bold, Verdana, Helvetica, sans;
+	font-size: 1em;
+	color: #ffffff;
+}
+.cursos_texto{
+	font-family: Avenir-Medium, Verdana, Helvetica, sans;
+	font-size: 0.8em;
+	color: #ffffff;
+}
+.cursos_cupos{
+	font-family: AvenirLTStd-Heavy, Verdana, Helvetica, sans;
+	font-size: 4em;
+	color: #ffffff;
+	text-align: center;
+}
+.cursos_proximamente {
+	font-family: Avenir-Medium, Verdana, Helvetica, sans;
+	font-size: 1.2em;
+	color: #ffffff;
+}
+
+/* QUE HACEMOS */
+.seccion1_subtitle{
+	font-family: AvenirNext-Bold, Verdana, Helvetica, sans;
+	font-size: 1.2em;
+	color: #ffffff;
+}
+.seccion1_text{
+	font-family: HelveticaNeue-MediumdCondensed, Verdana, Helvetica, sans;
+	font-size: 1em;
+	color: #ffffff;
+}
+
+.seccion1_title_new{
+	font-family: Avenir-Black, Verdana, Helvetica, sans;
+	font-size: 1.4em;
+	color: #000000;
+}
+.seccion1_text_new{
+	font-family: Avenir-Medium, Verdana, Helvetica, sans;
+	font-size: 1em;
+	color: #000000;
+}
+
+/* QUIENES SOMOS */
+.seccion2_selector{
+	font-family: Avenir-Medium, Verdana, Helvetica, sans;
+	font-size: 0.7em;
+	color: #ffffff;
+}
+.seccion2_nombre{
+	font-family: Avenir-Medium, Verdana, Helvetica, sans;
+	font-size: 1em;
+	color: #404041;
+}
+
+/* RED FEDERAL */
+.seccion4_titulo{
+	font-family: AvenirLTStd-Heavy, Verdana, Helvetica, sans;
+	font-size: 2em;
+	color: #d8262e;
+}
+.seccion4_texto{
+	font-family: AvenirLTStd-Heavy, Verdana, Helvetica, sans;
+	font-size: 1em;
+	color: #ffffff;
+}
+.seccion4_mapa{
+	font-family: AvenirLTStd-Heavy, Verdana, Helvetica, sans;
+	font-size: 1.7em;
+	color: #d8262e;
+}
+.seccion4_texto_chico_heavy{
+	font-family: AvenirLTStd-Heavy, Verdana, Helvetica, sans;
+	font-size: 0.9em;
+	color: #ffffff;
+	font-weight: normal;
+}
+.seccion4_texto_chico{
+	font-family: Avenir-Medium, Verdana, Helvetica, sans;
+	font-size: 0.9em;
+	color: #ffffff;
+	font-weight: normal;
+}
+.seccion4_texto_coyuntura{
+	font-family: Avenir-Black, Verdana, Helvetica, sans;
+	font-size: 1.1em;
+	color: #ffffff;
+	font-weight: normal;
+	text-decoration: none;
+}
+.seccion4_texto_coyuntura_selected{
+	font-family: Avenir-Black, Verdana, Helvetica, sans;
+	font-size: 1.1em;
+	color: #ffffff;
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+/* NOTAS */
+.seccion5_notas_titulo{
+	font-family: AvenirLTStd-Heavy, Verdana, Helvetica, sans;
+	font-size: 1em;
+	color: #ffffff;
+	font-weight: normal;
+}
+.seccion5_notas_autor{
+	font-family: Avenir-Medium, Verdana, Helvetica, sans;
+	font-size: 0.8em;
+	color: #ffffff;
+	font-weight: normal;
+}
+.seccion5_notas_texto{
+	font-family: Avenir-Medium, Verdana, Helvetica, sans;
+	font-size: 0.6em;
+	color: #ffffff;
+	font-weight: normal;
+}
+.seccion5_notas_medio{
+	font-family: Avenir-Medium, Verdana, Helvetica, sans;
+	font-size: 0.8em;
+	color: #ffffff;
+	font-weight: normal;
+}
+.seccion5_notas_medio_bold{
+	font-family: AvenirNext-Bold, Verdana, Helvetica, sans;
+	font-size: 0.8em;
+	color: #ffffff;
+	font-weight: normal;
+}
+
+/* COPY */
+.seccion6_texto{
+	font-family: AvenirLTStd-Heavy, Verdana, Helvetica, sans;
+	font-size: 2em;
+	color: #ffffff;
+}
+
+.eventos_titulo{
+	font-family: AvenirNext-Bold, Verdana, Helvetica, sans;
+	font-size: 1.4em;
+	color: #3ab0c8;
+}
+.eventos_texto{
+	font-family: Avenir-Medium, Verdana, Helvetica, sans;
+	font-size: 0.8em;
+	color: #3ab0c8;
+}
+
+/* SECTION COLOR */
+.bg_amarillo{
+	background-color: #fcc837;
+}
+.bg_mostaza{
+	background-color: #eaad2a;
+}
+.bg_naranja{
+	background-color: #ec792d;
+}
+.bg_rojo{
+	background-color: #d72f36;
+}
+.bg_verde{
+	background-color: #a7b13b;
+}
+.bg_celeste{
+	background-color: #40adc7;
+}
+.bg_turquesa{
+	background-color: #00b1ca;
+}
+
+.popin{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	display: none;
+	background-image: url('../images/transparent.png');
+}
+
+.popin .boton:hover {
+	background-color: #000000;
+}
+
+#footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	margin-top: -500px;
+	height: 10%;
+	z-index: 101;
+}
+
+#footer .contents{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+input{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	resize: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: #000000;
+	padding: 3px;
+}
+
+textarea{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	resize: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: #ffffff;
+	padding: 3px;
+}
+
+.checkbox{
+	width: 17px;
+	height: 17px;
+	overflow: hidden;
+	background: url('../images/checkbox.png') no-repeat;
+	background-color: #FFFFFF;
+	background-position: 0px 0px;
+}
+.checked{
+	background-position: 0px -17px;
+}
+
+.checkbox_text{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #ffffff;
+	text-decoration: none;
+	line-height: 90%;
+}
+
+:focus {
+      outline: 0;
+      outline: none;
+}
+*:focus {outline: none;}
+
+.normal { font-weight: normal; }
+.bold { font-weight: bold; }
+.italic { font-style: oblique; }
+.nodecoration { text-decoration: none; }
+
+.amarillo { color: #fcc837; }
+.mostaza { color: #eaad2a; }
+.naranja { color: #ec792d; }
+.rojo { color: #d72f36; }
+.verde { color: #a7b13b; }
+.celeste { color: #40adc7; }
+.turquesa { color: #2b4ba2; }
+.blanco { color: #ffffff; }
+.negro { color: #000000; }
+.gris { color: #777777; }
+.mostaza2 { color: #f8bf32 }
+
+/*
+ * RESPONSITE STUFF
+ */
+@media screen and (min-width: 1200px) {
+	html { font-size: 100%; }
+}
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+	html { font-size: 90%; }
+}
+@media screen and (max-width: 1023px) {
+	html { font-size: 74%; }
+}
+

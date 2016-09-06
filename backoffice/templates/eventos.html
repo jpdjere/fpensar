@@ -1,0 +1,75 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>B&uacute;squeda de Eventos</h6></div>
+	<form name="frmBusqueda" action="eventos.php" method="post" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td><input type="text" name="txtBusqueda" value="{txtBusqueda}" size="40" maxlength="20" /></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tPagination" style="margin: 0;">
+						<ul class="pages">
+							<li><a href="javascript: document.frmBusqueda.submit();">&raquo; Iniciar B&uacute;squeda</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Listado de Eventos</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<thead>
+			<tr>
+				<td>Fecha</td>
+				<td width="40%">T&iacute;tulo</td>
+				<td width="40%">Texto</td>
+				<td class="options">Opciones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN EVENTOS -->
+			<tr>
+				<td>&nbsp;&nbsp;{strFechaListado}</td>
+				<td><a href="eventos_detalle.php?codEvento={codEvento}">{strTitulo}</td>
+				<td>{strTexto}</td>
+				<td class="options"><a href="eventos_detalle.php?codEvento={codEvento}"><img src="images/icons/bot_ver.gif" width="17" height="17" border="0" alt="Ver detalle de  Evento"></a>&nbsp;
+				<!-- BEGIN MODIFICAR_EVENTOS_UPDATE -->
+				<a href="eventos_modificar.php?codEvento={codEvento}"><img src="images/icons/bot_editar.gif" width="17" height="17" border="0" alt="Modificar Evento">
+				</a>&nbsp;
+				<a href="eventos_habilitar.php?codEvento={codEvento}" onClick="return confirm('Esta seguro que quiere {estadoAlt} la Evento seleccionada?');">
+					<img src="images/icons/bot_habilitar{estadoIcono}.gif" width="17" height="17" border="0" alt="{estadoAlt} Evento">
+				</a>&nbsp;
+				<!-- END MODIFICAR_EVENTOS_UPDATE -->
+				<!-- BEGIN MODIFICAR_EVENTOS_DELETE -->
+				<a href="eventos_borrar.php?codEvento={codEvento}" onClick="return confirm('Esta seguro que quiere Borrar la Evento seleccionada?');">
+					<img src="images/icons/bot_borrar.gif" width="17" height="17" border="0" alt="Borrar Evento">
+				</a>&nbsp;
+				<!-- END MODIFICAR_EVENTOS_DELETE -->
+				</td>
+			</tr>
+			<!-- END EVENTOS -->
+
+			<!-- BEGIN EVENTOS_VACIO -->
+				<td colspan="4" style="height: 10em; text-align: center;"><b>No existen Eventos con esos parámetros de Búsqueda.</b></td>
+			<!-- END EVENTOS_VACIO -->
+
+			<!-- BEGIN EVENTOS_VACIO_BUSQUEDA -->
+				<td colspan="4" style="height: 10em; text-align: center;"><b>No existen Eventos con esos parámetros de Búsqueda.</b></td>
+			<!-- END EVENTOS_VACIO_BUSQUEDA -->
+		</tbody>
+	</table>
+</div>
+
+{PAGINADOR}
+
+<!-- BEGIN MODIFICAR_EVENTOS_ADD -->
+	<div class="tPagination">
+		<ul class="pages">
+			<li><a href="eventos_agregar.php">&raquo; Agregar Evento</a></li>
+		</ul>
+	</div>
+<!-- END MODIFICAR_EVENTOS_ADD -->

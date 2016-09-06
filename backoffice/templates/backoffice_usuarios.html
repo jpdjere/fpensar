@@ -1,0 +1,45 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Usuarios del sistema</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<thead>
+			<tr>
+				<td><a href="backoffice_usuarios.php{strOrdenParameter}1&d={strDireccionOrden1}">Usuario</a></td>
+				<td>Descripci&oacute;n</td>
+				<td>Perfil</td>
+				<td class="options">Opciones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN USUARIOS -->
+				<tr>
+					<td><a href="backoffice_usuarios_detalle.php?codUsuario={strUsuario}">{strNombreUsuario}</a></td>
+					<td>{strDescripcion}</td>
+					<td>{strPerfil}</td>
+					<td class="options">
+					<a href="backoffice_usuarios_detalle.php?codUsuario={strUsuario}"><img src="images/icons/bot_ver.gif" width="17" height="17" border="0" alt="Ver detalle del Usuario" title="Ver detalle del Usuario" /></a>
+					<!-- BEGIN MODIFICAR_USUARIOS_UPDATE -->
+						<a href="backoffice_usuarios_modificar.php?codUsuario={strUsuario}"><img src="images/icons/bot_editar.gif" width="17" height="17" border="0" alt="Modificar Usuario" title="Modificar Usuario" /></a>
+						<a href="backoffice_usuarios_modificar_contrasenia.php?codUsuario={strUsuario}"><img src="images/icons/bot_contrasenia.gif" width="17" height="17" border="0" alt="Cambiar Contrase&ntilde;a" title="Cambiar Contrase&ntilde;a"></a>
+						<a href="backoffice_usuarios_habilitar.php?codUsuario={strUsuario}" onclick="if ({blnUsuarioActual}){ alert('No puede {estadoAlt} su usuario actual'); return false;} else return confirm('Est&aacute; seguro que desea {estadoAlt} el usuario {strNombreUsuario}?');">
+						<img src="images/icons/bot_habilitar{estadoIcono}.gif" width="17" height="17" border="0" alt="{estadoAlt} Usuario" title="{estadoAlt} Usuario" /></a>
+					<!-- END MODIFICAR_USUARIOS_UPDATE -->
+					<!-- BEGIN MODIFICAR_USUARIOS_DELETE -->
+						<a href="backoffice_usuarios_borrar.php?codUsuario={strUsuario}" onclick="if ({blnUsuarioActual}){ alert('No puede borrar el usuario con el que se encuentra logueado'); return false;} else return confirm('Est&aacute; seguro que desea borrar el usuario {strNombreUsuario}?');">
+						<img src="images/icons/bot_borrar.gif" width="17" height="17" border="0" alt="Borrar Usuario" title="Borrar Usuario" /></a>
+					<!-- END MODIFICAR_USUARIOS_DELETE -->
+					</td>
+				</tr>
+			<!-- END USUARIOS -->
+		</tbody>
+	</table>
+</div>
+
+{PAGINADOR}
+
+<!-- BEGIN AGREGAR_USUARIOS -->
+	<div class="tPagination">
+		<ul class="pages">
+			<li><a href="backoffice_usuarios_agregar.php">&raquo; Agregar Usuario</a></li>
+		</ul>
+	</div>
+<!-- END AGREGAR_USUARIOS -->

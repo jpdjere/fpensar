@@ -1,0 +1,63 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de Coyuntura</h6></div>
+	<form name="frmCoyuntura" method="POST" enctype="multipart/form-data" action="coyuntura_modificar.php" class="form">
+	<input type="hidden" name="codCoyuntura" value="{codCoyuntura}">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Titulo:</td>
+				<td><input type="text" size="50" name="strTitulo" value="{strTitulo}" maxlength="255" />
+				<div class="errors">{errorTitulo}</div></td>
+			</tr>
+			<tr>
+				<td>Secci&oacute;n Internacional:</td>
+				<td><input type="text" size="50" name="strSeccionInternacional" value="{strSeccionInternacional}" maxlength="255" />
+				<div class="errors">{errorSeccionInternacional}</div></td>
+			</tr>
+			<tr>
+				<td>Secci&oacute;n Econom&iacute;a:</td>
+				<td><input type="text" size="50" name="strSeccionEconomia" value="{strSeccionEconomia}" maxlength="255" />
+				<div class="errors">{errorSeccionEconomia}</div></td>
+			</tr>
+			<tr>
+				<td>Secci&oacute;n Pol&iacute;tica:</td>
+				<td><input type="text" size="50" name="strSeccionPolitica" value="{strSeccionPolitica}" maxlength="255" />
+				<div class="errors">{errorSeccionPolitica}</div></td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td><div><img src="../{PATH_IMAGEN_COYUNTURA}/{strImagen}" width="{IMAGEN_COYUNTURA_GRANDE_ANCHO}" height="{IMAGEN_COYUNTURA_GRANDE_ALTO}" /></div>
+				<div><input type="file" name="strImagen" size="30">
+				<input type="hidden" name="strImagenAnterior" value="{strImagen}"></div>
+				<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				<div class="errors">{errorImagen}</div></td>
+			</tr>
+			<tr>
+				<td>Archivo:</td>
+				<td>
+				<div><input type="file" name="strArchivo" size="30">
+				<input type="hidden" name="strArchivoAnterior" value="{strArchivo}"></div>
+				<div style="margin: 5px 0 0 0;">{strArchivo}</div>
+				<div class="errors">{errorArchivo}</div></td>
+			</tr>
+			<tr>
+				<td>Fecha:</td>
+				<td><input type="text" size="50" name="strFecha" value="{strFecha}" class="datepicker" maxlength="10" />
+				<div class="errors">{errorFecha}</div></td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td><label for="radHabilitado"><input type="radio" name="strHabilitado" id="radHabilitado" value="true" {blnHabilitado}> Habilitado</label>
+				&nbsp;<label for="radDeshabilitado"><input type="radio" name="strHabilitado" id="radDeshabilitado" value="false" {blnDeshabilitado}> Deshabilitado</label></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: document.frmCoyuntura.submit();">&raquo; Confirmar</a></li>
+		<li><a href="coyuntura_detalle.php?codCoyuntura={codCoyuntura}">&raquo; Volver</a></li>
+	</ul>
+</div>

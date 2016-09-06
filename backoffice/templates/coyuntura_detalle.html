@@ -1,0 +1,67 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de Coyuntura</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td width="20%">T&iacute;tulo:</td>
+				<td>{strTitulo}</td>
+			</tr>
+			<tr>
+				<td>Secci&oacute;n Internacional:</td>
+				<td>{strSeccionInternacional}</td>
+			</tr>
+			<tr>
+				<td>Secci&oacute;n Econom&iacute;a:</td>
+				<td>{strSeccionEconomia}</td>
+			</tr>
+			<tr>
+				<td>Secci&oacute;n Pol&iacute;tica:</td>
+				<td>{strSeccionPolitica}</td>
+			</tr>
+			<tr>
+				<td>Imagen Chica:</td>
+				<td>
+					<div><img src="../{PATH_IMAGEN_COYUNTURA}/thumbs/{strImagen}" width="{IMAGEN_COYUNTURA_CHICA_ANCHO}" height="{IMAGEN_COYUNTURA_CHICA_ALTO}" /></div>
+					<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td>
+					<div><img src="../{PATH_IMAGEN_COYUNTURA}/{strImagen}" width="{IMAGEN_COYUNTURA_GRANDE_ANCHO}" height="{IMAGEN_COYUNTURA_GRANDE_ALTO}" /></div>
+					<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Archivo:</td>
+				<td><a href="../{PATH_IMAGEN_COYUNTURA}/{strArchivo}" target="_blank">{strArchivo}</a>
+				</td>
+			</tr>
+			<tr>
+				<td>Fecha:</td>
+				<td>{strFechaListado}</td>
+			</tr>
+			<tr>
+				<td>Fecha de Alta:</td>
+				<td>{strFechaAlta}</td>
+			</tr>
+			<tr>
+				<td>Fecha de Modificaci&oacute;n:</td>
+				<td>{strFechaModificacion}</td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td>{strEstadoCoyuntura}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<!-- BEGIN MODIFICAR_COYUNTURA -->
+			<li><a href="coyuntura_modificar.php?codCoyuntura={codCoyuntura}">&raquo; Editar Coyuntura</a></li>
+		<!-- END MODIFICAR_COYUNTURA -->
+		<li><a href="coyuntura.php">&raquo; Volver</a></li>
+	</ul>
+</div>

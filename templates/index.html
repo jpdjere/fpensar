@@ -1,0 +1,613 @@
+{JS_FUNCTIONS}
+<!--div id="divLoading" class="popin">
+	<div class="contents">
+		<div style="position: absolute; top: 0; left: 0; width: 417px; height: 146px;"><img src="images/popin_fondo_redes.png" width="417" height="146" alt="" /></div>
+		<div style="position: absolute; top: 35px; left: 40px; width: 337px;">
+			<div id="divLoadingMensaje" class="texto-bold f16" style="position: relative; width: 337px; text-align: center;">
+				CONECTANDO CON EL SERVIDOR<br/>
+				<span class="texto-regular">Por favor aguarda un instante mientras se procesa la información.</span>
+			</div>
+			<div style="position: relative; width: 337px; text-align: center;">
+				<div style="position: relative; width: 32px; margin: 8px auto;"><img src="images/loading.gif" width="32" height="22" alt="" /></div>
+			</div>
+		</div>
+	</div>
+</div-->
+
+<!--div id="divAlerta" class="popin">
+	<div class="contents">
+		<div style="position: absolute; top: 0; left: 0; width: 417px; height: 146px;"><img src="images/popin_fondo_redes.png" width="417" height="146" alt="" /></div>
+		<div style="position: absolute; top: 5px; left: 400px; width: 25px; height: 24px;">
+			<a href="javascript: hideAlertaScreen();"><img src="images/popin_cerrar.png" width="25" height="24" alt="Cerrar" /></a>
+		</div>
+		<div style="position: absolute; top: 35px; left: 40px; width: 337px;">
+			<div id="divAlertaTitulo" class="texto-bold f16" style="position: relative; width: 337px; text-align: center;">
+				¡ALERTA!
+			</div>
+			<div id="divAlertaMensaje" class="texto-regular f16" style="position: relative; width: 337px; text-align: center;">
+				Mensaje de Alerta.
+			</div>
+			<div id="divAlertaBoton" style="position: absolute; top: 55px; width: 337px; text-align: center;">
+				<div style="position: relative; width: 110px; margin: 8px auto;">
+					<div class="boton" onclick="hideAlertaScreen();">OK</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div-->
+
+<div id="content">
+	<div id="divHeaderSpacer" class="clear" style="position: relative; top: 0; left: 0; width: 100%; height: 9%; min-height: 60px;"></div>
+	<div id="divHome" class="seccion bg_amarillo">
+		<div id="divHomeInterna" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+			<div style="position: relative; top: 0%; width: 80%; height: 90%; min-height: 320px; max-height: 700px; margin: 0 auto;">
+				<img class="centeredXY" src="images/home_logo_big.png" height="100%" style="max-height: 628px;" alt="Pensar. Usina de ideas de PRO" />
+				<div id="divPreloadingSite" style="position: absolute; top: 80%; width: 100%; height: 40%; margin: 0 auto; text-align: center">CARGANDO SITIO...</div>
+			</div>
+
+			<div id="divHomeEnd" class="seccion_end"></div>
+		</div>
+		<div id="divHomeScrollLeft" style="position: absolute; top: 0; left: 0; width: 5%; min-width: 60px; height: 100%; display: none;">
+			<a href="javascript: scrollToPreviousSectionInterna(0);"><img src="images/boton_scroll_left.png" class="centeredXY" width="90%" /></a>
+		</div>
+		<div id="divHomeScrollRight" style="position: absolute; top: 0; left: 95%; width: 5%; min-width: 60px; height: 100%; display: none;">
+			<a href="javascript: scrollToNextSectionInterna(0);"><img src="images/boton_scroll_right.png" class="centeredXY" width="90%" /></a>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+	<!--div id="divFrase" class="seccion bg_amarillo">
+		<div id="divFraseInterna" style="position: absolute; top: 0; left: 0%; width: 100%; height: 100%; overflow: hidden;">
+			<img src="images/foto_frase.jpg" width="100%" alt="Solamente con gente e ideas nuevas podemos construir algo diferente" class="centeredX"/>
+			<div class="round_borders opacity85" style="position: absolute; top: 3%; left: 10%; width: 80%; min-height: 10%; background: #ffffff;">
+				<div style="position: relative; margin: 15px; text-align: center;">
+					<span class="home_frase mostaza2">&quot;Solamente con gente e ideas nuevas<br/>podemos construir algo diferente&quot;</span><br/>
+					<span class="home_frase_autor mostaza2">Mauricio Macri</span>
+					<div class="clear"></div>
+				</div>
+			</div>
+
+			<div id="divFraseEnd" class="seccion_end"></div>
+		</div>
+		<div id="divFraseScrollLeft" style="position: absolute; top: 0; left: 0; width: 5%; min-width: 60px; height: 100%; display: none;">
+			<a href="javascript: scrollToPreviousSectionInterna(0);"><img src="images/boton_scroll_left.png" class="centeredXY" width="90%" /></a>
+		</div>
+		<div id="divFraseScrollRight" style="position: absolute; top: 0; left: 95%; width: 5%; min-width: 60px; height: 100%; display: none;">
+			<a href="javascript: scrollToNextSectionInterna(0);"><img src="images/boton_scroll_right.png" class="centeredXY" width="90%" /></a>
+		</div>
+	</div-->
+
+	<div id="divDestacados" class="seccion bg_mostaza">
+		<div id="divDestacadosInterna" style="position: absolute; top: 0; left: 0%; width: 100%; height: 100%; min-height: 500px;">
+			<div id="divDestacadosInterna1" style="position: relative; top: 5%; width: 70%; height: 90%; margin: 0 auto;">
+
+				<div class="round_borders" style="position: relative; float: left; margin: 0 0 0 5%; width: 28.1%; overflow: hidden;">
+					<!-- BEGIN DESTACADOS_1 -->
+						<a href="{strDestacadosLinkURL}" target="_blank"><img src="images/destacados/{strDestacadosImagen}" width="100%" alt="{strDestacadosTitulo}" style="float: right"/></a>
+					<!-- END DESTACADOS_1 -->
+				</div>
+				<div class="round_borders" style="position: relative; float: left; margin: 0 0 0 2%; width: 60%; overflow: hidden;">
+					<!-- BEGIN DESTACADOS_2 -->
+						<a href="{strDestacadosLinkURL}" target="_blank"><img src="images/destacados/{strDestacadosImagen}" width="100%" alt="{strDestacadosTitulo}" style="float: right"/></a>
+					<!-- END DESTACADOS_2 -->
+				</div>
+				<div class="clear" style="height: 2%"></div>
+
+				<div class="round_borders" style="position: relative; float: left; margin: 0 0 0 5%; width: 28.1%; overflow: hidden;">
+					<!-- BEGIN DESTACADOS_1_BIS -->
+						<a href="{strDestacadosLinkURL}" target="_blank"><img src="images/destacados/{strDestacadosImagen}" width="100%" alt="{strDestacadosTitulo}" style="float: right; visibility: hidden;;"/></a>
+					<!-- END DESTACADOS_1_BIS -->
+
+					<div style="position: absolute; width: 100%; height: 100%;">
+						<div class="round_borders" style="position: relative; margin: 0; width: 100%; height: 48%; background-color: #00b1ca; overflow: hidden;">
+							<div class="centeredY" style="position: relative; width: 90%; margin: 0% 5%; text-align: center;" onclick="gotoSeccion(1, 2, true); ga('send', 'event', 'Sección: PLATAFORMA PENSAR', 'clicked');">
+								<a href="javascript: gotoSeccion(1, 2, true); ga('send', 'event', 'Sección: PLATAFORMA PENSAR', 'clicked');" class="destacados_botones_cursos">PARTICIPÁ</a>
+							</div>
+						</div>
+						<div class="clear" style="height: 4%;"></div>
+
+						<div class="round_borders" style="position: relative; margin: 0; width: 100%; height: 48%; background-color: #00b1ca; overflow: hidden;">
+							<div class="centeredY" style="position: relative; width: 90%; margin: 0% 5%; text-align: center;">
+								<a href="http://qualitaslearning.com/w/r/login.aspx?t=1|1|55|" class="destacados_botones_cursos" target="blank">INGRESÁ A NUESTROS CURSOS VIRTUALES</a>
+							</div>
+						</div>
+					</div>
+
+					<!--div class="round_borders" style="position: absolute; width: 100%; height: 48%; background-color: #00b1ca; overflow: hidden;" onclick="javascript: gotoSeccion(1, 2, true); ga('send', 'event', 'Sección: PLATAFORMA PENSAR', 'clicked');">
+						<div class="centeredY" style="position: relative; width: 90%; margin: 0 0 0 5%; text-align: center;">
+							<a href="javascript: gotoSeccion(1, 2, true); ga('send', 'event', 'Sección: PLATAFORMA PENSAR', 'clicked');" class="destacados_botones_cursos">CONOCÉ NUESTROS<br/>CURSOS VIRTUALES</a>
+						</div>
+					</div>
+					<div class="round_borders" style="position: absolute; top: 52%; width: 100%; height: 48%; background-color: #00b1ca; overflow: hidden;">
+						<div class="centeredY" style="position: relative; width: 90%; margin: 0 0 0 5%; text-align: center;">
+							<a href="http://qualitaslearning.com/w/r/login.aspx?t=1|1|55|" target="_blank" class="destacados_botones_cursos">INGRESÁ A NUESTROS<br/>CURSOS VIRTUALES</a>
+						</div>
+					</div-->
+				</div>
+
+				<div class="round_borders" style="position: relative; float: left; margin: 0 0 0 2%; width: 60%; overflow: hidden;">
+					<!-- BEGIN DESTACADOS_3 -->
+						<a href="{strDestacadosLinkURL}" target="_blank"><img src="images/destacados/{strDestacadosImagen}" width="100%" alt="{strDestacadosTitulo}" /></a>
+					<!-- END DESTACADOS_3 -->
+				</div>
+				<div class="clear" style="height: 2%"></div>
+
+				<div class="round_borders" style="position: relative; margin: 0 0 0 5%; width: 90.1%; height: 8%; background-color: #ffffff; overflow: hidden;">
+					<div class="centeredY" style="position: relative; width: 90%; margin: 0% 5%; text-align: center;" onclick="window.open('http://www.pro.com.ar/participa/pensar');">
+						<a href="#" class="destacados_boton_participa">PARTICIPÁ</a>
+					</div>
+				</div>
+			</div>
+
+			<div id="divDestacadosInterna2" style="position: absolute; top: 0; left: 100%; width: 100%; height: 100%; min-height: 500px;">
+				<div style="position: absolute; top: 10px; left: 2%; width: 98%; height: 50px;">
+					<div class="seccion_title">PLATAFORMA PENSAR</div>
+				</div>
+
+				<div style="position: relative; top: 10%; left: 5%; width: 90%; height: 90%;">
+				
+					<div class="cursos_texto_titulo negro" style="position: relative; width: 66%; margin: 0 auto 1% auto; text-align; center;">
+						La Plataforma Pensar es la comunidad virtual de la Fundación Pensar en donde nos capacitamos, debatimos, conectamos las mejores ideas de todo el país y construimos juntos las propuestas de cara al futuro. Clickea sobre alguno de los cursos para inscribirte.
+					</div>
+
+					<div style="position: relative; top: 1%; width: 100%;">
+						<!-- BEGIN CURSO_1 -->
+							<div class="round_borders div_shadow" style="position: relative; float: left; margin-left: 17%; width: 30%; background-color: #eb792d; border: 3px solid #ffffff; cursor: pointer"
+							onclick="if ({blnInscripcionActiva}){ showCursosFormInicial({intCurso}); }else{ if ({blnInscripcionFinalizada}){ showCursosInscripcionFinalizada(); }else{ showCursosInscripcionNoIniciada(); }}">
+								<div class="cursos_titulo" style="position: relative; width: 90%; margin: 2% 5%; text-align: center;">{strCursoTitulo}</div>
+		
+								<div style="position: relative; width: 90%; margin: 2% 5%;">
+									<div class="cursos_texto_titulo">&iquest;Cu&aacute;ndo me inscribo?</div>
+									<div class="cursos_texto">Del {strCursoFechaInicioInscripcionCorta} al {strCursoFechaFinInscripcionCorta}</div>
+									<div class="cursos_texto_titulo">&iquest;Cu&aacute;ndo se desarrolla la cursada?</div>
+									<div class="cursos_texto">El {strCursoFecha}</div>
+								</div>
+		
+								<div class="round_borders" style="position: relative; width: 50%; height: 40%; margin: 3% auto; background-color: #ffffff;">
+									<div id="divCurso{intCurso}Cupo1" class="round_borders cursos_cupos" style="position: absolute; top: 10%; left: 8%; width: 40%; height: 80%; background-color: #eb792d;">
+										{strCursoCupos1}
+									</div>
+									<div id="divCurso{intCurso}Cupo2" class="round_borders cursos_cupos" style="position: absolute; top: 10%; left: 54%; width: 40%; height: 80%; background-color: #eb792d;">
+										{strCursoCupos2}
+									</div>
+									<div class="blanco bold" style="position: absolute; top: -17%; left: 0%; width: 100%; height: 10%; text-align: center;">
+										VACANTES
+									</div>
+									<div class="clear cursos_cupos" style="height: 100%; margin: 10%;">&nbsp;</div>
+								</div>
+							</div>
+						<!-- END CURSO_1 -->
+
+						<!-- BEGIN CURSO_2 -->
+							<div class="round_borders div_shadow" style="position: relative; float: left; margin-left: 6%; width: 30%; background-color: #d62f35; border: 3px solid #ffffff; cursor: pointer" 
+							onclick="if ({blnInscripcionActiva}){ showCursosFormInicial({intCurso}); }else{ if ({blnInscripcionFinalizada}){ showCursosInscripcionFinalizada(); }else{ showCursosInscripcionNoIniciada(); }}">
+								<div class="cursos_titulo" style="position: relative; width: 90%; margin: 2% 5%; text-align: center;">{strCursoTitulo}</div>
+	
+								<div style="position: relative; width: 90%; margin: 2% 5%;">
+									<div class="cursos_texto_titulo">&iquest;Cu&aacute;ndo me inscribo?</div>
+									<div class="cursos_texto">Del {strCursoFechaInicioInscripcionCorta} al {strCursoFechaFinInscripcionCorta}</div>
+									<div class="cursos_texto_titulo">&iquest;Cu&aacute;ndo se desarrolla la cursada?</div>
+									<div class="cursos_texto">El {strCursoFecha}</div>
+								</div>
+	
+								<div class="round_borders" style="position: relative; width: 50%; height: 40%; margin: 0% auto 2% auto; background-color: #ffffff;">
+									<div class="round_borders cursos_cupos" style="position: absolute; top: 10%; left: 8%; width: 40%; height: 80%; background-color: #d62f35;">
+										{strCursoCupos1}
+									</div>
+									<div class="round_borders cursos_cupos" style="position: absolute; top: 10%; left: 54%; width: 40%; height: 80%; background-color: #d62f35;">
+										{strCursoCupos2}
+									</div>
+									<div class="blanco bold" style="position: absolute; top: -15%; left: 0%; width: 100%; height: 10%; text-align: center;">
+										VACANTES
+									</div>
+									<div class="clear cursos_cupos" style="height: 100%; margin: 10%;">&nbsp;</div>
+								</div>
+							</div>
+						<!-- END CURSO_2 -->
+
+						<!-- BEGIN NO_CURSOS -->
+							<div class="round_borders div_shadow" style="position: relative; width: 60%; margin: 0 auto; background-color: #ebb500; border: 5px solid #ffffff; cursor: pointer;">
+								<div class="cursos_proximamente blanco" style="position: relative; width: 90%; margin: 2% 5%; text-align: center;">{CURSOS_MENSAJE_PROXIMAMENTE}</div>
+							</div>
+						<!-- END NO_CURSOS -->
+
+							<div class="clear"></div>
+							<div class="round_borders div_shadow" style="position: relative; width: 60%; margin: 1% auto; background-color: #ebb500; border: 5px solid #ffffff; cursor: pointer;">
+								<div class="cursos_proximamente blanco" style="position: relative; width: 90%; margin: 2% 5%; text-align: center;"><a href="http://fundacionpensar.org/pdf/CursosPlataforma.pdf" target="_blank">Listado completo de cursos</a></div>
+							</div>
+
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+
+					<div id="divInscripcionCursoNoIniciada" class="round_borders div_shadow centeredY" style="position: absolute; left: 25%; width: 50%; background-color: #fcc837; border: 3px solid #ffffff; z-index: 999; display: none;">
+						<div style="position: relative; padding: 1em 5% 0 5%; width: 90%; height: 80%; text-align: center;">
+							<span class="home_frase">La inscripci&oacute;n al curso no ha comenzado a&uacute;n.</span>
+						</div>
+						<div class="clear"></div>
+
+						<div style="position: relative; margin: 1em auto; width: 90%; height: 10%; text-align: center;">
+							<div class="round_borders blanco bold" 
+							style="position: relative; margin: 0 auto; width: 40%; text-align: center; padding: 0.4em; background-color: #ec792d; cursor: pointer;" 
+							onclick="javascript: hideCursosInscripcionNoIniciada();">CERRAR</div>
+						</div>
+					</div>
+
+					<div id="divInscripcionCursoFinalizada" class="round_borders div_shadow centeredY" style="position: absolute; left: 25%; width: 50%; background-color: #fcc837; border: 3px solid #ffffff; z-index: 999; display: none;">
+						<div style="position: relative; padding: 1em 5% 0 5%; width: 90%; height: 80%; text-align: center;">
+							<span class="home_frase">La inscripci&oacute;n al curso ya ha finalizado.</span>
+						</div>
+						<div class="clear"></div>
+
+						<div style="position: relative; margin: 1em auto; width: 90%; height: 10%; text-align: center;">
+							<div class="round_borders blanco bold" 
+							style="position: relative; margin: 0 auto; width: 40%; text-align: center; padding: 0.4em; background-color: #ec792d; cursor: pointer;" 
+							onclick="javascript: hideCursosInscripcionFinalizada();">CERRAR</div>
+						</div>
+					</div>
+
+					<div id="divRegistroCurso" class="round_borders div_shadow centeredY" style="position: absolute; left: 15%; width: 70%; background-color: #fcc837; border: 3px solid #ffffff; z-index: 999; display: none;">
+						<div style="position: relative; float: left; padding: 1em 5% 0 5%; width: 40%; height: 80%; text-align: center;">
+							<span class="home_frase">&iquest;Ya sos parte de la plataforma?</span>
+							<div class="clear" style="height: 1em;"></div>
+							Dejanos tu mail para participar de este curso: 
+							<div class="clear" style="height: 1em;"></div>
+							<input type="text" name="txtEmailCurso" id="txtEmailCurso" value="" maxlength="50" placeholder="Escribí tu email..." class="round_borders" 
+							style="left: 10%; width: 80%; font-size: 1.2em; padding: 0.5em; background-color: #ffffff;" />
+							<div class="clear"></div>
+							<div id="divRegistroCursoError" style="position: relative; padding: 0.5em; font-size: 0.8em;"></div>
+							<div class="clear"></div>
+							<div class="round_borders blanco bold" 
+							style="position: relative; margin: 0 auto; width: 80%; text-align: center; padding: 1em; background-color: #eaad2a; cursor: pointer;" 
+							onclick="javascript: suscribirseCursoUsuario();">
+								INSCRIBIRSE
+							</div>
+						</div>
+						<div style="position: relative; float: left; padding: 1em 5% 0 5%; width: 40%; height: 80%; text-align: center;">
+							<span class="home_frase">&iquest;No sos parte de la plataforma?</span><br/>
+							<div class="clear" style="height: 1em;"></div>
+							Completá el formulario y comenz&aacute; a participar.
+							<div class="clear" style="height: 1em;"></div>
+							<div class="round_borders blanco bold" 
+							style="position: relative; margin: 0 auto; width: 80%; text-align: center; padding: 1em; background-color: #eaad2a; line-height: 150%; cursor: pointer;" 
+							onclick="javascript: hideCursosFormInicial(); showCursosForm();">
+								FORMULARIO DE<br/>INSCRIPCI&Oacute;N A CURSO
+							</div>
+						</div>
+						<div class="clear"></div>
+
+						<div style="position: relative; margin: 1em auto; width: 90%; height: 10%; text-align: center;">
+							<div class="round_borders blanco bold" 
+							style="position: relative; margin: 0 auto; width: 40%; text-align: center; padding: 0.4em; background-color: #ec792d; cursor: pointer;" 
+							onclick="javascript: hideCursosFormInicial();">CERRAR</div>
+						</div>
+					</div>
+
+					<div id="divRegistroCursoFormulario" class="round_borders div_shadow centeredY" style="position: absolute; left: 15%; width: 70%; background-color: #fcc837; border: 3px solid #ffffff; z-index: 999; display: none;">
+						<div style="position: relative; padding: 1em 0 0 10%; width: 80%; height: 80%; text-align: center;">
+							<span class="home_frase">&iquest;No sos parte de la plataforma?</span><br/>
+							<div class="clear" style="height: 1em;"></div>
+							Completá el formulario y comenz&aacute; a participar.
+							<form name="frmRegistroCursos" id="frmRegistroCursos" method="post" action="">
+								<div class="clear" style="height: 1em;"></div>
+								<input type="text" name="txtNombre" value="" maxlength="50" placeholder="Nombre..." class="round_borders" 
+								style="left: 10%; width: 60%; font-size: 1em; padding: 0.3em 1em; background-color: #ffffff;" />
+								<div class="clear" style="height: 0.3em;"></div>
+								<input type="text" name="txtApellido" value="" maxlength="50" placeholder="Apellido..." class="round_borders" 
+								style="left: 10%; width: 60%; font-size: 1em; padding: 0.3em 1em; background-color: #ffffff;" />
+								<div class="clear" style="height: 0.3em;"></div>
+								<input type="text" name="txtDNI" value="" maxlength="8" placeholder="DNI..." class="round_borders" 
+								style="left: 10%; width: 60%; font-size: 1em; padding: 0.3em 1em; background-color: #ffffff;" />
+								<div class="clear" style="height: 0.3em;"></div>
+								<input type="text" name="txtEmail" value="" maxlength="50" placeholder="Email..." class="round_borders" 
+								style="left: 10%; width: 60%; font-size: 1em; padding: 0.3em 1em; background-color: #ffffff;" />
+								<div class="clear" style="height: 0.3em;"></div>
+								<input type="text" name="txtProvincia" value="" maxlength="50" placeholder="Provincia..." class="round_borders" 
+								style="left: 10%; width: 60%; font-size: 1em; padding: 0.3em 1em; background-color: #ffffff;" />
+								<div class="clear" style="height: 0.3em;"></div>
+								<input type="text" name="txtTelefono" value="" maxlength="50" placeholder="Teléfono..." class="round_borders" 
+								style="left: 10%; width: 60%; font-size: 1em; padding: 0.3em 1em; background-color: #ffffff;" />
+								<div class="clear" style="height: 0.3em;"></div>
+								<input type="password" name="txtContrasenia" value="" maxlength="50" placeholder="Contrase&ntilde;a..." class="round_borders" 
+								style="left: 10%; width: 60%; font-size: 1em; padding: 0.3em 1em; background-color: #ffffff;" />
+								<div class="clear" style="height: 0.3em;"></div>
+								<input type="password" name="txtContraseniaConfirmacion" value="" maxlength="50" placeholder="Confirmaci&oacute;n de contrase&ntilde;a..." class="round_borders" 
+								style="left: 10%; width: 60%; font-size: 1em; padding: 0.3em 1em; background-color: #ffffff;" />
+								<div class="clear" style="height: 0.5em;"></div>
+								<div id="divRegistroCursoErrorFormulario" style="position: relative; padding: 0.5em; font-size: 0.8em;"></div>
+								<div class="clear"></div>
+							</form>
+
+							<div class="round_borders blanco bold" 
+							style="position: relative; float: left; margin: 0 0 0 5%; width: 40%; text-align: center; padding: 0.5em; background-color: #eaad2a; cursor: pointer;" 
+							onclick="javascript: submitCursosFormulario();">
+								INSCRIBIRSE
+							</div>
+
+							<div class="round_borders blanco bold" 
+							style="position: relative; float: left; margin: 0 0 0 5%; width: 40%; text-align: center; padding: 0.5em; background-color: #eaad2a; cursor: pointer;" 
+							onclick="javascript: hideCursosForm();">
+								VOLVER
+							</div>
+							<div class="clear" style="height: 0.5em;"></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+
+					<div style="position: relative; margin: 1.5% auto; padding-left: 1%; width: 69%; height: 25%;">
+						<div class="round_borders div_shadow" style="position: relative; float: left; width: 22%; margin: 0 10% 0 5.5%; background-color: #eb792d; border: 3px solid #ffffff; overflow: hidden;">
+							<a href="#" onmouseover="showCursosTooltip(1);"><img src="images/cursos_propuestas_federales.jpg" width="100%" alt="Pensar País" /></a>
+						</div>
+						<div class="round_borders div_shadow" style="position: relative; float: left; width: 22%; margin-right: 10%; background-color: #eb792d; border: 3px solid #ffffff; overflow: hidden;">
+							<a href="#" onmouseover="showCursosTooltip(2);"><img src="images/cursos_wiki_pensar.jpg" width="100%" alt="Pensar País" /></a>
+						</div>
+						<div class="round_borders div_shadow" style="position: relative; float: left; width: 22%; margin-right: 0%; background-color: #eb792d; border: 3px solid #ffffff; overflow: hidden;">
+							<a href="#" onmouseover="showCursosTooltip(3);"><img src="images/cursos_wiki_biblioteca.jpg" width="100%" alt="Pensar País" /></a>
+						</div>
+						<!--div class="round_borders div_shadow" style="position: relative; float: left; width: 22%; margin: 0; background-color: #eb792d; border: 3px solid #ffffff; overflow: hidden;">
+							<a href="#" onmouseover="showCursosTooltip(4);"><img src="images/cursos_plataforma_pensar.jpg" width="100%" alt="Pensar País" /></a>
+							<a href="http://qualitaslearning.com/w/r/login.aspx?t=1|1|55|" target="_blank"><img src="images/cursos_plataforma_pensar.jpg" width="100%" alt="Pensar País" /></a>
+						</div-->
+
+						<div id="divToolTipBox1" class="cursos_texto negro round_borders" style="position: absolute; top: -25%; left: 4%; width: 25%; min-height: 110%; background-color: #fcf7e4; padding: 1em; display: none;" 
+						onmouseout="hideCursosTooltip(1);">
+							Propuestas federales, un espacio virtual dinámico de intercambio y estudio para el desarrollo de políticas a nivel nacional, regional, provincial y local. Los participantes de todo el país encuentran una metodología de trabajo, un lugar para conectarse y la contención para elaborar propuestas aplicables para sus comunidades.
+						</div>
+						<div id="divToolTipBox2" class="cursos_texto negro round_borders" style="position: absolute; top: -25%; left: 36%; width: 25%; min-height: 110%; background-color: #fcf7e4; padding: 1em; display: none;" 
+						onmouseout="hideCursosTooltip(2);">
+							Wiki Pensar, la primera enciclopedia colectiva de políticas públicas. Como en Wikipedia, cualquier usuario puede generar un artículo sobre un tema de interés o puede colaborar en los artículos generados por otros usuarios. Todos pueden contribuir a generar mejor información para elaborar políticas públicas.
+						</div>
+						<div id="divToolTipBox3" class="cursos_texto negro round_borders" style="position: absolute; top: -25%; left: 68%; width: 25%; min-height: 110%; background-color: #fcf7e4; padding: 1em; display: none;" 
+						onmouseout="hideCursosTooltip(3);">
+							Biblioteca de Políticas Públicas: con más de 350 documentos de política pública disponibles para utilizar como insumo para elaborar propuestas locales, regionales y provinciales.
+						</div>
+						<!--div id="divToolTipBox4" class="cursos_texto negro round_borders" style="position: absolute; top: -25%; left: 75%; width: 25%; min-height: 110%; background-color: #fcf7e4; padding: 1em; display: none;" 
+						onmouseout="hideCursosTooltip(4);">
+							Inscribite en la Plataforma Pensar.
+						</div-->
+					</div>
+				</div>
+			</div>
+
+			<div id="divDestacadosEnd" class="seccion_end"></div>
+		</div>
+		<div id="divDestacadosScrollLeft" style="position: absolute; top: 0; left: 0; width: 5%; min-width: 60px; height: 100%; display: none;">
+			<a href="javascript: scrollToPreviousSectionInterna(1);"><img src="images/boton_scroll_left.png" class="centeredXY" width="90%" /></a>
+		</div>
+		<div id="divDestacadosScrollRight" style="position: absolute; top: 0; left: 95%; width: 5%; min-width: 60px; height: 100%; display: none;">
+			<!--a href="javascript: scrollToNextSectionInterna(2);"><img src="images/boton_scroll_right.png" class="centeredXY" width="90%" /></a-->
+		</div>
+	</div>
+	<div class="clear"></div>
+
+	<div id="divSeccion1" class="seccion bg_naranja">
+		<div id="divSeccion1Interna" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+			<div style="position: absolute; top: 10px; left: 2%; width: 98%; height: 50px;">
+				<div class="seccion_title">&iquest;QU&Eacute; HACEMOS?</div>
+			</div>
+
+			<div id="divSeccion1InternaFondo" style="position: absolute; top: 60px; left: 0; width: 100%; height: 100%; margin: 0; background-image: url('images/fondo_quienes_somos.jpg'); background-position: center center; background-repeat: no-repeat;">
+			</div>
+			<div id="divSeccion1InternaScroll" style="position: relative; top: 60px; width: 80%; height: 100%; margin: 0 auto;">
+
+				<div style="position: relative; top: 1em; left: 10%; width: 80%; background-color: rgba(255,255,255,0.65);">
+					<div class="round_borders" style="position: relative; float: left; margin: 3%; width: 25%; overflow: hidden;">
+						<img src="images/que_hacemos_foto1.png" width="100%" alt="" />
+					</div>
+					<div style="position: relative; float: left; margin: 5% 0 0 0; width: 66%; overflow: hidden;">
+						<span class="seccion1_title_new">PLANES Y EQUIPOS</span>
+						<div class="clear" style="height: 0.5em;"></div>
+						<span class="seccion1_text_new">La Fundación Pensar es la usina de ideas de PRO. Nuestro fin es armar los planes de gobierno y preparar a los equipos técnicos del partido para el gobierno de Mauricio Macri en el 2015. Desde el 2010 buscamos generar consensos de política pública entre académicos, empresarios, trabajadores, políticos y equipos de gobierno para crear nuevas oportunidades para los argentinos.</span>
+					</div>
+					<div class="clear" style="height: 2%"></div>
+				</div>
+				<div class="clear" style="height: 2%"></div>
+
+				<div style="position: relative; top: 1em; left: 10%; width: 80%; background-color: rgba(255,255,255,0.65);">
+					<div class="round_borders" style="position: relative; float: left; margin: 3%; width: 25%; overflow: hidden;">
+						<img src="images/que_hacemos_foto2.png" width="100%" alt="" />
+					</div>
+					<div style="position: relative; float: left; margin: 5% 0 0 0; width: 66%; overflow: hidden;">
+						<span class="seccion1_title_new">RED FEDERAL</span>
+						<div class="clear" style="height: 0.5em;"></div>
+						<span class="seccion1_text_new">La Red Federal utiliza la metodología de trabajo de la Fundación Pensar en cada una de las sedes provinciales o municipales: asiste a nuestros candidatos, arma equipos de trabajo, genera espacios de debate de políticas públicas y fomenta la vinculación entre sectores de la sociedad civil, el empresariado, académicos, políticos y vecinos. El objetivo es ayudar a movilizar el debate de ideas al interior de cada provincia para que surjan propuestas y planes locales que podamos implementar a partir de 2015.</span>
+					</div>
+					<div class="clear" style="height: 2%"></div>
+				</div>
+
+			</div>
+
+			<!--div id="divSeccion1InternaScroll" style="position: relative; float: left; top: 80px; left: 1%; width: 98%; height: 100%; margin: 0;">
+				<div style="position: relative; float: left; top: 0px; left: 0%; width: 48%; margin: 0;">
+					<!-- BEGIN ACTIVIDADES_COL_1 -->
+						<div style="float: left; width: 96%; padding: 2%;">
+							<div style="position: absolute;"><img src="images/actividades/shadow.png" width="100%" class="centeredX" style="max-width: 104px;" /></div>
+							<div style="float: left;"><img src="images/actividades/{strActividadImagen}" width="100%" class="centeredX" style="max-width: 86px;" /></div>
+							<div class="seccion1_text" style="float: left; width: 70%; margin-left: 5%;">
+								<span class="seccion1_subtitle">{strActividadTitulo}</span>
+								<p class="seccion1_text">{strActividadTexto}</p>
+							</div>
+						</div>
+					<!-- END ACTIVIDADES_COL_1 -->
+				</div>
+				<div style="position: relative; float: left; top: 0px; left: 1%; width: 48%; margin: 0;">
+					<!-- BEGIN ACTIVIDADES_COL_2 -->
+						<div style="float: left; width: 96%; padding: 2%;">
+							<div style="position: absolute;"><img src="images/actividades/shadow.png" width="100%" class="centeredX" style="max-width: 104px;" /></div>
+							<div style="float: left;"><img src="images/actividades/{strActividadImagen}" width="100%" class="centeredX" style="max-width: 86px;" /></div>
+							<div class="seccion1_text" style="float: left; width: 70%; margin-left: 5%;">
+								<span class="seccion1_subtitle">{strActividadTitulo}</span>
+								<p class="seccion1_text">{strActividadTexto}</p>
+							</div>
+						</div>
+					<!-- END ACTIVIDADES_COL_2 -->
+				</div>
+			</div-->
+
+			<div id="divSeccion1End" class="seccion_end"></div>
+
+		</div>
+	</div>
+	<div class="clear"></div>
+
+	<div id="divSeccion3" class="seccion bg_rojo">
+		<div id="divSeccion3Interna" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+			<div id="divSeccion3InternaFondo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-position: center; background-size: 100%; background-repeat: no-repeat;"></div>
+
+			<div style="position: absolute; top: 10px; left: 2%; width: 98%; height: 50px;">
+				<div class="seccion_title">RED FEDERAL</div>
+			</div>
+
+			<div id="divSeccion3InternaScroll" style="position: relative; top: 60px; width: 100%; height: 100%; margin: 0;">
+				<div style="float: left; width: 45%; height: 100%; min-height: 331px;">
+					<img src="images/mapa_argentina.png" height="100%" class="centeredX" style="max-height: 631px" usemap="#mapRed" />
+					<map name="mapRed">
+						<area alt="Jujuy" title="Jujuy" shape="poly" coords="139,42,146,60,158,66,156,78,147,81,136,80,107,69,108,50,121,39" href="javascript: showRed('Jujuy');">
+						<area alt="Salta" title="Salta" shape="poly" coords="140,40,161,36,179,36,189,49,189,78,165,101,122,109,118,96,87,92,85,82,107,70,138,81,150,82,156,78,159,66,147,60" href="javascript: showRed('Salta');">
+						<area alt="Chaco" title="Chaco" shape="poly" coords="190,74,251,120,237,141,197,140,198,101,165,100" href="javascript: showRed('Chaco');">
+						<area alt="Tucum&aacute;n" title="Tucum&aacute;n" shape="poly" coords="129,109,124,115,131,138,145,138,158,102" href="javascript: showRed('Tucuman');">
+						<area alt="Misiones" title="Misiones" shape="poly" coords="299,140,293,128,317,98,326,98,326,126" href="javascript: showRed('Misiones');">
+						<area alt="Santiago Del Estero" title="Santiago Del Estero" shape="poly" coords="157,104,198,100,189,181,178,169,152,165,148,165,144,154,143,138" href="javascript: showRed('SantiagoDelEstero');">
+						<area alt="Santa Fe" title="Santa Fe" shape="poly" coords="196,139,240,141,228,182,213,209,218,232,196,248,171,248,196,220,189,205,191,178" href="javascript: showRed('SantaFe');">
+						<area alt="Entre R&iacute;os" title="Entre R&iacute;os" shape="poly" coords="257,186,246,245,216,230,212,210,229,179,250,177" href="javascript: showRed('EntreRios');">
+						<area alt="C&oacute;rdoba" title="C&oacute;rdoba" shape="poly" coords="150,167,178,167,190,182,188,204,195,218,169,249,170,260,146,260,144,222,147,215,134,206,133,183" href="javascript: showRed('Cordoba');">
+						<area alt="San Luis" title="San Luis" shape="poly" coords="111,207,137,208,145,213,145,273,123,273,123,252,115,236,109,214" href="javascript: showRed('SanLuis');">
+						<area alt="San Juan" title="San Juan" shape="poly" coords="74,149,85,156,85,168,105,181,117,205,109,212,96,212,66,218,61,201,67,173,63,162" href="javascript: showRed('SanJuan');">
+						<area alt="Mendoza" title="Mendoza" shape="poly" coords="65,220,110,213,113,233,122,252,121,270,102,273,101,305,62,286,65,267,72,232" href="javascript: showRed('Mendoza');">
+						<area alt="CABA" title="CABA" shape="poly" coords="295,203,330,231,292,262,271,242,280,210" href="javascript: showRed('Caba');">
+						<area alt="Buenos Aires" title="Buenos Aires" shape="poly" coords="219,232,245,245,268,289,254,312,232,323,187,323,185,361,181,365,171,353,170,249,196,248" href="javascript: showRed('BuenosAires');">
+						<area alt="La Pampa" title="La Pampa" shape="poly" coords="103,272,143,272,146,259,170,260,170,334,157,328,137,327,113,317,103,305" href="javascript: showRed('LaPampa');">
+						<area alt="Neuqu&eacute;n" title="Neuqu&eacute;n" shape="poly" coords="102,307,104,330,64,368,56,368,56,331,65,326,57,310,62,287" href="javascript: showRed('Neuquen');">
+						<area alt="R&iacute;o Negro" title="R&iacute;o Negro" shape="poly" coords="103,308,114,317,135,327,171,333,171,352,179,362,171,365,151,358,148,365,150,376,61,386,55,370,63,367,104,330" href="javascript: showRed('RioNegro');">
+						<area alt="Catamarca" shape="poly" coords="88,93,118,96,134,137,139,138,150,168,139,178,117,150,77,139" href="javascript: showRed('Catamarca');">
+						<area alt="La Rioja" shape="poly" coords="75,138,120,152,137,177,131,204,116,207,106,177,87,168,81,153,72,147" href="javascript: showRed('LaRioja');">
+						<area alt="Corrientes" shape="poly" coords="293,129,299,139,258,184,248,178,229,180,247,128" href="javascript: showRed('Corrientes');">
+						<area alt="Chubut" shape="poly" coords="65,385,148,378,168,382,168,392,150,398,144,432,117,449,67,453,55,387" href="javascript: showRed('Chubut');">
+						<area alt="Santa Cruz" shape="poly" coords="68,455,118,451,142,472,112,527,121,555,74,553,57,531" href="javascript: showRed('SantaCruz');">
+						<area alt="Formosa" shape="poly" coords="189,48,264,95,252,120,189,72" href="javascript: showRed('Formosa');">
+						<area alt="TierraDelFuego" shape="poly" coords="120,557,167,597,120,604,113,559" href="javascript: showRed('TierraDelFuego');">
+					</map>
+				</div>
+				<div id="divRedFederalMapa" style="float: left; width: 55%; min-height: 331px; height: 100%;">
+					<div class="seccion4_titulo" style="position: relative; width: 100%; height: 40%; margin: 0 auto; padding-top: 2%;">
+						<div class="centeredX" style="position: absolute; height: 100%;"><img src="images/red_federal_titulo.png" height="100%" class="centeredX" style="max-height: 293px;" /></div>
+					</div>
+					<div class="clear"></div>
+					<div class="seccion4_texto" style="position: relative; width: 90%; margin: 3% auto;">
+						La Red Federal es el espacio de interacción que la Fundación Pensar pone al alcance de líderes, referentes y personalidades de los distintos sectores del país. 
+						Su objetivo es generar vínculos e intercambiar ideas con otros actores provenientes del sector académico, del público, del privado y del tercer sector, para 
+						trabajar las principales temáticas de políticas públicas con una mirada federal y propositiva.
+					</div>
+					<div class="clear"></div>
+					<div class="round_borders div_shadow" style="position: relative; width: 60%; margin: 10% auto 0 auto; background-color: #ebb500; border: 5px solid #ffffff; cursor: pointer;">
+						<div class="cursos_proximamente blanco" style="position: relative; width: 90%; margin: 2% 5%; text-align: center;">
+							<a href="{strRedMensajeLinkURL}" target="_blank">{strRedMensajeTexto}</a>
+						</div>
+					</div>
+				</div>
+
+				<div id="divRedFederalMapaDetalle" style="float: left; width: 50%; min-height: 331px; height: 100%; display: none;">
+					<div style="position: relative; width: 100%; height: 40%; margin: 0 auto; padding-top: 5%;">
+						<div style="position: absolute; width: 100%; max-width: 573px;">
+							<img src="images/red_detalle.png" width="100%" style="max-width: 573px;" />
+							<div style="position: absolute; width: 34%; height: 100%; max-width: 573px; max-height: 836px;">
+								<div class="centeredY" style="left: 10%; width: 90%; height: 80%; padding-bottom: 10%;">
+									<div id="divRedFederalMapaProvincia" class="centeredXY seccion4_mapa blanco" style="text-align: center;">BUENOS AIRES</div>
+								</div>
+							</div>
+							<div class="blanco" style="position: absolute; left: 40%; width: 55%; height: 90%; padding-bottom: 10%; max-height: 236px;">
+								<div id="divRedFederalScroll" class="centeredY" style="width: 90%; height: 95%;">
+									<div id="divRedFederalMapa1" class="seccion4_texto_chico_heavy negro" style="padding: 2% 0;">Fundación Pensar</div>
+									<div id="divRedFederalMapa2" class="seccion4_texto_chico negro" style="padding: 2% 0; line-height: 200%;">Contacto: Andres Boeninger y Natalin Faravelli</div>
+									<!--div id="divRedFederalMapa3" class="seccion4_texto_chico negro" style="padding: 2% 0;">Teléfono: (54 11) 5218 2459</div>
+									<div id="divRedFederalMapa4" class="seccion4_texto_chico negro" style="padding: 2% 0;">redfederal@fundacionpensar.org</div-->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="round_borders div_shadow" style="position: relative; width: 60%; margin: 10% auto; background-color: #ebb500; border: 5px solid #ffffff; cursor: pointer;">
+						<div class="cursos_proximamente blanco" style="position: relative; width: 90%; margin: 2% 5%; text-align: center;">
+							<a href="{strRedMensajeLinkURL}" target="_blank">{strRedMensajeTexto}</a>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+
+				<div id="divSeccion3End" class="seccion_end"></div>
+			</div>
+
+		</div>
+	</div>
+	<div class="clear"></div>
+
+	<div id="divSeccion4" class="seccion bg_verde">
+		<div id="divSeccion4Interna" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+			<div id="divSeccion4Interna" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
+
+				<div id="divSeccion4Eventos" style="position: absolute; top: 0; left: 0%; width: 100%; height: 100%;">
+					<!-- BEGIN EVENTOS -->
+						<div style="position: absolute; top: 0; left: {intLeft}; width: 100%; height: 100%;">
+							<img src="images/eventos/{strEventoImagen}" width="100%" alt="{strEventoTitulo}" class="centeredX"/>
+							<div class="round_borders" style="position: absolute; top: 72%; left: 10%; width: 80%; min-height: 10%; background: #ffffff;">
+								<div style="position: relative; margin: 15px; text-align: center;">
+									<span class="eventos_titulo negro">{strEventoTitulo}</span><br/>
+									<span class="eventos_detalle negro">{strEventoDetalle}</span>
+									<div class="clear"></div>
+								</div>
+							</div>
+						</div>
+					<!-- END EVENTOS -->
+				</div>
+			</div>
+
+			<div style="position: absolute; top: 10px; left: 2%; width: 98%; height: 50px;">
+				<div class="seccion_title">EVENTOS</div>
+			</div>
+
+			<div id="divEventosScrollLeft" style="position: absolute; top: 0; left: 0; width: 5%; min-width: 60px; height: 100%; display: {strEventosDisplayNext};">
+				<a href="javascript: scrollToPreviousEvento();"><img src="images/boton_scroll_left.png" class="centeredXY" width="90%" /></a>
+			</div>
+			<div id="divEventosScrollRight" style="position: absolute; top: 0; left: 95%; width: 5%; min-width: 60px; height: 100%; display: {strEventosDisplayPrevious};">
+				<a href="javascript: scrollToNextEvento();"><img src="images/boton_scroll_right.png" class="centeredXY" width="90%" /></a>
+			</div>
+
+			<div id="divSeccion4End" class="seccion_end"></div>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+	<div id="divSeccion5" class="seccion bg_verde">
+		<div id="divSeccion5Interna" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+			<div style="width: 100%; height: 30%; min-height: 120px; max-height: 203px; margin-top: 2%;">
+				<img src="images/logo_pensar.png" height="100%" class="centeredX" />
+			</div>
+			<div class="clear"></div>
+			<div style="width: 100%">
+				<div class="seccion6_texto" style="padding-top: 3%; text-align: center;">
+					Balcarce 412 1° Piso, Buenos Aires<br/>
+					<a href="mailto:info@fundacionpensar.org">info@fundacionpensar.org</a>
+				</div>
+				<div class="clear"></div>
+				<div class="seccion4_texto" style="width: 90%; margin: 3% auto; text-align: center;">
+					<div style="display: inline-block; padding: 0 0.5%; width: 22%;">
+						<a href="http://mauriciomacri.com.ar/" target="_blank"><img src="images/copy_banner1.jpg" width="100%" style="max-width: 250px" /></a>
+					</div>
+					<div style="display: inline-block; padding: 0 0.5%; width: 22%;">
+						<a href="http://pro.com.ar/" target="_blank"><img src="images/copy_banner2.jpg" width="100%" style="max-width: 250px" /></a>
+					</div>
+					<div style="display: inline-block; padding: 0 0.5%; width: 22%;">
+						<a href="mailto:equipos@fundacionpensar.org"><img src="images/copy_banner3.jpg" width="100%" style="max-width: 250px" /></a>
+					</div>
+					<div style="display: inline-block; padding: 0 0.5%; width: 22%;">
+						<a href=""><img src="images/copy_banner4.jpg" width="100%" style="max-width: 250px" /></a>
+					</div>
+				</div>
+
+				<div id="divSeccion5End" class="seccion_end"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="clear"></div>

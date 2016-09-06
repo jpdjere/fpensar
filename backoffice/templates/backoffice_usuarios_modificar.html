@@ -1,0 +1,68 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Editar usuario</h6></div>
+	<form name="frmUsuarios" method="POST" action="backoffice_usuarios_modificar.php" class="form">
+	<input type="hidden" name="strUsuario" value="{strUsuario}">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Usuario</td>
+				<td>{strUsuario}</td>
+			</tr>
+			<tr>
+				<td>Perfil</td>
+				<td>
+					<!-- BEGIN PERFILES -->
+					<select name="intPerfil" style="width: 100%;" />
+						<!-- BEGIN PERFIL -->
+						<option value="{intPerfil}" {strSelected}>{strPerfil}</option>
+						<!-- END PERFIL -->
+					</select></span>
+					<!-- END PERFILES -->
+					<div class="errors">{errorPerfil}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Descripci&oacute;n</td>
+				<td>
+					<input type="text" size="50" name="strDescripcion" value="{strDescripcion}" maxlength="50" />
+					<div class="errors">{errorDescripcion}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Nombre</td>
+				<td>
+					<input type="text" size="30" name="strNombre" value="{strNombre}" maxlength="50" />
+					<div class="errors">{errorNombre}</div>
+				</td>
+			</tr>
+				<td>Apellido</td>
+				<td>
+					<input type="text" size="30" name="strApellido" value="{strApellido}" maxlength="50" />
+					<div class="errors">{errorApellido}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td>
+					<input type="text" name="strEmail" value="{strEmail}" size="40" maxlength="50" />
+					<div class="errors">{errorEmail}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Estado</td>
+				<td>
+					<label><input type="radio" name="strHabilitado" id="radHabilitado" value="true" {blnHabilitado} />Habilitado</label>
+					<label><input type="radio" name="strHabilitado" id="radDeshabilitado" value="false" {blnDeshabilitado} />Deshabilitado</label>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript:document.frmUsuarios.submit();">&raquo; Confirmar</a></li>
+		<li><a href="backoffice_usuarios_detalle.php?codUsuario={strUsuario}">&raquo; Volver</a></li>
+	</ul>
+</div>

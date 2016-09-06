@@ -1,0 +1,93 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>B&uacute;squeda de Integrantes</h6></div>
+	<form name="frmBusqueda" action="equipos.php" method="post" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td><input type="text" name="txtBusqueda" value="{txtBusqueda}" size="40" maxlength="20" /></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tPagination" style="margin: 0;">
+						<ul class="pages">
+							<li><a href="javascript: document.frmBusqueda.submit();">&raquo; Iniciar B&uacute;squeda</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Listado de integrantes de equipos</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<thead>
+			<tr>
+				<td width="10%">Imagen</td>
+				<td width="30%">Nombre</td>
+				<td width="50%">Cargo</td>
+				<td class="options">Opciones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN EQUIPOS -->
+			<tr>
+				<td><a href="equipos_detalle.php?codEquipo={codEquipo}"><img src="../{PATH_IMAGEN_EQUIPOS}/thumbs/{strImagen}" width="{IMAGEN_EQUIPOS_CHICA_ANCHO}" height="{IMAGEN_EQUIPOS_CHICA_ALTO}" /></a></td>
+				<td><a href="equipos_detalle.php?codEquipo={codEquipo}">{strNombre}</td>
+				<td>{strCargo}</td>
+				<td class="options">
+				<a href="equipos_detalle.php?codEquipo={codEquipo}"><img src="images/icons/bot_ver.gif" width="17" height="17" border="0" alt="Ver detalle de  Equipo"></a>
+				<!-- BEGIN MODIFICAR_EQUIPOS_UPDATE -->
+				<a href="equipos_modificar.php?codEquipo={codEquipo}"><img src="images/icons/bot_editar.gif" width="17" height="17" border="0" alt="Modificar Equipo"></a>
+				<a href="equipos_habilitar.php?codEquipo={codEquipo}" onClick="return confirm('Esta seguro que quiere {estadoAlt} la Equipo seleccionada?');"><img src="images/icons/bot_habilitar{estadoIcono}.gif" width="17" height="17" border="0" alt="{estadoAlt} Equipo"></a>
+				<!-- END MODIFICAR_EQUIPOS_UPDATE -->
+				<!-- BEGIN MODIFICAR_EQUIPOS_DELETE -->
+				<a href="equipos_borrar.php?codEquipo={codEquipo}" onClick="return confirm('Esta seguro que quiere Borrar la Equipo seleccionada?');">
+					<img src="images/icons/bot_borrar.gif" width="17" height="17" border="0" alt="Borrar Equipo">
+				</a>
+				<!-- END MODIFICAR_EQUIPOS_DELETE -->
+
+				<!-- BEGIN MODIFICAR_EQUIPOS_ORDER -->
+					<div class="clear"></div>
+					<!-- BEGIN ORDENAR_SUBIR -->
+						<a href="equipos_ordenar.php?codEquipo={codEquipo}&blnOrden=-2"><img src="images/icons/bot_up_all.gif" width="17" height="17" border="0" alt="Mover &iacute;tem al primer lugar" /></a>
+						<a href="equipos_ordenar.php?codEquipo={codEquipo}&blnOrden=-1"><img src="images/icons/bot_up.gif" width="17" height="17" border="0" alt="Mover &iacute;tem un lugar hacia arriba" /></a>
+					<!-- END ORDENAR_SUBIR -->
+					<!-- BEGIN ORDENAR_SUBIR_VACIO -->
+						<img src="images/trans.gif" width="17" height="17" border="0" />
+						<img src="images/trans.gif" width="17" height="17" border="0" />
+					<!-- END ORDENAR_SUBIR_VACIO -->
+					<!-- BEGIN ORDENAR_BAJAR -->
+						<a href="equipos_ordenar.php?codEquipo={codEquipo}&blnOrden=1" /><img src="images/icons/bot_down.gif" width="17" height="17" border="0" alt="Mover &iacute;tem un lugar hacia abajo" /></a>
+						<a href="equipos_ordenar.php?codEquipo={codEquipo}&blnOrden=2" /><img src="images/icons/bot_down_all.gif" width="17" height="17" border="0" alt="Mover &iacute;tem al último lugar" /></a>
+					<!-- END ORDENAR_BAJAR -->
+					<!-- BEGIN ORDENAR_BAJAR_VACIO -->
+						<img src="images/trans.gif" width="17" height="17" border="0" />
+						<img src="images/trans.gif" width="17" height="17" border="0" />
+					<!-- END ORDENAR_BAJAR_VACIO -->
+				<!-- END MODIFICAR_EQUIPOS_ORDER -->
+				</td>
+			</tr>
+			<!-- END EQUIPOS -->
+
+			<!-- BEGIN EQUIPOS_VACIO -->
+				<td colspan="4" style="height: 10em; text-align: center;"><b>No existen integrantes cargados en el sistema.</b></td>
+			<!-- END EQUIPOS_VACIO -->
+
+			<!-- BEGIN EQUIPOS_VACIO_BUSQUEDA -->
+				<td colspan="4" style="height: 10em; text-align: center;"><b>No existen integrantes cargados con esos parámetros de Búsqueda.</b></td>
+			<!-- END EQUIPOS_VACIO_BUSQUEDA -->
+		</tbody>
+	</table>
+</div>
+
+{PAGINADOR}
+
+<!-- BEGIN MODIFICAR_EQUIPOS_ADD -->
+	<div class="tPagination">
+		<ul class="pages">
+			<li><a href="equipos_agregar.php">&raquo; Agregar Integrante</a></li>
+		</ul>
+	</div>
+<!-- END MODIFICAR_EQUIPOS_ADD -->

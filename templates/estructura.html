@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+	<title>{WEB_TITLE}</title>
+	<meta charset="iso-8859-1" />
+	<meta name="viewport" id="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=0.5, width=device-width, user-scalable=1" />
+	<meta name="description" content="{WEB_DESCRIPTION}" />
+	<meta name="keywords" content="{WEB_KEYWORDS}" />
+	<meta name="robots" content="all" />
+	<meta name="rating" content="General" />
+	<meta property="og:title" content="{WEB_TITLE}" />
+	<meta property="og:description" content="{WEB_DESCRIPTION}" />
+	<meta property="og:url" content="{WEB_URL}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="{WEB_FB_IMAGE}" />
+	<meta property="og:locale" content="es_LA" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<link rel="image_src" href="{WEB_FB_IMAGE}" />
+	<link rel="icon" type="image/ico" href="favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="css/general.css" />
+	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
+	<link rel="stylesheet" href="scripts/jquery.mCustomScrollbar.css" />
+	<link rel="apple-touch-icon" href="images/apple/HTML5_Badge_64.png" />
+	<link rel="apple-touch-icon-precomposed" href="images/apple/HTML5_Badge_64.png" />
+	<script type="text/javascript" src="scripts/functions.js"></script>
+	<script type="text/javascript" src="scripts/ajax.js"></script>
+	<script type="text/javascript" src="scripts/popup.js"></script>
+	<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+	<!--script type="text/javascript" src="scripts/jquery-ui-1.10.2.custom.min.js"></script-->
+	<script type="text/javascript" src="scripts/tweenlite/plugins/CSSPlugin.min.js"></script>
+	<script type="text/javascript" src="scripts/tweenlite/easing/EasePack.min.js"></script>
+	<script type="text/javascript" src="scripts/tweenlite/TweenLite.min.js"></script>
+	<script type="text/javascript" src="scripts/tweenlite/jquery.gsap.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+	<!--[if lte IE 8]>
+		<script type="text/javascript" src="js/ie8.polyfil.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="scripts/imageMapResizer.min.js"></script>
+	<script type="text/javascript">
+	<!-- {NEWLINE}
+		var blnPageLoaded = false;
+		var executeOnLoad = function(){
+			/*imageMapResize();*/
+		};
+
+		$(window).load(function(){
+			blnPageLoaded = true;
+			executeOnLoad();
+			$('#divPreloadingSite').hide();
+			window.scrollTo(0, 0);
+			positionSiteElements();
+			setTimeout(function(){
+				imageMapResize();
+				$(window).trigger('resize');
+			}, 1000);
+		});
+
+		window.scrollTo(0, 0);
+	//-->
+	</script>
+</head>
+<body>
+<div id="divScrollIndicator" style="position: fixed; left: 0px; width: 200px; height: 20px; z-index: 9999; color: #ffffff; display: none;"></div>
+<div id="divHeightIndicator" style="position: fixed; left: 200px; width: 200px; height: 20px; z-index: 9999; color: #ffffff; display: none;"></div>
+<div id="divTopIndicator" style="position: fixed; left: 400px; width: 200px; height: 20px; z-index: 9999; color: #ffffff; display: none;"></div>
+<div id="divSeccionIndicator" style="position: fixed; left: 600px; width: 200px; height: 20px; z-index: 9999; color: #ffffff; display: none;"></div>
+
+{HEADER}
+{PAGINA}
+{FOOTER}
+
+<script type="text/javascript">
+<!-- {NEWLINE}
+	(function(i,s,o,g,r,a,m){ i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-8740129-38', 'auto');
+	ga('send', 'pageview');
+	setTimeout("ga('send','event','Profitable Engagement','time on page more than 3 minutes')", 180000);
+//-->
+</script>
+</body>
+</html>

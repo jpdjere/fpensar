@@ -1,0 +1,80 @@
+[15-Oct-2015 07:11:23 America/Argentina/Buenos_Aires] PHP Fatal error:  Call to a member function fetch_object() on a non-object in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 993
+[20-Oct-2015 12:40:28 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[20-Oct-2015 12:40:28 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[20-Oct-2015 12:40:28 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: nombre in /home/pensar/public_html/sistema_elecciones/index.php on line 48
+[20-Oct-2015 19:20:29 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[20-Oct-2015 19:20:29 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[20-Oct-2015 19:20:29 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: nombre in /home/pensar/public_html/sistema_elecciones/index.php on line 48
+[21-Oct-2015 09:34:33 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[21-Oct-2015 09:34:33 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[21-Oct-2015 09:34:33 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: nombre in /home/pensar/public_html/sistema_elecciones/index.php on line 48
+[21-Oct-2015 12:06:18 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[21-Oct-2015 12:06:18 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[21-Oct-2015 12:06:18 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: nombre in /home/pensar/public_html/sistema_elecciones/index.php on line 48
+[21-Oct-2015 12:06:18 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[21-Oct-2015 12:06:18 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[21-Oct-2015 12:06:18 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: nombre in /home/pensar/public_html/sistema_elecciones/index.php on line 48
+[22-Oct-2015 17:12:06 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[22-Oct-2015 17:12:06 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[22-Oct-2015 17:12:06 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: nombre in /home/pensar/public_html/sistema_elecciones/index.php on line 48
+[23-Oct-2015 08:10:26 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[23-Oct-2015 08:10:26 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[23-Oct-2015 08:10:26 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: nombre in /home/pensar/public_html/sistema_elecciones/index.php on line 48
+[23-Oct-2015 15:36:01 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[23-Oct-2015 15:36:01 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: perfil in /home/pensar/public_html/sistema_elecciones/index.php on line 34
+[23-Oct-2015 15:36:01 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: nombre in /home/pensar/public_html/sistema_elecciones/index.php on line 48
+[04-Feb-2016 14:59:59 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 734
+[04-Feb-2016 15:00:03 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 734
+[04-Feb-2016 15:00:05 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 734
+[04-Feb-2016 15:00:45 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[04-Feb-2016 15:36:02 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[04-Feb-2016 18:09:09 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[04-Feb-2016 18:10:05 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[04-Feb-2016 18:10:44 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[04-Feb-2016 18:18:01 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 734
+[04-Feb-2016 18:18:07 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 734
+[04-Feb-2016 18:18:38 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 734
+[04-Feb-2016 18:18:47 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 734
+[04-Feb-2016 18:18:51 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 734
+[07-Feb-2016 15:00:34 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[09-Feb-2016 10:09:22 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[09-Feb-2016 18:06:08 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[09-Feb-2016 18:06:34 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[11-Feb-2016 18:21:39 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[11-Feb-2016 18:22:36 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[11-Feb-2016 18:22:55 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[04-Apr-2016 17:17:02 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[21-Apr-2016 11:09:42 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[22-Apr-2016 21:19:46 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[22-Apr-2016 23:13:56 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[24-Apr-2016 16:36:27 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[26-Apr-2016 12:14:16 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[26-Apr-2016 12:14:45 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[26-Apr-2016 12:18:55 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[26-Apr-2016 12:50:05 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 723
+[16-May-2016 02:03:36 America/Argentina/Buenos_Aires] PHP Warning:  include_once(includes/header.php): failed to open stream: Permission denied in /home/pensar/public_html/sistema_elecciones/candidatos-listado.php on line 23
+[16-May-2016 02:03:36 America/Argentina/Buenos_Aires] PHP Warning:  include_once(): Failed opening 'includes/header.php' for inclusion (include_path='.:/opt/php5-4/lib/php') in /home/pensar/public_html/sistema_elecciones/candidatos-listado.php on line 23
+[16-May-2016 02:08:21 America/Argentina/Buenos_Aires] PHP Warning:  include_once(includes\header.php): failed to open stream: No such file or directory in /home/pensar/public_html/sistema_elecciones/resultados-listado.php on line 23
+[16-May-2016 02:08:21 America/Argentina/Buenos_Aires] PHP Warning:  include_once(): Failed opening 'includes\header.php' for inclusion (include_path='.:/opt/php5-4/lib/php') in /home/pensar/public_html/sistema_elecciones/resultados-listado.php on line 23
+[16-May-2016 02:12:01 America/Argentina/Buenos_Aires] PHP Warning:  include_once(includes\header.php): failed to open stream: No such file or directory in /home/pensar/public_html/sistema_elecciones/resultados-listado.php on line 23
+[16-May-2016 02:12:01 America/Argentina/Buenos_Aires] PHP Warning:  include_once(): Failed opening 'includes\header.php' for inclusion (include_path='.:/opt/php5-4/lib/php') in /home/pensar/public_html/sistema_elecciones/resultados-listado.php on line 23
+[07-Jul-2016 17:29:58 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 849
+[12-Jul-2016 14:27:50 America/Argentina/Buenos_Aires] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 849
+[16-Aug-2016 11:41:11 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[16-Aug-2016 11:41:13 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[16-Aug-2016 11:41:14 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 860
+[02-Sep-2016 16:57:57 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[02-Sep-2016 16:57:59 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[02-Sep-2016 16:58:00 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 860
+[02-Sep-2016 16:58:09 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[02-Sep-2016 16:58:09 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[02-Sep-2016 16:58:10 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 860
+[05-Sep-2016 11:09:05 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[05-Sep-2016 11:09:07 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[05-Sep-2016 11:09:09 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[05-Sep-2016 11:09:10 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[05-Sep-2016 11:09:11 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[05-Sep-2016 11:09:12 America/Argentina/Buenos_Aires] PHP Warning:  Invalid argument supplied for foreach() in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 860
+[05-Sep-2016 11:24:07 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[05-Sep-2016 11:41:13 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689
+[05-Sep-2016 12:18:07 America/Argentina/Buenos_Aires] PHP Warning:  mysqli::query(): Empty query in /home/pensar/public_html/sistema_elecciones/includes/main.php on line 689

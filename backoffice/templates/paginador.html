@@ -1,0 +1,33 @@
+<!-- BEGIN PAGINADO -->
+	<div class="tPagination">
+		<!-- BEGIN NUMEROS_PAGINA -->
+			<ul class="pages">
+				<!-- BEGIN PAGINA_INICIO -->
+				<li class="prev"><a href="{strPagina}.php?intPagina={intPagina}&{strParameters}">Primera</a></li>
+				<!-- END PAGINA_INICIO -->
+
+				<!-- BEGIN PAGINA_ANTERIOR -->
+				<li class="prev"><a href="{strPagina}.php?intPagina={intPagina}&{strParameters}">Anterior</a></li>
+				<!-- END PAGINA_ANTERIOR -->
+
+				<!-- BEGIN PAGINA_NORMAL -->
+				<li><a href="{strPagina}.php?intPagina={intPagina}&{strParameters}">{intPagina}</a></li>
+				<!-- END PAGINA_NORMAL -->
+
+				<!-- BEGIN PAGINA_ACTIVA -->
+				<li class="active"><a name="active">{intPagina}</a></li>
+				<!-- END PAGINA_ACTIVA -->
+
+				<!-- BEGIN PAGINA_SIGUIENTE -->
+				<li class="next"><a href="{strPagina}.php?intPagina={intPagina}&{strParameters}">Siguiente</a></li>
+				<!-- END PAGINA_SIGUIENTE -->
+
+				<!-- BEGIN PAGINA_FINAL -->
+				<li class="next"><a href="{strPagina}.php?intPagina={intPagina}&{strParameters}">&Uacute;ltima</a></li>
+				<!-- END PAGINA_FINAL -->
+			</ul>
+			<!-- END NUMEROS_PAGINA -->
+
+	</div>
+	<div class="clear"></div>
+<!-- END PAGINADO -->

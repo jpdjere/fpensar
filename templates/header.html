@@ -1,0 +1,97 @@
+<script type="text/javascript">
+<!-- {NEWLINE}
+	var intMenuSelected = 0;
+	var intSubMenuSelected = 0;
+	var intMenuOld = 0;
+	var contenidosMenuHide = false;
+	var arrSecciones = new Array('INICIO', 'FOTO', 'HOME', 'DEsTACADOS', 'QUE HACEMOS', 'RED FEDERAL', 'ACTIVIDADES');
+	var arrSeccionesContenidos = new Array('EVENTOS', 'INSTITUCIONAL', 'PLATAFORMA PENSAR');
+
+	function gotoSeccion(intMenu, intSubMenu, blnForced){
+		hideContenidosMenu();
+		if (!blnFirstScrollPageEvent){
+			/*if (intMenuSelected > 0){
+				intMenuOld = intMenuSelected;
+				intMenuSelected = 0;
+				deselectMenu(intMenuOld);
+			}*/
+			intMenuSelected = intMenu;
+			intSubMenuSelected = intSubMenu;
+			scrollToSection(intMenu, intSubMenu, blnForced);
+			if (ga){
+				if (intMenu == 6){
+					ga('send', 'event', 'Sección: ' + arrSecciones[intMenu] + '/' + arrSeccionesContenidos[intSubMenu - 1], 'clicked');
+				}else{
+					ga('send', 'event', 'Sección: ' + arrSecciones[intMenu], 'clicked');
+				}
+			}
+		}
+	}
+
+	function showContenidosMenu(){
+		contenidosMenuHide = false;
+		if ($('#divContenidosMenu').css('display') == "none" && $('#divContenidosMenu').css("opacity") == 1){
+			$('#divContenidosMenu').css("opacity", 0);
+		}
+		TweenLite.to('#divContenidosMenu', 0.3, { display: 'block', alpha: 1 });
+	}
+	
+	function hideContenidosMenu(){
+		contenidosMenuHide = true;
+		setTimeout(hideContenidosMenuNow, 100);
+	}
+
+	function hideContenidosMenuNow(){
+		if (contenidosMenuHide){
+			TweenLite.to('#divContenidosMenu', 0.3, { display: 'none', alpha: 0 });
+			contenidosMenuHide = false;
+		}
+	}
+//-->
+</script>
+<div id="header">
+	<div id="divContenidosMenu" class="menu_over menu_seccion" onmouseout="hideContenidosMenu();">
+		<div class="menu_top"></div>
+		<div class="menu_item" onclick="gotoSeccion(4, 1);" onmouseover="showContenidosMenu();"><span class="centeredY">EVENTOS</span></div>
+		<div class="menu_item_separator"></div>
+		<div class="menu_item" onclick="gotoSeccion(5, 1);" onmouseover="showContenidosMenu();"><span class="centeredY">INSTITUCIONAL</span></div>
+		<div class="menu_item_separator"></div>
+		<div class="menu_item" onclick="gotoSeccion(1, 2, true);" onmouseover="showContenidosMenu();"><span class="centeredY">PLATAFORMA PENSAR</span></div>
+		<div class="menu_item_separator"></div>
+	</div>
+
+	<div class="contents">
+		<div class="menu_seccion bg_amarillo" style="width: 14%; padding: 0 1%;" onclick="scrollSeccionInterna(1, 1); gotoSeccion(0, 1);" onmouseover="hideContenidosMenu();">
+			<span class="centeredY">INICIO</span>
+		</div>
+		<div class="menu_seccion bg_mostaza" style="width: 14%; padding: 0 1%;" onclick="gotoSeccion(1, 1);" onmouseover="hideContenidosMenu();">
+			<span class="centeredY">DESTACADOS</span>
+		</div>
+		<div class="menu_seccion bg_naranja" style="width: 14%; padding: 0 1%;" onclick="gotoSeccion(2, 1);" onmouseover="hideContenidosMenu();">
+			<span class="centeredY">QU&Eacute; HACEMOS</span>
+		</div>
+		<!--div class="menu_seccion bg_naranja" style="width: 12%; padding: 0 1%;" onclick="gotoSeccion(4, 1);" onmouseover="hideContenidosMenu();">
+			<span class="centeredY">QUIENES SOMOS</span>
+		</div-->
+		<div class="menu_seccion bg_rojo" style="width: 14%; padding: 0 1%;" onclick="gotoSeccion(3, 1);" onmouseover="hideContenidosMenu();">
+			<span class="centeredY">RED FEDERAL</span>
+		</div>
+		<div class="menu_seccion bg_verde" style="width: 14%; padding: 0 1%;" onclick="gotoSeccion(4, 1);" onmouseover="hideContenidosMenu();">
+			<span class="centeredY">ACTIVIDADES</span>
+		</div>
+		<!--div class="menu_seccion bg_verde" style="width: 12%; padding: 0 1%;" onclick1="gotoSeccion(6, 1);" onmouseover="showContenidosMenu();">
+			<span class="centeredY">CONTENIDOS</span>
+		</div>
+		<div class="menu_seccion bg_celeste" style="width: 12%; padding: 0 1%;" onclick="gotoSeccion(7, 1);" onmouseover="hideContenidosMenu();">
+			<span class="centeredY">EVENTOS</span>
+		</div-->
+		<div class="menu_seccion bg_turquesa" style="width: 20%;" onclick="gotoSeccion(4);">
+			<img src="images/header_redes.png" class="centeredXY" alt="" style="display: block; width: 100%; max-width: 210px;" usemap="#mapRedes" />
+		</div>
+	</div>
+</div>
+<map name="mapRedes">
+	<area title="Twitter" alt="Twitter" shape="circle" coords="39,27,27" href="https://twitter.com/fpensar" target="_blank" />
+	<area title="Facebook" alt="Facebook" shape="circle" coords="103,27,27" href="https://www.facebook.com/fundacionpensar.org" target="_blank" />
+	<area title="YouTube" alt="YouTube" shape="circle" coords="168,27,27" href="https://www.youtube.com/user/fundacionpensarorg" target="_blank" />
+</map>

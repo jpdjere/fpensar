@@ -1,0 +1,40 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de Actividad</h6></div>
+	<form name="frmActividades" method="POST" enctype="multipart/form-data" action="actividades_modificar.php" class="form">
+	<input type="hidden" name="codActividad" value="{codActividad}">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Titulo:</td>
+				<td><input type="text" size="50" name="strTitulo" value="{strTitulo}" maxlength="255" />
+				<div class="errors">{errorTitulo}</div></td>
+			</tr>
+			<tr>
+				<td>Texto:</td>
+				<td><textarea name="strTexto" id="strTexto" cols="50" rows="5">{strTexto}</textarea>
+				<div class="errors">{errorTexto}</div></td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td><div><img src="../{PATH_IMAGEN_ACTIVIDADES}/{strImagen}" width="{IMAGEN_ACTIVIDADES_ANCHO}" height="{IMAGEN_ACTIVIDADES_ALTO}" /></div>
+				<div><input type="file" name="strImagen" size="30">
+				<input type="hidden" name="strImagenAnterior" value="{strImagen}"></div>
+				<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				<div class="errors">{errorImagen}</div></td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td><label for="radHabilitado"><input type="radio" name="strHabilitado" id="radHabilitado" value="true" {blnHabilitado}> Habilitado</label>
+				&nbsp;<label for="radDeshabilitado"><input type="radio" name="strHabilitado" id="radDeshabilitado" value="false" {blnDeshabilitado}> Deshabilitado</label></td>
+			</tr>
+			</form>
+		</tbody>
+	</table>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: document.frmActividades.submit();">&raquo; Confirmar</a></li>
+		<li><a href="actividades_detalle.php?codActividad={codActividad}">&raquo; Volver</a></li>
+	</ul>
+</div>

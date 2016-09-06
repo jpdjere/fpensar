@@ -1,0 +1,39 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Editar contrase&ntilde;a de usuario</h6></div>
+	<form name="frmUsuarios" method="POST" action="backoffice_usuarios_modificar_contrasenia.php" class="form">
+	<input type="hidden" name="strUsuario" value="{strUsuario}">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Usuario</td>
+				<td>{strUsuario}</td>
+			</tr>
+			<tr>
+				<td>Perfil</td>
+				<td>{strPerfil}</td>
+			</tr>
+			<tr>
+				<td>Nueva contrase&ntilde;a</td>
+				<td>
+					<input type="password" size="30" name="strContrasenia" value="" maxlength="32" class="textonegro">
+					<div class="errors">{errorContrasenia}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Confirmaci&oacute;n</td>
+				<td>
+					<input type="password" size="30" name="strContraseniaConfirmacion" value="" maxlength="32" class="textonegro">
+					<div class="errors">{errorContraseniaConfirmacion}</span></td>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript:document.frmUsuarios.submit();">&raquo; Confirmar</a></li>
+		<li><a href="backoffice_usuarios_detalle.php?codUsuario={strUsuario}">&raquo; Volver</a></li>
+	</ul>
+</div>

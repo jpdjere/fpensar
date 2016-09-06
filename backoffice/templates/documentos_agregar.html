@@ -1,0 +1,77 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Agregar Documento</h6></div>
+	<form name="frmDocumentos" id="frmDocumentos" method="POST" enctype="multipart/form-data" action="documentos_agregar.php" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Autor:</td>
+				<td><select name="intAutor" style="width: 100%;">
+					<!-- BEGIN AUTORES -->
+					<option value="{intAutor}" {strSelected}>{strAutor}</option>
+					<!-- END AUTORES -->
+				</select>
+				<div class="errors">{errorAutor}</div></td>
+			</tr>
+			<tr>
+				<td>Titulo:</td>
+				<td><input type="text" size="50" name="strTitulo" value="{strTitulo}" maxlength="255" />
+				<div class="errors">{errorTitulo}</div></td>
+			</tr>
+			<tr>
+				<td>Texto:</td>
+				<td><textarea name="strTexto" id="strTexto" cols="50" rows="5">{strTexto}</textarea>
+				<div class="errors">{errorTexto}</div></td>
+			</tr>
+			<tr>
+				<td>Tags</td>
+				<td><input type="text" name="strTags" id="strTags" placeholder="Escriba los tags aquí" class="tm-input" />
+				<div class="errors">{errorTags}</div>
+				<script type="text/javascript">
+				<!-- {NEWLINE}
+					$(window).load(function(){
+						$('.tm-input').tagsManager({
+							prefilled: ["{strTagsParsed}"]
+						});
+					});
+				//-->
+				</script>
+				</td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td><div><img src="../{PATH_IMAGEN_DOCUMENTOS}/{strImagen}" width="{IMAGEN_DOCUMENTOS_GRANDE_ANCHO}" height="{IMAGEN_DOCUMENTOS_GRANDE_ALTO}" /></div>
+				<div><input type="file" name="strImagen" size="30">
+				<input type="hidden" name="strImagenAnterior" value="{strImagen}"></div>
+				<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				<div class="errors">{errorImagen}</div></td>
+			</tr>
+			<tr>
+				<td>Archivo:</td>
+				<td>
+				<div><input type="file" name="strArchivo" size="30">
+				<input type="hidden" name="strArchivoAnterior" value="{strArchivo}"></div>
+				<div style="margin: 5px 0 0 0;">{strArchivo}</div>
+				<div class="errors">{errorArchivo}</div></td>
+			</tr>
+			<tr>
+				<td>Fecha:</td>
+				<td><input type="text" size="50" name="strFecha" value="{strFecha}" class="datepicker" maxlength="10" />
+				<div class="errors">{errorFecha}</div></td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td><label for="radHabilitado"><input type="radio" name="strHabilitado" id="radHabilitado" value="true" {blnHabilitado}> Habilitado</label>
+				&nbsp;<label for="radDeshabilitado"><input type="radio" name="strHabilitado" id="radDeshabilitado" value="false" {blnDeshabilitado}> Deshabilitado</label></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: document.frmDocumentos.submit();">&raquo; Confirmar</a></li>
+		<li><a href="documentos_detalle.php?codDocumento={codDocumento}">&raquo; Volver</a></li>
+	</ul>
+</div>
+

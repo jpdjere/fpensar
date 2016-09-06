@@ -1,0 +1,98 @@
+<script language="Javascript">
+<!--{NEWLINE}
+	function checkSeccion(intSeccion, intCheckbox){
+		objForm = document.frmPerfiles;
+		if (intCheckbox == 1){
+			objCheckbox = document.getElementById("chkSeccion" + intSeccion + "_1");
+			if (!objCheckbox.checked){
+				for (i = 2; i <= 5; i++){
+					objCheckbox = document.getElementById("chkSeccion" + intSeccion + "_" + i);
+					objCheckbox.checked = false;
+				}
+			}
+		}else{
+			objCheckbox = document.getElementById("chkSeccion" + intSeccion + "_" + intCheckbox);
+			if (objCheckbox.checked){
+				objCheckbox = document.getElementById("chkSeccion" + intSeccion + "_1");
+				objCheckbox.checked = true;
+			}
+		}
+		$.uniform.update();
+	}
+
+	var arrSeccionesTotal = new Array({strSeccionesTotal});
+	function calculatePermisos(){
+		objForm = document.frmPerfiles;
+
+		for (i = 0; i < arrSeccionesTotal.length; i++){
+			intAccesoSeccion = 0;
+			intAccesoSeccion += (document.getElementById("chkSeccion" + arrSeccionesTotal[i] + "_1").checked) ? 1 : 0;
+			intAccesoSeccion += (document.getElementById("chkSeccion" + arrSeccionesTotal[i] + "_2").checked) ? 2 : 0;
+			intAccesoSeccion += (document.getElementById("chkSeccion" + arrSeccionesTotal[i] + "_3").checked) ? 4 : 0;
+			intAccesoSeccion += (document.getElementById("chkSeccion" + arrSeccionesTotal[i] + "_4").checked) ? 8 : 0;
+			intAccesoSeccion += (document.getElementById("chkSeccion" + arrSeccionesTotal[i] + "_5").checked) ? 16 : 0;
+			objForm["chkSeccion" + arrSeccionesTotal[i] + "Value"].value = intAccesoSeccion;
+		}
+
+		objForm.submit();
+	}
+//-->
+</script>
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Editar perfil de usuario</h6></div>
+	<form name="frmPerfiles" method="POST" action="backoffice_perfiles_modificar.php" class="form">
+	<input type="hidden" name="codPerfil" value="{intPerfil}">
+	<input type="hidden" name="strPerfilAnterior" value="{strPerfilAnterior}">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Perfil</td>
+				<td><input type="text" name="strPerfil" value="{strPerfil}" maxlength="32" />
+				<div class="errors">{errorPerfil}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Descripci&oacute;n</td>
+				<td><input type="text" name="strDescripcion" value="{strDescripcion}" maxlength="50" />
+				<div class="errors">{errorDescripcion}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Accesos</td>
+				<td>
+				<table width="100%">
+					<!-- BEGIN SECCIONES -->
+					<tr>
+						<td>{strSeccion}
+						<input type="hidden" name="chkSeccion{intSeccion}Value" value="0"></td>
+						<td><label for="chkSeccion{intSeccion}_1">
+							<input type="checkbox" name="chkSeccion{intSeccion}" id="chkSeccion{intSeccion}_1" onClick="checkSeccion({intSeccion}, 1);" {checkSeccion1}> Lectura
+						</label></td>
+						<td><label for="chkSeccion{intSeccion}_2">
+							<input type="checkbox" name="chkSeccion{intSeccion}" id="chkSeccion{intSeccion}_2" onClick="checkSeccion({intSeccion}, 2);" {checkSeccion2}> Creaci&oacute;n
+						</label></td>
+						<td><label for="chkSeccion{intSeccion}_3">
+							<input type="checkbox" name="chkSeccion{intSeccion}" id="chkSeccion{intSeccion}_3" onClick="checkSeccion({intSeccion}, 3);" {checkSeccion3}> Borrado
+						</label></td>
+						<td><label for="chkSeccion{intSeccion}_4">
+							<input type="checkbox" name="chkSeccion{intSeccion}" id="chkSeccion{intSeccion}_4" onClick="checkSeccion({intSeccion}, 4);" {checkSeccion4}> Modificaci&oacute;n
+						</label></td>
+						<td><label for="chkSeccion{intSeccion}_5">
+							<input type="checkbox" name="chkSeccion{intSeccion}" id="chkSeccion{intSeccion}_5" onClick="checkSeccion({intSeccion}, 5);" {checkSeccion5}> Online
+						</label></td>
+					</tr>
+					<!-- END SECCIONES -->
+				</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: calculatePermisos();">&raquo; Confirmar</a></li>
+		<li><a href="backoffice_perfiles_detalle.php?codPerfil={intPerfil}">&raquo; Volver</a></li>
+	</ul>
+</div>

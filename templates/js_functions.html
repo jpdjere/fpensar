@@ -1,0 +1,987 @@
+<script type="text/javascript">
+<!--{NEWLINE}
+	/* BEGIN DEBUG CONSOLE */
+	var blnDebugMode = false;
+	objDivDebug = $('#divDebug');
+
+	function writeInConsole(strText){
+		if (blnDebugMode){
+			objDivDebug.append(strText + "<br>");
+		}
+	}
+
+	function clearConsole(){
+		if (blnDebugMode){
+			objDivDebug.html("");
+		}
+	}
+	/* END DEBUG CONSOLE */
+
+	function getAnchorURL(){
+		var strString = document.location.href;
+		var arrURL = strString.split("#");
+		if (arrURL.length > 1){
+			return arrURL[1];
+		}else{
+			return false;
+		}
+	}
+
+	var blnIsMobile = {blnIsMobile};
+	function hideMobileBar(e){
+		if (blnIsMobile){
+			setTimeout(function() { window.scrollTo(0, 0); }, 1);
+		}
+	}
+
+	function checkCheckbox(objCheckbox){
+		strClassName = objCheckbox.className;
+		objCheckbox.className = (strClassName == "checkbox") ? 'checkbox checked' : 'checkbox';
+	}
+
+	function checkCheckboxId(strCheckboxId){
+		objCheckbox = document.getElementById(strCheckboxId);
+		if (objCheckbox.className == "checkbox"){
+			objCheckbox.className = "checkbox checked";
+		}
+	}
+	function uncheckCheckboxId(strCheckboxId){
+		objCheckbox = document.getElementById(strCheckboxId);
+		if (objCheckbox.className != "checkbox"){
+			objCheckbox.className = "checkbox";
+		}
+	}
+
+	/* SCROLLS DEFAULT OPTIONS */
+	var arrScrollDefaultOptions = {};
+	function setScrollDefaultOptions(){
+		arrScrollDefaultOptions = {
+			set_width: '100%',
+			set_height: '100%',
+			horizontalScroll: false,
+			scrollInertia: 500,
+			mouseWheel: true,
+			mouseWheelPixels: "auto",
+			autoDraggerLength: true,
+			autoHideScrollbar: false,
+			scrollButtons:{
+				enable: false
+			},
+			advanced:{
+				updateOnBrowserResize: true,
+				updateOnContentResize: false,
+				autoExpandHorizontalScroll: false,
+				autoScrollOnFocus: true,
+				normalizeMouseWheelDelta: false
+			},
+			contentTouchScroll: true,
+			theme:"politicas-blanca"
+		};
+	}
+
+	var blnBasesShown = false;
+	function showHideBases(blnShow){
+		if (!blnShow && $('#divBases').is(":hidden")){
+			TweenLite.fromTo('#divBases', 0.5, {alpha: 0, display: 'block'}, {alpha: 1});
+			if (!blnBasesShown){
+				$("#divBasesScroll").mCustomScrollbar(arrScrollDefaultOptions);
+			}
+			blnBasesShown = true;
+		}else{
+			TweenLite.fromTo('#divBases', 0.5, {alpha: 1}, {alpha: 0, display: 'none'});
+		}
+	}
+
+	function scrollToTop(){
+		TweenLite.to($('html, body'), 0.5, {scrollTop: 0, ease: Quint.easeInOut});
+	}
+
+	/* Funciones de Contenidos */
+	var strLoadingScreenDefaultText = 'CONECTANDO CON EL SERVIDOR<br/><span class="texto-regular">Por favor aguardá un instante mientras se procesa la información.</span>';
+	function showLoadingScreen(strText){
+		objDiv = document.getElementById('divLoadingMensaje');
+		objDiv.innerHTML = strText;
+		TweenLite.fromTo('#divLoading', 0.5, {alpha: 0, display: 'block'}, {alpha: 1});
+	}
+	function hideLoadingScreen(){
+		TweenLite.fromTo('#divLoading', 0.5, {alpha: 1}, {alpha: 0, display: 'none'});
+	}
+
+	function showAlertaScreen(strTitle, strText){
+		objDiv = document.getElementById('divAlertaTitulo');
+		objDiv.innerHTML = strTitle;
+		objDiv = document.getElementById('divAlertaMensaje');
+		objDiv.innerHTML = strText;
+		TweenLite.fromTo('#divAlerta', 0.5, {alpha: 0, display: 'block'}, {alpha: 1});
+	}
+	function hideAlertaScreen(){
+		TweenLite.fromTo('#divAlerta', 0.5, {alpha: 1}, {alpha: 0, display: 'none'});
+	}
+
+	function showPopIn(strPopInName){
+		TweenLite.fromTo('#' + strPopInName, 0.5, {alpha: 0, display: 'block'}, {alpha: 1});
+	}
+	function hidePopIn(strPopInName){
+		TweenLite.fromTo('#' + strPopInName, 0.5, {alpha: 1}, {alpha: 0, display: 'none'});
+	}
+
+	/* EASING FUNCTIONS */
+	function linearEase(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * currentIteration / totalIterations + startValue;
+	}
+
+	function easeInQuad(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * (currentIteration /= totalIterations) * currentIteration + startValue;
+	}
+
+	function easeOutQuad(currentIteration, startValue, changeInValue, totalIterations){
+		return -changeInValue * (currentIteration /= totalIterations) * (currentIteration - 2) + startValue;
+	}
+
+	function easeInOutQuad(currentIteration, startValue, changeInValue, totalIterations){
+		if ((currentIteration /= totalIterations / 2) < 1){
+			return changeInValue / 2 * currentIteration * currentIteration + startValue;
+		}
+		return -changeInValue / 2 * ((--currentIteration) * (currentIteration - 2) - 1) + startValue;
+	}
+
+	function easeInCubic(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * Math.pow(currentIteration / totalIterations, 3) + startValue;
+	}
+
+	function easeOutCubic(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * (Math.pow(currentIteration / totalIterations - 1, 3) + 1) + startValue;
+	}
+
+	function easeInOutCubic(currentIteration, startValue, changeInValue, totalIterations){
+		if ((currentIteration /= totalIterations / 2) < 1){
+			return changeInValue / 2 * Math.pow(currentIteration, 3) + startValue;
+		}
+		return changeInValue / 2 * (Math.pow(currentIteration - 2, 3) + 2) + startValue;
+	}
+
+	function easeInQuart(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * Math.pow (currentIteration / totalIterations, 4) + startValue;
+	}
+
+	function easeOutQuart(currentIteration, startValue, changeInValue, totalIterations){
+		return -changeInValue * (Math.pow(currentIteration / totalIterations - 1, 4) - 1) + startValue;
+	}
+
+	function easeInOutQuart(currentIteration, startValue, changeInValue, totalIterations){
+		if ((currentIteration /= totalIterations / 2) < 1){
+			return changeInValue / 2 * Math.pow(currentIteration, 4) + startValue;
+		}
+		return -changeInValue / 2 * (Math.pow(currentIteration - 2, 4) - 2) + startValue;
+	}
+
+	function easeInQuint(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * Math.pow (currentIteration / totalIterations, 5) + startValue;
+	}
+
+	function easeOutQuint(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * (Math.pow(currentIteration / totalIterations - 1, 5) + 1) + startValue;
+	}
+
+	function easeInOutQuint(currentIteration, startValue, changeInValue, totalIterations){
+		if ((currentIteration /= totalIterations / 2) < 1){
+			return changeInValue / 2 * Math.pow(currentIteration, 5) + startValue;
+		}
+		return changeInValue / 2 * (Math.pow(currentIteration - 2, 5) + 2) + startValue;
+	}
+
+	function easeInSine(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * (1 - Math.cos(currentIteration / totalIterations * (Math.PI / 2))) + startValue;
+	}
+
+	function easeOutSine(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * Math.sin(currentIteration / totalIterations * (Math.PI / 2)) + startValue;
+	}
+
+	function easeInOutSine(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue / 2 * (1 - Math.cos(Math.PI * currentIteration / totalIterations)) + startValue;
+	}
+
+	function easeInExpo(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * Math.pow(2, 10 * (currentIteration / totalIterations - 1)) + startValue;
+	}
+
+	function easeOutExpo(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * (-Math.pow(2, -10 * currentIteration / totalIterations) + 1) + startValue;
+	}
+
+	function easeInOutExpo(currentIteration, startValue, changeInValue, totalIterations){
+		if ((currentIteration /= totalIterations / 2) < 1){
+			return changeInValue / 2 * Math.pow(2, 10 * (currentIteration - 1)) + startValue;
+		}
+		return changeInValue / 2 * (-Math.pow(2, -10 * --currentIteration) + 2) + startValue;
+	}
+
+	function easeInCirc(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * (1 - Math.sqrt(1 - (currentIteration /= totalIterations) * currentIteration)) + startValue;
+	}
+
+	function easeOutCirc(currentIteration, startValue, changeInValue, totalIterations){
+		return changeInValue * Math.sqrt(1 - (currentIteration = currentIteration / totalIterations - 1) * currentIteration) + startValue;
+	}
+
+	function easeInOutCirc(currentIteration, startValue, changeInValue, totalIterations){
+		if ((currentIteration /= totalIterations / 2) < 1){
+			return changeInValue / 2 * (1 - Math.sqrt(1 - currentIteration * currentIteration)) + startValue;
+		}
+		return changeInValue / 2 * (Math.sqrt(1 - (currentIteration -= 2) * currentIteration) + 1) + startValue;
+	}
+
+	/* Define Anims for Seccions */
+	/* new Array( Name of internal div section, top to start, top to end */
+	var intBrowserWidth = 0;
+	var intBrowserWidthMinimum = 800;
+	var intBrowserHeight = 0;
+	var intBrowserHeightMinimum = 500;
+	var intBrowserHeightReal = 0;
+	var intMinHeaderHeight = 60;
+	var intSectionsSeparations = 2000;
+	var arrSections = new Array('divHome', 'divDestacados', 'divSeccion1', 'divSeccion3', 'divSeccion4', 'divSeccion5');
+	var arrSectionsInternas = new Array(
+		new Array(0),
+		new Array(1, 0),
+		new Array(0),
+		new Array(0),
+		new Array(0),
+		new Array(0),
+		new Array(0)
+	);
+	var arrSectionsInternasScroll = new Array(0, 0, 0, 0, 0, 0, 0);
+	arrSectionsInternasScroll[1] = new Array(
+		new Array('divSeccion1InternaScroll', 60)
+	);
+	/*arrSectionsInternasScroll[2] = new Array(
+		new Array('divSeccion2InternaScroll1', 130),
+		new Array('divSeccion2InternaScroll2', 130)
+	);*/
+	arrSectionsInternasScroll[3] = new Array(
+		new Array('divSeccion3InternaScroll', 60)
+	);
+
+	var arrSectionsBgColors = new Array('#fcc837', '#eaad2a', '#ec792d', '#d72f36', '#a7b13b', '#a7b13b', '#a7b13b', '#a7b13b');
+	var arrSectionsAnims = new Array();
+	for (i = 0; i < arrSections.length; i++){
+		arrSectionsAnims[i] = new Array(arrSections[i], (intSectionsSeparations * i), (intSectionsSeparations * (i + 1)), Math.floor((Math.random() * 500)) + 500);
+	}
+	arrSectionsAnims[arrSections.length] = new Array(arrSections[arrSections.length - 1], (intSectionsSeparations * arrSections.length), (intSectionsSeparations * (arrSections.length + 1)), Math.floor((Math.random() * 500)) + 500);
+
+	var arrSeccionFixedPosition = new Array(0, 0);
+	function positionSiteElements(){
+		intBrowserWidth = $(window).width();
+		intBrowserWidth = (intBrowserWidth < intBrowserWidthMinimum) ? intBrowserWidthMinimum : intBrowserWidth;
+		intBrowserHeightReal = $(window).height();
+		intBrowserHeight = (intBrowserHeightReal < intBrowserHeightMinimum) ? intBrowserHeightMinimum : intBrowserHeightReal;
+		intScrollPosition = $(window).scrollTop();
+		var intTop = Math.floor(intBrowserHeight * 0.09);
+		intTop = (intTop < intMinHeaderHeight) ? intMinHeaderHeight : intTop;
+
+		$('#divScrollIndicator').html(intScrollPosition);
+		$('#divHeightIndicator').html(intBrowserHeight);
+		$('#divTopIndicator').html(intTop);
+
+		for (i = 0; i < arrSectionsAnims.length; i++){
+			var intHeightInterna = (intBrowserHeightReal - intTop);
+			if (i > 0){
+				intHeightInterna = $('#' + arrSectionsAnims[i][0] + 'End').position().top;
+				intHeightInterna = (intHeightInterna > (intBrowserHeightReal - intTop)) ? intHeightInterna : (intBrowserHeightReal - intTop);
+			}
+
+			$('#' + arrSectionsAnims[i][0]).css({
+				"position": "fixed",
+				"top": ((i > 0) ? (intBrowserHeight + intTop) : intTop),
+				"left": 0,
+				/*"height": (intBrowserHeight - intTop) + "px",*/
+				"height": intHeightInterna + "px",
+				"display": ((i > 0) ? "none" : "block")
+			});
+
+			/* Define Heights of Internal Data */
+			$('#' + arrSectionsAnims[i][0] + 'Interna').css({
+				/*"height": ((!i) ? (intBrowserHeight - intTop) : (intBrowserHeight - intTop - 50)) + "px"*/
+				"height": intHeightInterna + "px"
+			});
+
+			if (arrSectionsInternas[i][0]){
+				$('#' + arrSections[i] + 'ScrollLeft').css({
+					"height": (intBrowserHeight - intTop) + "px"
+				});
+				$('#' + arrSections[i] + 'ScrollRight').css({
+					"height": (intBrowserHeight - intTop) + "px"
+				});
+				TweenLite.fromTo('#' + arrSections[i] + 'ScrollRight', 0.5, { alpha: 0}, { delay: 1, display: 'block', alpha: 1 });
+			}
+		}
+
+		TweenLite.fromTo('#header', 0.6, { top: -500}, { delay: 0, top: 0, ease: Quint.easeOut, onComplete: function(){
+			$(window).bind("scroll", function(){ scrollPageEvent(false); });
+			$(window).bind("resize", function(){ scrollPageEvent(true); });
+			scrollPageEvent(true);
+		}});
+		TweenLite.fromTo('#footer', 0.6, { bottom: -100}, { delay: 0.6, display: 'block', bottom: 0, ease: Quint.easeOut });
+	}
+
+	/* Anims for Body Scroll */
+	var blnFirstScrollPageEvent = true;
+	function scrollPageEvent(blnResize){
+		if (blnFirstScrollPageEvent){
+			$("body").css("overflow", "auto");
+
+			/*$("#divSeccion1InternaScroll").mCustomScrollbar({ theme: 'dark-thick', advanced:{ updateOnContentResize:true, updateOnBrowserResize:true, contentTouchScroll: true }});*/
+			/*$("#divSeccion2InternaScroll1").mCustomScrollbar({ theme: 'dark-thick', advanced:{ updateOnContentResize:true, updateOnBrowserResize:true, contentTouchScroll: true }});
+			$("#divSeccion2InternaScroll2").mCustomScrollbar({ theme: 'dark-thick', advanced:{ updateOnContentResize:true, updateOnBrowserResize:true, contentTouchScroll: true }});*/
+			$("#divSeccion4Interna3Scroll").mCustomScrollbar({ theme: 'dark-thick', advanced:{ updateOnContentResize:true, updateOnBrowserResize:true, contentTouchScroll: true }});
+			$("#divDocumentosResultado").mCustomScrollbar({ theme: 'dark-thick', advanced:{ updateOnContentResize:true, updateOnBrowserResize:true, contentTouchScroll: true }});
+			$("#divSeccion4Interna2Scroll").mCustomScrollbar({ theme: 'dark-thick', advanced:{ updateOnContentResize:true, updateOnBrowserResize:true, contentTouchScroll: true }});
+		}
+
+		intScrollPosition = $(window).scrollTop();
+		intBrowserWidth = $(window).width();
+		intBrowserWidth = (intBrowserWidth < intBrowserWidthMinimum) ? intBrowserWidthMinimum : intBrowserWidth;
+		intBrowserHeightReal = $(window).height();
+		intBrowserHeight = (intBrowserHeightReal < intBrowserHeightMinimum) ? intBrowserHeightMinimum : intBrowserHeightReal;
+		var intTop = Math.floor(intBrowserHeight * 0.09);
+		intTop = (intTop < intMinHeaderHeight) ? intMinHeaderHeight : intTop;
+		$('#content').height((intSectionsSeparations * (arrSections.length - 1)) + intBrowserHeight / 2 + (intSectionsSeparations - 1));
+
+		$('#divScrollIndicator').html(intScrollPosition);
+		$('#divHeightIndicator').html(intBrowserHeight);
+		$('#divTopIndicator').html(intTop);
+
+		if (blnResize || blnFirstScrollPageEvent){
+			blnFirstScrollPageEvent = false;
+			/*$("#divSeccion1InternaScroll").mCustomScrollbar("update");*/
+			/*$("#divSeccion2InternaScroll1").mCustomScrollbar("update");
+			$("#divSeccion2InternaScroll2").mCustomScrollbar("update");*/
+			$('#divHomeScrollLeft').css({ "height": "100%" });
+			$('#divHomeScrollRight').css({ "height": "100%" });
+			$("#divSeccion4Interna3Scroll").mCustomScrollbar("update");
+			$("#divDocumentosResultado").mCustomScrollbar("update");
+			$("#divSeccion4Interna2Scroll").mCustomScrollbar("update");
+
+			/* Define Heights of Internal Data */
+			var intHeightInterna = (intBrowserHeightReal - intTop);
+			var intWidthScrollerRight = Math.floor(intBrowserWidth * 0.05); 
+			intWidthScrollerRight = (intWidthScrollerRight < 60) ? 60 : intWidthScrollerRight;
+
+			for (i = 0; i < arrSections.length; i++){
+				if (i > 0){
+					intHeightInterna = $('#' + arrSectionsAnims[i][0] + 'End').position().top;
+					intHeightInterna = (intHeightInterna > (intBrowserHeightReal - intTop)) ? intHeightInterna : (intBrowserHeightReal - intTop);
+				}
+
+				$('#' + arrSectionsAnims[i][0]).css({
+					"height": intHeightInterna + "px"
+				});
+
+				$('#' + arrSectionsAnims[i][0] + 'Interna').css({
+					/*"height": ((!i) ? (intBrowserHeight - intTop) : (intBrowserHeight - intTop - 50)) + "px"*/
+					"height": intHeightInterna + "px"
+				});
+
+				if (arrSectionsInternasScroll[i]){
+					for (j = 0; j < arrSectionsInternasScroll[i].length; j++){
+						intHeightInterna = (intBrowserHeightReal - intTop);
+						intHeightInterna = (intHeightInterna < 300) ? 300 : intHeightInterna;
+						intHeightInterna = intHeightInterna - arrSectionsInternasScroll[i][j][1];
+						$('#' + arrSectionsInternasScroll[i][j][0]).css({
+							"height": intHeightInterna + "px"
+						});
+					}
+				}
+
+				/* Si tiene secciones internas acomodo la seccion y el scroll derecho */
+				if (arrSectionsInternas[i][0]){
+					$('#' + arrSections[i] + 'Interna').css({
+						"left": (arrSectionsInternas[i][1] * intBrowserWidth * -1) + 'px'
+					});
+
+					$('#' + arrSections[i] + 'ScrollLeft').css({
+						"height": (intBrowserHeight - intTop) + "px"
+					});
+					$('#' + arrSections[i] + 'ScrollRight').css({
+						"left": intBrowserWidth - intWidthScrollerRight + "px",
+						"height": (intBrowserHeight - intTop) + "px"
+					});
+				}
+			}
+		}
+
+		/* SET SECTIONS */
+		var intTrail = 0;
+		var intSeccionActual = 0;
+		var strSeccion = "";
+		for (i = 0; i < arrSections.length; i++){
+			/* CHECK ACTUAL SECTION VIEWED */
+			if (intScrollPosition >= (arrSectionsAnims[i][2] - (arrSectionsAnims[i][3] / 2)) && intScrollPosition < (arrSectionsAnims[i + 1][2] - (arrSectionsAnims[i + 1][3] / 2))){
+				intSeccionActual = (i + 1);
+			}
+
+			if (intScrollPosition >= arrSectionsAnims[i][1] && intScrollPosition <= arrSectionsAnims[i][2] - intBrowserHeight){
+				intTrail = intTop;
+				var intBrowserHeightToCheck = (!i) ? (intBrowserHeightReal - intTop) : (intBrowserHeightReal - intTop - 50);
+				var intSeccionInternaHeight = $('#' + arrSectionsAnims[i][0] + 'Interna').height();
+				if (intSeccionInternaHeight > intBrowserHeightToCheck){
+					var intScrollDelta = (intScrollPosition - arrSectionsAnims[i][1]) * 1 / (arrSectionsAnims[i][2] - arrSectionsAnims[i][1]);
+					intTrail = intTop - ((intSeccionInternaHeight - intBrowserHeightToCheck) * intScrollDelta);
+				}
+			}else if (intScrollPosition >= arrSectionsAnims[i][2] - intBrowserHeight && intScrollPosition <= arrSectionsAnims[i][2]){
+				intTrail = intTop + (0 - easeInOutQuad(arrSectionsAnims[i][3] - (arrSectionsAnims[i][2] - intScrollPosition), 0, intBrowserHeight, arrSectionsAnims[i][3]));
+			}else if (intScrollPosition >= arrSectionsAnims[i][2]){
+				intTrail = intSectionsSeparations * -1;
+			}else if (i && intScrollPosition >= (arrSectionsAnims[i - 1][2] - arrSectionsAnims[i - 1][3]) && intScrollPosition <= arrSectionsAnims[i - 1][2]){
+				intTrail = intTop + (intBrowserHeight - easeInOutQuad(arrSectionsAnims[i - 1][3] - (arrSectionsAnims[i - 1][2] - intScrollPosition), 0, intBrowserHeight, arrSectionsAnims[i - 1][3]));
+			}else{
+				intTrail = intBrowserHeight;
+			}
+
+			$('#' + arrSectionsAnims[i][0]).css({
+				"display": "block",
+				"top": intTrail + "px"
+			});
+		}
+
+		$("body").css("background-color", arrSectionsBgColors[intSeccionActual]);
+		/*strSeccion = intSeccionActual;*/
+		$('#divSeccionIndicator').html(intSeccionActual);
+
+		/* chequeo Footer Scroller */
+		if (intSeccionActual >= arrSectionsAnims.length - 2){
+			$('#footer').hide();
+		}else{
+			$('#footer').show();
+		}
+
+		/* CHEQUEO SECCION */
+		if (intSeccionActual != intMenuSelected){
+			if (intMenuSelected){
+				intMenuOld = intMenuSelected;
+				intMenuSelected = 0;
+			}
+			intMenuSelected = intSeccionActual;
+		}
+		/* Anims para cada Seccion */
+		/*if (intScrollPosition > arrSectionsAnims[0][1] && intScrollPosition < arrSectionsAnims[0][2]){
+		}else{
+		}*/
+	}
+
+	function scrollToSection(intSeccion, intSubSeccion, blnForced){
+		$(window).unbind("scroll");
+		$(window).unbind("resize");
+		TweenLite.to($('html, body'), 2, {scrollTop: arrSectionsAnims[intSeccion][1] + 1, scrollLeft: 0, ease: Quint.easeOut, onUpdate: scrollPageEvent, onComplete: function(){
+			$(window).bind("scroll", function(){ scrollPageEvent(false); });
+			$(window).bind("resize", function(){ scrollPageEvent(true); });
+			scrollPageEvent(false);
+		}});
+
+		if (intSubSeccion){
+			if (blnForced || (arrSectionsInternas[intSeccion][0] && arrSectionsInternas[intSeccion][0] >= intSubSeccion)){
+				arrSectionsInternas[intSeccion][1] = intSubSeccion - 1;
+				TweenLite.to('#' + arrSections[intSeccion] + 'Interna', 1, {delay: ((blnForced) ? 0 : 1), left: (arrSectionsInternas[intSeccion][1] * intBrowserWidth * -1) + 'px'});
+				$('#' + arrSections[intSeccion] + 'ScrollLeft').css({ "display": ((arrSectionsInternas[intSeccion][1] > 0) ? "block" : "none") });
+				$('#' + arrSections[intSeccion] + 'ScrollRight').css({ "display": ((arrSectionsInternas[intSeccion][1] < arrSectionsInternas[intSeccion][0] - 1 > 0) ? "block" : "none") });
+			}
+		}
+	}
+
+	function scrollSeccionInterna(intSeccion, intSubSeccion){
+		if ((arrSectionsInternas[intSeccion][0] && arrSectionsInternas[intSeccion][0] >= intSubSeccion)){
+			arrSectionsInternas[intSeccion][1] = intSubSeccion - 1;
+			TweenLite.to('#' + arrSections[intSeccion] + 'Interna', 0.5, {delay: 0, left: (arrSectionsInternas[intSeccion][1] * intBrowserWidth * -1) + 'px'});
+			$('#' + arrSections[intSeccion] + 'ScrollLeft').css({ "display": ((arrSectionsInternas[intSeccion][1] > 0) ? "block" : "none") });
+			$('#' + arrSections[intSeccion] + 'ScrollRight').css({ "display": ((arrSectionsInternas[intSeccion][1] < arrSectionsInternas[intSeccion][0] - 1 > 0) ? "block" : "none") });
+		}
+	}
+
+	function scrollToNextSection(){
+		var intSeccion = 0;
+		var intSeccionActual = 0;
+		for (i = 0; i < arrSectionsAnims.length; i++){
+			if (intScrollPosition >= arrSectionsAnims[i][1] && intScrollPosition < arrSectionsAnims[i][2]){
+				intSeccionActual = i;
+			}
+		}
+		if (intSeccionActual < arrSectionsAnims.length - 1){
+			scrollToSection(intSeccionActual + 1);
+		}
+	}
+
+	function scrollToPreviousSectionInterna(intSeccion){
+		if (arrSectionsInternas[intSeccion][0] && arrSectionsInternas[intSeccion][1] > 0){
+			var intSeccionInternaNueva = arrSectionsInternas[intSeccion][1]--;
+			TweenLite.to('#' + arrSections[intSeccion] + 'Interna', 1, {left: (arrSectionsInternas[intSeccion][1] * intBrowserWidth * -1) + 'px'});
+
+			$('#' + arrSections[intSeccion] + 'ScrollLeft').css({ "display": ((arrSectionsInternas[intSeccion][1] > 0) ? "block" : "none") });
+			$('#' + arrSections[intSeccion] + 'ScrollRight').css({ "display": ((arrSectionsInternas[intSeccion][1] < arrSectionsInternas[intSeccion][0] - 1 > 0) ? "block" : "none") });
+		}
+	}
+	function scrollToNextSectionInterna(intSeccion){
+		if (arrSectionsInternas[intSeccion][0] && arrSectionsInternas[intSeccion][1] < arrSectionsInternas[intSeccion][0] - 1){
+			var intSeccionInternaNueva = arrSectionsInternas[intSeccion][1]++;
+			TweenLite.to('#' + arrSections[intSeccion] + 'Interna', 1, {left: (arrSectionsInternas[intSeccion][1] * intBrowserWidth * -1) + 'px'});
+
+			$('#' + arrSections[intSeccion] + 'ScrollLeft').css({ "display": ((arrSectionsInternas[intSeccion][1] > 0) ? "block" : "none") });
+			$('#' + arrSections[intSeccion] + 'ScrollRight').css({ "display": ((arrSectionsInternas[intSeccion][1] < arrSectionsInternas[intSeccion][0] - 1 > 0) ? "block" : "none") });
+		}
+	}
+
+	function selectQuienesSomosContent(intContent){
+		if (intContent == 2){
+			$('#divSeccion2InternaScroll1').hide();
+			$('#divSeccion2InternaScroll2').show();
+			$('#divSeccion2Selector1').css({ "background-position": "0px 0px" });
+			$('#divSeccion2Selector2').css({ "background-position": "0px 63px" });
+			$('#divSeccion2Selector1Texto').removeClass("blanco").addClass("naranja");
+			$('#divSeccion2Selector2Texto').removeClass("naranja").addClass("blanco");
+		}else{
+			$('#divSeccion2InternaScroll1').show();
+			$('#divSeccion2InternaScroll2').hide();
+			$('#divSeccion2Selector1').css({ "background-position": "0px 63px" });
+			$('#divSeccion2Selector2').css({ "background-position": "0px 0px" });
+			$('#divSeccion2Selector1Texto').removeClass("naranja").addClass("blanco");
+			$('#divSeccion2Selector2Texto').removeClass("blanco").addClass("naranja");
+		}
+	}
+
+	var playerYouTube;
+	var blnYouTubePlayerLoaded = false;
+
+	var intPopInTop = 160;
+	executeOnLoad = function(){
+		if (blnYouTubePlayerLoaded){
+			playerYouTube.playVideo();
+		}
+	};
+	executeOnExit = function(){
+		if (blnYouTubePlayerLoaded){
+			playerYouTube.stopVideo();
+		}
+	};
+
+	function onYouTubeIframeAPIReady(){
+		playerNailArt = new YT.Player('playerYouTube', {
+			width: '506',
+			height: '286',
+			videoId: '',
+			playerVars: { 'autoplay': 0, 'iv_load_policy': 3, 'modestbranding': 1, 'rel': 0, 'showinfo': 0, 'fs': 1 },
+			events: {
+				'onReady': onPlayerReady
+			}
+		});
+	}
+	function onPlayerReady(){
+		blnYouTubePlayerLoaded = true;
+		if (blnPageLoaded){
+			playerYouTube.playVideo();
+		}
+	}
+
+	
+	/* Content Functions */
+	var intCursoRegistro = 0;
+	function showCursosInscripcionNoIniciada(){
+		TweenLite.fromTo('#divInscripcionCursoNoIniciada', 0.5, {alpha: 0, display: 'block'}, {alpha: 1});
+	}
+	function hideCursosInscripcionNoIniciada(){
+		TweenLite.fromTo('#divInscripcionCursoNoIniciada', 0.5, {alpha: 1}, {alpha: 0, display: 'none'});
+	}
+
+	function showCursosInscripcionFinalizada(){
+		TweenLite.fromTo('#divInscripcionCursoFinalizada', 0.5, {alpha: 0, display: 'block'}, {alpha: 1});
+	}
+	function hideCursosInscripcionFinalizada(){
+		TweenLite.fromTo('#divInscripcionCursoFinalizada', 0.5, {alpha: 1}, {alpha: 0, display: 'none'});
+	}
+
+	function showCursosFormInicial(intCurso){
+		intCursoRegistro = intCurso;
+		TweenLite.fromTo('#divRegistroCurso', 0.5, {alpha: 0, display: 'block'}, {alpha: 1});
+	}
+	function hideCursosFormInicial(){
+		TweenLite.fromTo('#divRegistroCurso', 0.5, {alpha: 1}, {alpha: 0, display: 'none'});
+	}
+
+	function suscribirseCursoUsuario(){
+		objLayerError = document.getElementById('divRegistroCursoError');
+		objLayerError.innerHTML = "";
+
+		objEmail = document.getElementById('txtEmailCurso');
+		strEmail = trim(objEmail.value);
+
+		if (!checkEmail(strEmail)){
+			objLayerError.innerHTML = "El email ingresado es inválido!";
+		}else{
+			objLayerError.innerHTML = "enviando datos...";
+
+			var objAjax = AjaxCustom();
+			strURL = "ajax_cursos_inscripcion_usuario.php?";
+			strURL += "&c=" + intCursoRegistro;
+			strURL += "&e=" + strEmail;
+			strURL += "&t=" + Math.random();
+
+			objAjax.open("GET", strURL, true);
+
+			function HttpRequest(){
+				if (objAjax.readyState == 4){
+					var arrErrores = trim(objAjax.responseText).split("|");
+					if (arrErrores[0] == "OK"){
+						objLayerError.innerHTML = "Gracias! El contacto se ha enviado correctamente.";
+						objEmail = document.getElementById('txtEmailCurso');
+						objEmail.value = "";
+
+						/* Parseo Cupo nuevo */
+						intCursoElegido = arrErrores[1];
+						intCupos = (isNaN(arrErrores[2])) ? 0 : parseInt(arrErrores[2], 10);
+						intCupo1 = (intCupos > 10) ? intCupos.toString().substr(0, 1) : 0;
+						intCupo2 = intCupos.toString().substr(-1);
+						$('#divCurso' + intCursoElegido + 'Cupo1').html(intCupo1);
+						$('#divCurso' + intCursoElegido + 'Cupo2').html(intCupo2);
+					}else if (arrErrores[0] == "INSCRIPTO"){
+						objLayerError.innerHTML = "Ya te hab&iacute;as inscripto a este curso anteriormente!";
+					}else if (arrErrores[0] == "ERROR_NO_CUPOS"){
+						objLayerError.innerHTML = "No hay más cupos en este curso!";
+					}else{
+						objLayerError.innerHTML = "error en el envío!";
+					}
+				}
+			};
+			objAjax.onreadystatechange = HttpRequest;
+			objAjax.send(null);
+		}
+	}
+
+	function submitCursosFormulario(){
+		objLayerError = document.getElementById('divRegistroCursoErrorFormulario');
+		objLayerError.innerHTML = "";
+
+		objForm = document.getElementById('frmRegistroCursos');
+		strNombre = trim(objForm.txtNombre.value);
+		strApellido = trim(objForm.txtApellido.value);
+		strDNI = trim(objForm.txtDNI.value);
+		strEmail = trim(objForm.txtEmail.value);
+		strProvincia = trim(objForm.txtProvincia.value);
+		strTelefono = trim(objForm.txtTelefono.value);
+		strContrasenia = trim(objForm.txtContrasenia.value);
+		strContraseniaConfirmacion = trim(objForm.txtContraseniaConfirmacion.value);
+
+		if (strNombre.length < 3){
+			objLayerError.innerHTML = "Escribe tu Nombre en el campo!";
+		}else if (strApellido.length < 3){
+			objLayerError.innerHTML = "Escribe tu Apellido en el campo!";
+		}else if (isNaN(strDNI)){
+			objLayerError.innerHTML = "El DNI ingresado es inválido!";
+		}else if (strDNI.length < 7 || strDNI.length > 8){
+			objLayerError.innerHTML = "El DNI ingresado es inválido!";
+		}else if (!checkEmail(strEmail)){
+			objLayerError.innerHTML = "El email ingresado es inválido!";
+		}else if (strProvincia.length < 3){
+			objLayerError.innerHTML = "Escribe tu Provincia en el campo!";
+		}else if (strTelefono.length < 3){
+			objLayerError.innerHTML = "Escribe tu Tel&eacute;fono en el campo!";
+		}else if (strContrasenia.length < 8){
+			objLayerError.innerHTML = "La contrase&ntilde;a debe ser de al menos 8 caracteres!";
+		}else if (strContrasenia != strContraseniaConfirmacion){
+			objLayerError.innerHTML = "Las contrase&ntilde;as no coinciden!";
+		}else{
+			objLayerError.innerHTML = "enviando datos...";
+
+			var objAjax = AjaxCustom();
+			strURL = "ajax_cursos_registro.php?";
+			strURL += "&c=" + intCursoRegistro;
+			strURL += "&n=" + strNombre;
+			strURL += "&a=" + strApellido;
+			strURL += "&e=" + strEmail;
+			strURL += "&d=" + strDNI;
+			strURL += "&p=" + strProvincia;
+			strURL += "&t=" + strTelefono;
+			strURL += "&p=" + strContrasenia;
+			strURL += "&w=" + Math.random();
+
+			objAjax.open("GET", strURL, true);
+
+			function HttpRequest(){
+				if (objAjax.readyState == 4){
+					var arrErrores = trim(objAjax.responseText).split("|");
+					if (arrErrores[0] == "OK"){
+						objLayerError.innerHTML = "Ya est&aacute;s inscripto a este curso! Muchas gracias.";
+						objForm = document.getElementById('frmRegistroCursos');
+						objForm.txtNombre.value = "";
+						objForm.txtApellido.value = "";
+						objForm.txtEmail.value = "";
+						objForm.txtDNI.value = "";
+						objForm.txtProvincia.value = "";
+						objForm.txtTelefono.value = "";
+						objForm.txtContrasenia.value = "";
+						objForm.txtContraseniaConfirmacion.value = "";
+
+						/* Parseo Cupo nuevo */
+						intCursoElegido = arrErrores[1];
+						intCupos = (isNaN(arrErrores[2])) ? 0 : parseInt(arrErrores[2], 10);
+						intCupo1 = (intCupos > 10) ? intCupos.toString().substr(0, 1) : 0;
+						intCupo2 = intCupos.toString().substr(-1);
+						$('#divCurso' + intCursoElegido + 'Cupo1').html(intCupo1);
+						$('#divCurso' + intCursoElegido + 'Cupo2').html(intCupo2);
+					}else if (arrErrores[0] == "INSCRIPTO"){
+						objLayerError.innerHTML = "Ya te hab&iacute;as inscripto a este curso anteriormente!";
+					}else{
+						objLayerError.innerHTML = "Ha ocurrido un error en el envío! Reintenta nuevamente.";
+					}
+				}
+			};
+			objAjax.onreadystatechange = HttpRequest;
+			objAjax.send(null);
+		}
+	}
+
+	function showCursosForm(){
+		TweenLite.fromTo('#divRegistroCursoFormulario', 0.5, {alpha: 0, display: 'block'}, {alpha: 1});
+	}
+	function hideCursosForm(){
+		TweenLite.fromTo('#divRegistroCursoFormulario', 0.5, {alpha: 1}, {alpha: 0, display: 'none'});
+	}
+
+	function showCursosTooltip(intBox){
+		TweenLite.fromTo('#divToolTipBox' + intBox, 0.5, {alpha: 0, display: 'block'}, {alpha: 1});
+	}
+	function hideCursosTooltip(intBox){
+		TweenLite.fromTo('#divToolTipBox' + intBox, 0.5, {alpha: 0, display: 'block'}, {alpha: 1});
+		TweenLite.fromTo('#divToolTipBox' + intBox, 0.5, {alpha: 1}, {alpha: 0, display: 'none'});
+	}
+
+	function showEquipo(strNombre, strCargo, strTexto, strImagen, strUsuarioTwitter, strFacebookURL, strTwitterURL){
+		$('#divEquiposNombrePrincipal').html(strNombre);
+		$('#divEquiposCargoPrincipal').html(strCargo);
+		$('#divEquiposTextoPrincipal').html(strTexto);
+		$('#divEquiposImagenPrincipal').html('<img src="images/equipos/' + strImagen + '" width="140" class="centeredX" />');
+		$('#divEquiposUsuarioTwitterPrincipal').html(strUsuarioTwitter);
+
+		var strRedesSociales = "";
+		var intRedesSocialesAncho = 0;
+		if (strFacebookURL != ""){
+			strRedesSociales += '<a href="' + strFacebookURL + '" target="_blank"><img src="images/equipos_facebook_url.png" width="43" height="42" border="0" style="display: inline-block; margin: 0 4px;" /></a>';
+			intRedesSocialesAncho += 51;
+		}
+		if (strTwitterURL != ""){
+			strRedesSociales += '<a href="' + strTwitterURL + '" target="_blank"><img src="images/equipos_twitter_url.png" width="43" height="42" border="0" style="display: inline-block; margin: 0 4px;" /></a>';
+			intRedesSocialesAncho += 51;
+		}
+
+		$('#divEquiposRedesURLPrincipal').html(strRedesSociales);
+		$('#divEquiposRedesURLPrincipal').css("width", intRedesSocialesAncho + "px");
+
+	}
+
+	var arrRedDatos = {
+		/*"Caba": ['Ciudad Autónoma de Buenos Aires', 'Fundación Pensar', 'Contacto: Andres Boeninger', 'Teléfono: (54 11) 5218 2459', 'redfederal@fundacionpensar.org'],
+		"BuenosAires": ['Buenos Aires', 'Fundación Pensar', 'Contacto: Natalin Faravelli', 'Teléfono: (54 11) 5218 2459', 'nfaravelli@fundacionpensar.org'],
+		"Jujuy": ['Jujuy', 'Fundación Pensar', '', '', ''],
+		"Salta": ['Salta', 'Fundación para el Análisis y la Reflexión de la Argentina (FUNDARA) y Fundación Pensar', 'Dirección: Gral. Guemes 1305/1307, Ciudad de Salta.', 'Teléfono: 387-4227776/4218397/4229657', 'Mail: fundacionfundara@gmail.com<br/>seminariosfundara@gmail.com<br/>info@fundacionpensar.org'],
+		"Tucuman": ['Tucumán', 'Fundación Pensar', 'Contacto: Natalín Faravelli, Andrés Boeninger Sempere', 'Mail de contacto: nfaravelli@fundacionpensar.org y aboeninger@fundacionpensar.org', ''],
+		"SantaFe": ['Santa Fe', 'Fundación Pensar', 'Contacto: Andrés Boeninger', 'Mail de contacto: aboeninger@fundacionpensar.org', ''],
+		"EntreRios": ['Entre Ríos', 'Fundación Pensar', 'Contacto: Juan Diego Etchevehere', 'jdetchevehere@fundacionpensar.org', ''],
+		"Cordoba": ['Córdoba', 'Fundación Pensar', 'Contacto: Guillermo Campra', 'Teléfono: 3513848645', 'Mail: gcampra@fundacionpensar.org'],
+		"SanLuis": ['San Luis', 'Fundación Pensar', 'Contacto: Natalín Faravelli y Andrés Boeninger Sempere', 'Mail de contacto: nfaravelli@fundacionpensar.org y aboeninger@fundacionpensar.org', ''],
+		"SanJuan": ['San Juan', 'Fundación Pensar', 'Contacto: Martin Turcuman', 'Mail: vbernoldi@fundacionpensar.org', ''],
+		"Mendoza": ['Mendoza', 'Fundación Pensar', 'Contacto: Richard Battagion', 'Dirección: Rivadavia 430, PB, 1B, Ciudad de Mendoza.', 'Teléfono: (+54261) 4254314', 'Mail: info@fundacionpensarmendoza.org<br/>Web: http://fundacionpensarmendoza.org/'],
+		"Neuquen": ['Neuquén', 'Fundación Pensar', 'Contacto: Juan Sapag', 'Mail: jsapag@fundacionpensar.org', ''],
+		"RioNegro": ['Río Negro', 'Fundación Pensar', 'Contacto: Juan Sapag', 'Mail: jsapag@fundacionpensar.org', ''],
+		"LaPampa": ['La Pampa', 'Fundación Pensar', 'Contacto: Hugo Vessoni y Sandra Martínez', 'Teléfono: 054 295 245244', 'Dirección: Rivadavia 131 - Santa Rosa, Provincia de La Pampa', 'Mail: pensarlapampa@hotmail.com<br/>Web: pensarlapampa.wix.com/pensarlapampa'],
+		"Chaco": ['Chaco', 'Fundación Construir', 'Contacto: Juan Lageze - Alejandro Pegoraro', 'Mail: jlageze@construirenlaregion.org.ar , apegoraro@fundacionpensar.org', ''],
+		"Misiones": ['Misiones', 'Fundación Trabajo y Equidad Social', '', '', ''],
+		"SantiagoDelEstero": ['Santiago Del Estero', '', '', '', '']*/
+		<!-- BEGIN RED_FEDERAL -->		
+			"{RED_PROVINCIA_ID}": ['{RED_PROVINCIA}', '{RED_TITULO}', '{DES_TEXTO}', '{DES_IMAGEN}'],
+		<!-- END RED_FEDERAL -->
+		"VACIO": ['']
+	};
+	var blnRedFederalFirstTime = false;
+	function showRed(strProvincia){
+		if (!blnRedFederalFirstTime){
+			blnRedFederalFirstTime = true;
+			$("#divRedFederalScroll").mCustomScrollbar({ theme: 'dark-thick', advanced:{ updateOnContentResize:true, updateOnBrowserResize:true, contentTouchScroll: true }});
+		}
+
+		if (!arrRedDatos[strProvincia]){
+			return false;
+		}
+		$('#divRedFederalMapa').hide();
+		$('#divRedFederalMapaDetalle').show();
+		$('#divRedFederalMapaProvincia').html(arrRedDatos[strProvincia][0].toUpperCase());
+		$('#divRedFederalMapa1').html(arrRedDatos[strProvincia][1]);
+		$('#divRedFederalMapa2').html(arrRedDatos[strProvincia][2]);
+		/*$('#divRedFederalMapa3').html(arrRedDatos[strProvincia][3]);
+		$('#divRedFederalMapa4').html(arrRedDatos[strProvincia][4]);*/
+		/*$('#divSeccion3InternaFondo').css("background-image", "url('images/redes/" + arrRedDatos[strProvincia][3] + "')");*/
+		$('#divRedFederalScroll').mCustomScrollbar("update");
+	}
+
+	function showDocumento(strTitulo, strAutor, strTexto, strFecha, strImagen, strArchivo){
+		$('#divDocumentosTituloPrincipal').html(strTitulo);
+		$('#divDocumentosAutorPrincipal').html(strAutor);
+		$('#divDocumentosTextoPrincipal').html(strTexto);
+		$('#divDocumentosFechaPrincipal').html('Fecha: ' + strFecha);
+		$('#divDocumentosImagenPrincipal').html('<img src="images/documentos/' + strImagen + '" height="100%" class="centeredX" style="max-height: 285px" />');
+		$('#divDocumentosArchivoPrincipal').html('<a href="images/documentos/' + strArchivo + '" class="seccion1_texto negro bold" target="_blank">Ver documento completo</a>');
+	}
+
+	var strDocumentosResultadoDefault = '';
+	strDocumentosResultadoDefault += '<div class="round_borders" style="position: relative; width: 90%; height: 50px; margin-bottom: 20px; padding: 0; background-color: #ffffff; cursor: pointer;"';
+	strDocumentosResultadoDefault += 'onclick="showDocumento(\'[TITULO_JS]\', \'[AUTOR_JS]\', \'[TEXTO_JS]\', \'[FECHA]\', \'[IMAGEN]\', \'[ARCHIVO]\');">';
+	strDocumentosResultadoDefault += '	<div class="seccion4_texto" style="position: absolute; top: 8px; left: 65px; width: 80%; height: 40px; color: #aaad00; overflow: hidden;">';
+	strDocumentosResultadoDefault += '		[TITULO]';
+	strDocumentosResultadoDefault += '	</div>';
+	strDocumentosResultadoDefault += '	<div style="position: absolute; top: -10px; left: -10px;"><img src="images/documentos/thumbs/[IMAGEN]" width="70" /></div>';
+	strDocumentosResultadoDefault += '</div>';
+
+	function buscarDocumentos(blnMode){
+		var strTexto = trim($('#txtDocumentosBuscador').val());
+		$('#divDocumentosBuscadorError').html("");
+		var blmModoBusqueda = (blnMode);
+
+		if (strTexto == "" && !blmModoBusqueda){
+			$('#divDocumentosBuscadorError').html("Escribe en el campo para comenzar la búsqueda!");
+		}else if (strTexto.length < 3 && !blmModoBusqueda){
+			$('#divDocumentosBuscadorError').html("Escribe como mínimo 3 letras para comenzar la búsqueda!");
+		}else{
+			$('#divDocumentosBuscadorError').html("");
+			$('#divDocumentosResultado').html('<div id="divDocumentosBusqueda" style="width: 100%;"><img src="images/loading.gif" width="32" height="22" class="centeredX" /></div>');
+
+			var objAjax = AjaxCustom();
+			strURL = "ajax_documentos_buscador.php?";
+			strURL += "b=" + strTexto;
+			strURL += "&t=" + Math.random();
+
+			objAjax.open("GET", strURL, true);
+
+			function HttpRequest(){
+				if (objAjax.readyState == 4){
+					var arrResponse = trim(objAjax.responseText).split(";");
+					if (arrResponse[0] == "OK"){
+						/* Parse Response */
+						if (arrResponse[1] == ""){
+							$('#divDocumentosResultado').html('<div style="width: 100%;">No se han encontrado documentos con esos parámetros de b&uacute;squeda.');
+							$('#divDocumentosLimpiarBusqueda').show();
+							$('#divDocumentosBuscadorError').html("");
+						}else{
+							var arrResult = arrResponse[1].split("|");
+							var strResultados = "";
+							var strResultadoActual = "";
+							for (i = 0; i < arrResult.length; i++){
+								arrResult[i] = arrResult[i].split("$$");
+								for (j = 0; j < arrResult[i].length; j++){
+									arrResult[i][j] = URLDecode(arrResult[i][j]);
+								}
+								strResultadoActual = strDocumentosResultadoDefault;
+								strResultadoActual = replaceAll('[TITULO]', arrResult[i][0], strResultadoActual);
+								strResultadoActual = replaceAll('[TITULO_JS]', replaceAll('"', '&quot;', replaceAll("'", "\'", arrResult[i][0])), strResultadoActual);
+								strResultadoActual = replaceAll('[AUTOR_JS]', replaceAll('"', '&quot;', replaceAll("'", "\'", arrResult[i][1])), strResultadoActual);
+								strResultadoActual = replaceAll('[TEXTO_JS]', replaceAll('"', '&quot;', replaceAll("'", "\'", arrResult[i][2])), strResultadoActual);
+								strResultadoActual = replaceAll('[FECHA]', arrResult[i][3], strResultadoActual);
+								strResultadoActual = replaceAll('[IMAGEN]', arrResult[i][4], strResultadoActual);
+								strResultadoActual = replaceAll('[ARCHIVO]', arrResult[i][5], strResultadoActual);
+								strResultados += strResultadoActual;
+							}
+
+							$('#divDocumentosResultado').html(strResultados);
+							if (!blmModoBusqueda){
+								$('#divDocumentosLimpiarBusqueda').show();
+							}
+							$('#divDocumentosResultado').mCustomScrollbar("update");
+						}
+					}else{
+						$('#divDocumentosResultado').html('<div style="width: 100%;">Ha ocurrido un error! Reintenta nuevamente.</div>');
+						$('#divDocumentosBuscadorError').html("");
+						$('#divDocumentosLimpiarBusqueda').show();
+						$('#divDocumentosResultado').mCustomScrollbar("update");
+					}
+				}
+			};
+			objAjax.onreadystatechange = HttpRequest;
+			objAjax.send(null);
+		}
+	}
+
+	function resetBusqueda(){
+		$('#txtDocumentosBuscador').val("");
+		$('#divDocumentosLimpiarBusqueda').hide();
+		buscarDocumentos(true);
+	}
+
+	executeOnLoad = function(){
+		$("#txtDocumentosBuscador").bind("keypress", {}, keypressInBox);
+	};
+	
+	function keypressInBox(e){
+		var code = (e.keyCode ? e.keyCode : e.which);
+	    if (code == 13){
+			e.preventDefault();
+			buscarDocumentos();
+		}
+	}
+
+	var intCoyunturaSelected = '{intCoyunturaIdPrincipal}';
+	function showCoyuntura(intID, strTitulo, strImagen, strArchivo){
+		$('#divCoyunturaTitulo' + intCoyunturaSelected).removeClass('seccion4_texto_coyuntura_selected');
+		$('#divCoyunturaTitulo' + intCoyunturaSelected).addClass('seccion4_texto_coyuntura');
+		intCoyunturaSelected = intID;
+
+		$('#divCoyunturaTitulo' + intID).html(strTitulo);
+		$('#divCoyunturaTitulo' + intID).removeClass('seccion4_texto_coyuntura');
+		$('#divCoyunturaTitulo' + intID).addClass('seccion4_texto_coyuntura_selected');
+
+		strCoyuntura = '<a href="images/coyuntura/' + strArchivo + '" target="_blank" onmouseover="$(\'#divCoyunturaImagenPrincipalOver\').show();">';
+		strCoyuntura += '<img src="images/coyuntura/' + strImagen + '" id="divCoyunturaImagenPrincipalLink" class="round_borders centeredXY" style="max-width: 630px; max-height: 100%;" /></a>';
+		strCoyuntura += '</a>';
+		$('#divCoyunturaImagenPrincipal').html(strCoyuntura);
+	}
+
+	var intEventoActual = 0;
+	var intEventosTotal = {intTotalEventos};
+	var arrEventosFotos = new Array({DES_EVENTOS_FOTOS});
+
+	function scrollToPreviousEvento(){
+		if (intEventoActual > 0){
+			intEventoActual--;
+			TweenLite.to('#divSeccion4Eventos', 1, { left: (intEventoActual * -100) + "%", ease: Quint.easeOut });
+		}
+
+		if (intEventoActual > 0){
+			$('#divEventosScrollLeft').show();
+		}else{
+			$('#divEventosScrollLeft').hide();
+		}
+
+		if (intEventoActual < (intEventosTotal - 1)){
+			$('#divEventosScrollRight').show();
+		}else{
+			$('#divEventosScrollRight').hide();
+		}
+	}
+
+	function scrollToNextEvento(){
+		if ((intEventoActual + 1) < intEventosTotal){
+			intEventoActual++;
+			TweenLite.to('#divSeccion4Eventos', 1, { left: (intEventoActual * -100) + "%", ease: Quint.easeOut });
+		}
+
+		if (intEventoActual > 0){
+			$('#divEventosScrollLeft').show();
+		}else{
+			$('#divEventosScrollLeft').hide();
+		}
+
+		if (intEventoActual < (intEventosTotal - 1)){
+			$('#divEventosScrollRight').show();
+		}else{
+			$('#divEventosScrollRight').hide();
+		}
+	}
+
+//-->
+</script>
+<script type="text/javascript" src="http://www.youtube.com/iframe_api"></script>

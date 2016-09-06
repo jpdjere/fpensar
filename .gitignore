@@ -1,0 +1,12 @@
+/G25/
+/DDPP/
+/sistema_elecciones
+/pdf
+
+*.xlsx
+*.png
+*.jpg
+*.pdf
+*.gif
+
+common.php

@@ -1,0 +1,53 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de usuario</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<!--thead>
+			<tr>
+				<td>Descripción</td>
+				<td>Perfil</td>
+			</tr>
+		</thead-->
+		<tbody>
+			<tr>
+				<td>Perfil</td>
+				<td>{strPerfil}</td>
+			</tr>
+			<tr>
+				<td>Nombre</td>
+				<td>{strNombre} {strApellido}</td>
+			</tr>
+			<tr>
+				<td>Descripci&oacute;n</td>
+				<td>{strDescripcion}</td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td>{strEmail}</td>
+			</tr>
+			<tr>
+				<td>Fecha de alta</td>
+				<td>{strFechaAlta}</td>
+			</tr>
+			<tr>
+				<td>Fecha de modificaci&oacute;n</td>
+				<td>{strFechaModificacion}</td>
+			</tr>
+			<tr>
+				<td>Estado</td>
+				<td>{strHabilitado}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<!-- BEGIN VOLVER -->
+	<div class="tPagination">
+		<ul class="pages">
+			<!-- BEGIN MODIFICAR_USUARIOS -->
+				<li><a href="backoffice_usuarios_modificar_contrasenia.php?codUsuario={strUsuario}">&raquo; Modificar Contrase&ntilde;a</a></li>
+				<li><a href="backoffice_usuarios_modificar.php?codUsuario={strUsuario}">&raquo; Editar Usuario</a></li>
+			<!-- END MODIFICAR_USUARIOS -->
+			<li><a href="backoffice_usuarios.php">&raquo; Volver</a></li>
+		</ul>
+	</div>
+<!-- END VOLVER -->

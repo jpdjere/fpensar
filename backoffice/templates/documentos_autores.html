@@ -1,0 +1,73 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>B&uacute;squeda de Autores</h6></div>
+	<form name="frmBusqueda" action="documentos_autores.php" method="post" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td><input type="text" name="txtBusqueda" value="{txtBusqueda}" size="40" maxlength="20" /></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tPagination" style="margin: 0;">
+						<ul class="pages">
+							<li><a href="javascript: document.frmBusqueda.submit();">&raquo; Iniciar B&uacute;squeda</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Listado de Autores</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<thead>
+			<tr>
+				<td width="8%">Imagen</td>
+				<td width="70%">Nombre</td>
+				<td class="options">Opciones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN NOTAS -->
+			<tr>
+				<td style="text-align: center;"><a href="documentos_autores_detalle.php?codAutor={codAutor}"><img src="../{PATH_IMAGEN_NOTAS_AUTORES}/thumbs/{strImagen}" width="{IMAGEN_NOTAS_AUTORES_CHICA_ANCHO}" height="{IMAGEN_NOTAS_AUTORES_CHICA_ALTO}" /></a></td>
+				<td>{strAutor}</td>
+				<td class="options"><a href="documentos_autores_detalle.php?codAutor={codAutor}"><img src="images/icons/bot_ver.gif" width="17" height="17" border="0" alt="Ver detalle de Autor"></a>&nbsp;
+				<!-- BEGIN MODIFICAR_NOTAS_UPDATE -->
+				<a href="documentos_autores_modificar.php?codAutor={codAutor}"><img src="images/icons/bot_editar.gif" width="17" height="17" border="0" alt="Modificar Autor">
+				</a>&nbsp;
+				<a href="documentos_autores_habilitar.php?codAutor={codAutor}" onClick="return confirm('Esta seguro que quiere {estadoAlt} el autor seleccionado?');">
+					<img src="images/icons/bot_habilitar{estadoIcono}.gif" width="17" height="17" border="0" alt="{estadoAlt} Autor">
+				</a>&nbsp;
+				<!-- END MODIFICAR_NOTAS_UPDATE -->
+				<!-- BEGIN MODIFICAR_NOTAS_DELETE -->
+				<a href="documentos_autores_borrar.php?codAutor={codAutor}" onClick="return confirm('Esta seguro que quiere borrar el autor seleccionado?');">
+					<img src="images/icons/bot_borrar.gif" width="17" height="17" border="0" alt="Borrar Autor">
+				</a>&nbsp;
+				<!-- END MODIFICAR_NOTAS_DELETE -->
+				</td>
+			</tr>
+			<!-- END NOTAS -->
+
+			<!-- BEGIN NOTAS_VACIO -->
+				<td colspan="3" style="height: 10em; text-align: center;"><b>No existen autores cargados en el sistema.</b></td>
+			<!-- END NOTAS_VACIO -->
+
+			<!-- BEGIN NOTAS_VACIO_BUSQUEDA -->
+				<td colspan="3" style="height: 10em; text-align: center;"><b>No existen autores cargados con esos parámetros de Búsqueda.</b></td>
+			<!-- END NOTAS_VACIO_BUSQUEDA -->
+		</tbody>
+	</table>
+</div>
+
+{PAGINADOR}
+
+<!-- BEGIN MODIFICAR_NOTAS_ADD -->
+	<div class="tPagination">
+		<ul class="pages">
+			<li><a href="documentos_autores_agregar.php">&raquo; Agregar Autor</a></li>
+		</ul>
+	</div>
+<!-- END MODIFICAR_NOTAS_ADD -->

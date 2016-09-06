@@ -1,0 +1,67 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de Documento</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td width="20%">Autor:</td>
+				<td>{strAutor}</td>
+			</tr>
+			<tr>
+				<td>T&iacute;tulo:</td>
+				<td>{strTitulo}</td>
+			</tr>
+			<tr>
+				<td>Texto:</td>
+				<td>{strTexto}</td>
+			</tr>
+			<tr>
+				<td>Tags:</td>
+				<td>{strTags}</td>
+			</tr>
+			<tr>
+				<td>Imagen Chica:</td>
+				<td>
+					<div><img src="../{PATH_IMAGEN_DOCUMENTOS}/thumbs/{strImagen}" width="{IMAGEN_DOCUMENTOS_CHICA_ANCHO}" height="{IMAGEN_DOCUMENTOS_CHICA_ALTO}" /></div>
+					<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td>
+					<div><img src="../{PATH_IMAGEN_DOCUMENTOS}/{strImagen}" width="{IMAGEN_DOCUMENTOS_GRANDE_ANCHO}" height="{IMAGEN_DOCUMENTOS_GRANDE_ALTO}" /></div>
+					<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Archivo:</td>
+				<td><a href="../{PATH_IMAGEN_DOCUMENTOS}/{strArchivo}" target="_blank">{strArchivo}</a>
+				</td>
+			</tr>
+			<tr>
+				<td>Fecha:</td>
+				<td>{strFechaListado}</td>
+			</tr>
+			<tr>
+				<td>Fecha de Alta:</td>
+				<td>{strFechaAlta}</td>
+			</tr>
+			<tr>
+				<td>Fecha de Modificaci&oacute;n:</td>
+				<td>{strFechaModificacion}</td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td>{strEstadoDocumento}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<!-- BEGIN MODIFICAR_DOCUMENTOS -->
+			<li><a href="documentos_modificar.php?codDocumento={codDocumento}">&raquo; Editar Documento</a></li>
+		<!-- END MODIFICAR_DOCUMENTOS -->
+		<li><a href="documentos.php">&raquo; Volver</a></li>
+	</ul>
+</div>

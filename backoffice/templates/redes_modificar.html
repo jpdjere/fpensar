@@ -1,0 +1,49 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de Red</h6></div>
+	<form name="frmRedes" method="POST" enctype="multipart/form-data" action="redes_modificar.php" class="form">
+	<input type="hidden" name="codRed" value="{codRed}">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td>Provincia:</td>
+				<td><select name="intProvincia" style="width: 100%;">
+					<!-- BEGIN PROVINCIAS -->
+					<option value="{intProvincia}" {strSelected}>{strProvincia}</option>
+					<!-- END PROVINCIAS -->
+				</select>
+				<div class="errors">{errorProvincia}</div></td>
+			</tr>
+			<tr>
+				<td>Titulo:</td>
+				<td><input type="text" size="50" name="strTitulo" value="{strTitulo}" maxlength="255" />
+				<div class="errors">{errorTitulo}</div></td>
+			</tr>
+			<tr>
+				<td>Texto:</td>
+				<td><textarea name="strTexto" id="strTexto" cols="50" rows="5">{strTexto}</textarea>
+				<div class="errors">{errorTexto}</div></td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td><div><img src="../{PATH_IMAGEN_REDES}/{strImagen}" height="{IMAGEN_REDES_ALTO}" /></div>
+				<div><input type="file" name="strImagen" size="30">
+				<input type="hidden" name="strImagenAnterior" value="{strImagen}"></div>
+				<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				<div class="errors">{errorImagen}</div></td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td><label for="radHabilitado"><input type="radio" name="strHabilitado" id="radHabilitado" value="true" {blnHabilitado}> Habilitado</label>
+				&nbsp;<label for="radDeshabilitado"><input type="radio" name="strHabilitado" id="radDeshabilitado" value="false" {blnDeshabilitado}> Deshabilitado</label></td>
+			</tr>
+			</form>
+		</tbody>
+	</table>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<li><a href="javascript: document.frmRedes.submit();">&raquo; Confirmar</a></li>
+		<li><a href="redes_detalle.php?codRed={codRed}">&raquo; Volver</a></li>
+	</ul>
+</div>

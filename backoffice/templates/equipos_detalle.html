@@ -1,0 +1,70 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Detalle de Equipo</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td width="20%">T&iacute;tulo:</td>
+				<td>{strNombre}</td>
+			</tr>
+			<tr>
+				<td>Cargo:</td>
+				<td>{strCargo}</td>
+			</tr>
+			<tr>
+				<td>Texto:</td>
+				<td>{strTexto}</td>
+			</tr>
+			<tr>
+				<td>Imagen Chica:</td>
+				<td>
+					<div><img src="../{PATH_IMAGEN_EQUIPOS}/thumbs/{strImagen}" width="{IMAGEN_EQUIPOS_CHICA_ANCHO}" height="{IMAGEN_EQUIPOS_CHICA_ALTO}" /></div>
+					<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Imagen:</td>
+				<td>
+					<div><img src="../{PATH_IMAGEN_EQUIPOS}/{strImagen}" width="{IMAGEN_EQUIPOS_GRANDE_ANCHO}" height="{IMAGEN_EQUIPOS_GRANDE_ALTO}" /></div>
+					<div style="margin: 5px 0 0 0;">{strImagen}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Grupo:</td>
+				<td>{strGrupo}</td>
+			</tr>
+			<tr>
+				<td>Usuario Twitter:</td>
+				<td>{strUsuarioTwitter}</td>
+			</tr>
+			<tr>
+				<td>Facebook URL:</td>
+				<td><a href="{strFacebookURL}" target="_blank">{strFacebookURL}</a></td>
+			</tr>
+			<tr>
+				<td>Twitter URL:</td>
+				<td><a href="{strTwitterURL}" target="_blank">{strTwitterURL}</a></td>
+			</tr>
+			<tr>
+				<td>Fecha de Alta:</td>
+				<td>{strFechaAlta}</td>
+			</tr>
+			<tr>
+				<td>Fecha de Modificaci&oacute;n:</td>
+				<td>{strFechaModificacion}</td>
+			</tr>
+			<tr>
+				<td>Estado:</td>
+				<td>{strEstadoEquipo}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="tPagination">
+	<ul class="pages">
+		<!-- BEGIN MODIFICAR_EQUIPOS -->
+			<li><a href="equipos_modificar.php?codEquipo={codEquipo}">&raquo; Editar Equipo</a></li>
+		<!-- END MODIFICAR_EQUIPOS -->
+		<li><a href="equipos.php">&raquo; Volver</a></li>
+	</ul>
+</div>

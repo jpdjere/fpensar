@@ -1,0 +1,77 @@
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>B&uacute;squeda de Cursos</h6></div>
+	<form name="frmBusqueda" action="cursos.php" method="post" class="form">
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<tbody>
+			<tr>
+				<td><input type="text" name="txtBusqueda" value="{txtBusqueda}" size="40" maxlength="20" /></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tPagination" style="margin: 0;">
+						<ul class="pages">
+							<li><a href="javascript: document.frmBusqueda.submit();">&raquo; Iniciar B&uacute;squeda</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="widget">
+	<div class="title"><img src="images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>Listado de Cursos</h6></div>
+	<table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+		<thead>
+			<tr>
+				<td>Fecha</td>
+				<td width="40%">T&iacute;tulo</td>
+				<td width="40%">Texto</td>
+				<td width="10%">Cupos</td>
+				<td class="options">Opciones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN CURSOS -->
+			<tr>
+				<td>{strFechaListado}</td>
+				<td><a href="cursos_detalle.php?codCurso={codCurso}">{strCurso}</td>
+				<td>{strTexto}</td>
+				<td>{intCupos}</td>
+				<td class="options"><a href="cursos_detalle.php?codCurso={codCurso}"><img src="images/icons/bot_ver.gif" width="17" height="17" border="0" alt="Ver detalle de  Curso"></a>&nbsp;
+				<!-- BEGIN MODIFICAR_CURSOS_UPDATE -->
+				<a href="cursos_modificar.php?codCurso={codCurso}"><img src="images/icons/bot_editar.gif" width="17" height="17" border="0" alt="Modificar Curso">
+				</a>&nbsp;
+				<a href="cursos_habilitar.php?codCurso={codCurso}" onClick="return confirm('Esta seguro que quiere {estadoAlt} la Curso seleccionada?');">
+					<img src="images/icons/bot_habilitar{estadoIcono}.gif" width="17" height="17" border="0" alt="{estadoAlt} Curso">
+				</a>&nbsp;
+				<!-- END MODIFICAR_CURSOS_UPDATE -->
+				<!-- BEGIN MODIFICAR_CURSOS_DELETE -->
+				<a href="cursos_borrar.php?codCurso={codCurso}" onClick="return confirm('Esta seguro que quiere Borrar la Curso seleccionada?');">
+					<img src="images/icons/bot_borrar.gif" width="17" height="17" border="0" alt="Borrar Curso">
+				</a>&nbsp;
+				<!-- END MODIFICAR_CURSOS_DELETE -->
+				</td>
+			</tr>
+			<!-- END CURSOS -->
+
+			<!-- BEGIN CURSOS_VACIO -->
+				<td colspan="4" style="height: 10em; text-align: center;"><b>No existen Cursos con esos parámetros de Búsqueda.</b></td>
+			<!-- END CURSOS_VACIO -->
+
+			<!-- BEGIN CURSOS_VACIO_BUSQUEDA -->
+				<td colspan="4" style="height: 10em; text-align: center;"><b>No existen Cursos con esos parámetros de Búsqueda.</b></td>
+			<!-- END CURSOS_VACIO_BUSQUEDA -->
+		</tbody>
+	</table>
+</div>
+
+{PAGINADOR}
+
+<!-- BEGIN MODIFICAR_CURSOS_ADD -->
+	<div class="tPagination">
+		<ul class="pages">
+			<li><a href="cursos_agregar.php">&raquo; Agregar Curso</a></li>
+		</ul>
+	</div>
+<!-- END MODIFICAR_CURSOS_ADD -->
