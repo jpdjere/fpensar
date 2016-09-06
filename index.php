@@ -32,6 +32,8 @@ $blnIsMobile = $objMobileDetection->isMobileBrowser();
 
 $objTemplate->set_var("blnIsMobile", ($blnIsMobile) ? "true" : "false");
 
+
+/*
 // Levanto Destacados
 $objDestacados = new clsDestacados();
 $objDestacados->getDestacados(false, 1);
@@ -80,6 +82,10 @@ if ($objDestacados->intTotal){
 	}
 }
 
+*/
+
+/*
+
 // Levanto Cursos
 $objCursos = new clsCursos();
 $objCursos->getCursosActivos();
@@ -112,6 +118,8 @@ if ($objCursos->intTotal){
 	$objTemplate->set_var("CURSOS_MENSAJE_PROXIMAMENTE", showTextBreaks(HTMLEntitiesFixed($strCursosMensajeProximamente)));
 	$objTemplate->parse("no_cursos", "NO_CURSOS");
 }
+*/
+
 
 // Levanto Actividades
 /*$objActividades = new clsActividades();
@@ -288,10 +296,12 @@ $objTemplate->set_var(array(
 	"strRedMensajeLinkURL" => HTMLEntitiesFixed($objRedes->strLink)
 ));
 
+
 // Levanto Eventos
 $objEventos = new clsEventos();
 $objEventos->getEventos();
 
+/*
 if ($objEventos->intTotal){
 	$objTemplate->set_block("PAGINA", "EVENTOS", "eventos");
 	$strEventosFotos = "";
@@ -320,10 +330,12 @@ if ($objEventos->intTotal){
 		"DES_EVENTOS_FOTOS" => $strEventosFotos
 	));
 }
+*/
 
 $objTemplate->set_var(array(
 	"intTotalEventos" => $objEventos->intTotal
 ));
+
 
 
 // Seteo variables
